@@ -1,0 +1,26 @@
+{
+      "compilerOptions": {
+        // где будет создана сборка (у нас за это отвечает веб пак)
+        "outDir": "./dist/",
+        // не дает использовать сущность без указания типа
+        "noImplicitAny": true,
+        // версия из которой он будет компелироваться
+        "module": "ESNext",
+        // версия в которую код будет компилирован
+        "target": "es5",
+        // будет jsx
+        "jsx": "react-jsx",
+        // абсолютный импорт
+        // "baseUrl": ".",
+        // про импорты
+        "allowJs": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "ts-node": {
+      "compilerOptions": {
+        "module": "CommonJS"
+      }
+    }
+  }
