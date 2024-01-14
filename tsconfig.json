@@ -11,7 +11,10 @@
         // будет jsx
         "jsx": "react-jsx",
         // абсолютный импорт
-        // "baseUrl": ".",
+        "baseUrl": ".",
+        "paths": {
+          "*": ["./src/*"]
+        },
         // про импорты
         "allowJs": true,
         "moduleResolution": "node",

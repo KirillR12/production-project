@@ -1,11 +1,9 @@
+import { App } from "app/App";
+import { ThemeProvider } from "app/providers/ThemeProviders/ui/ThemeProvider";
+import { AboutPage } from "pages/About";
+import { MainPage } from "pages/Main";
 import { render } from "react-dom";
-import { App } from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { AboutPageAsync } from "./page/About/AboutPageAsync";
-import { MainPageAsync } from "./page/Main/MainPageAsync";
-import { ThemeProvider } from "./components/theme/ThemeProvider";
-
-
 
 const router = createBrowserRouter([
     {
@@ -14,17 +12,17 @@ const router = createBrowserRouter([
       children: [
       {
         path: "MainPage",
-      element: <MainPageAsync />,
+      element: <MainPage />,
       },
       {
         path: "AboutPage",
-      element: <AboutPageAsync />,
+      element: <AboutPage />,
       }
       ]
     },
   ])
 
-    render (
+    render(
       <ThemeProvider>
         <RouterProvider router={router} />
         </ThemeProvider>,

@@ -1,6 +1,6 @@
 import { FC, useMemo, useState } from "react"
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./ThemeContext"
-import { useTheme } from "./useTheme"
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "app/providers/ThemeProviders/lib/ThemeContext"
+
 
 
 export const ThemeProvider: FC = ({children}) => {
