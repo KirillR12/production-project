@@ -11,6 +11,19 @@ const typeScriptLoader = {
     exclude: /node_modules/,
   }
 
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
+const fileLoader =  {
+  test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+  use: [
+    {
+      loader: 'file-loader',
+    },
+  ]}
+  
   const cssLoader = {
       test: /\.s[ac]ss$/i,
       use: [
@@ -29,6 +42,8 @@ const typeScriptLoader = {
   }
 
     return [
+        fileLoader,
+        svgLoader,
         typeScriptLoader,
         cssLoader
   ]
