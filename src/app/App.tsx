@@ -1,18 +1,22 @@
 import './styles/index.scss'
-import { useTheme } from "./providers/ThemeProviders/lib/useTheme"
-import { AppRouter } from "./providers/router"
-import { NavBar } from "widgets"
+import { NavBar, Sidebar } from 'widgets'
 import { classNames } from 'shared'
+import { Suspense } from 'react'
+import { AppRouter } from './providers/router'
+import { useTheme } from './providers/ThemeProviders/lib/useTheme'
 
-
-export const App = () => {
-
-const {theme} = useTheme()
+export function App() {
+    const { theme } = useTheme()
 
     return (
-        <div className={classNames('app', {},[theme])}>
-            <NavBar />
-<AppRouter />
+        <div className={classNames('app', {}, [theme])}>
+            <Suspense fallback="">
+                <NavBar />
+                <div className="contate-page">
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
     )
 }
