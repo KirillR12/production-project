@@ -1,16 +1,15 @@
-@import 'reset';
-@import 'themes/dark';
-@import 'themes/normal';
-@import 'variables/global';
-
+@import "reset";
+@import "themes/dark";
+@import "themes/normal";
+@import "variables/global";
 
 .app {
-font: var(--font-m);
+    min-height: 100vh;
 
-background-color: var(--bg-color);
-color: green;
+    color: var(--primary-color);
+    font: var(--font-m);
 
-min-height: 100vh;
+    background-color: var(--bg-color);
 }
 
 .contate-page {
