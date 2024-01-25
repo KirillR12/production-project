@@ -1,15 +1,17 @@
 import './styles/index.scss'
-import { NavBar, Sidebar } from 'widgets'
 import { classNames } from 'shared'
-import { Suspense } from 'react'
-import { useTranslation } from 'react-i18next'
-import { AppRouter } from './providers/router'
+import { Suspense, useEffect } from 'react'
+import { AppRouter } from './providers/RouterProvider'
 import { useTheme } from './providers/ThemeProviders/lib/useTheme'
+import { NavBar } from 'widgets/Navbar'
+import { Sidebar } from 'widgets/Sidebar'
 
 export function App() {
     const { theme } = useTheme()
+useEffect(() => {
 
-    const [t] = useTranslation()
+    throw new Error()
+}, [])
 
     return (
         <div className={classNames('app', {}, [theme])}>
@@ -17,7 +19,6 @@ export function App() {
                 <NavBar />
                 <div className="contate-page">
                     <Sidebar />
-                    <h1>{t('Hello')}</h1>
                     <AppRouter />
                 </div>
             </Suspense>

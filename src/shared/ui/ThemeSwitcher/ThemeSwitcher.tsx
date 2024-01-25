@@ -3,7 +3,7 @@ import { Theme, useTheme } from 'app/providers/ThemeProviders'
 import ThemeIconDark from 'shared/assets/icons/theme-dark.svg'
 import ThemeIconLigth from 'shared/assets/icons/theme-light.svg'
 import styles from './styles.module.scss'
-import { ThemeButton } from '../../shared/ui/Button/Button'
+import { ThemeButton } from '../Button/Button'
 
  interface ThemeSwitcherProps {
    className?: string
