@@ -17,8 +17,17 @@ export function Sidebar({ className }: SidebarProps) {
     const { t } = useTranslation()
 
     return (
-        <div className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}>
-            <button type="button" onClick={unToggle}>{t('Свернуть')}</button>
+        <div
+            data-testid="sidebar"
+            className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
+        >
+            <button
+                data-testid="sidebar-button"
+                type="button"
+                onClick={unToggle}
+            >
+                {t('Свернуть')}
+            </button>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={styles.lang} />

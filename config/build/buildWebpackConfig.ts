@@ -22,6 +22,6 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         },
         resolve: buildResolve(options),
         devtool: isDev ? 'inline-source-map' : undefined,
-        devServer: buildDevServer(options)
+        devServer: buildDevServer(options),
     }
 }

@@ -4,12 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'airbnb',
-        'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['airbnb', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     overrides: [
         {
             env: {
@@ -17,9 +12,13 @@ module.exports = {
             },
             files: [
                 '.eslintrc.{js,cjs}',
+                '**/src/**/*.test.{ts,tsx}',
             ],
             parserOptions: {
                 sourceType: 'script',
+            },
+            rules: {
+                'i18next/no-literal-string': 'off',
             },
         },
     ],
@@ -49,7 +48,13 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 'warn',
         'no-underscore-dangle': 'off',
         'import/no-extraneous-dependencies': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true, "jsx-attributes": 'to'}],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid', 'to'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

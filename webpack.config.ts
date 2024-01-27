@@ -16,12 +16,11 @@ export default (env: BuildEnv) => {
 
     let isDev
 
-    if (env.mode == 'production') {
-    isDev = false
+    if (env.mode === 'production') {
+        isDev = false
     } else {
-    isDev = true
+        isDev = true
     }
-
 
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
