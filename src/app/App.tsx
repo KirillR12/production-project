@@ -8,9 +8,6 @@ import { useTheme } from './providers/ThemeProviders/lib/useTheme'
 
 export function App() {
     const { theme } = useTheme()
-    useEffect(() => {
-        throw new Error()
-    }, [])
 
     return (
         <div className={classNames('app', {}, [theme])}>
