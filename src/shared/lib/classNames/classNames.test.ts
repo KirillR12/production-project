@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import { classNames } from 'shared/lib/classNames/classNames'
-=======
-import { classNames } from "shared/lib/classNames/classNames"
-
->>>>>>> origin/main
 
 describe('classNames', () => {
     test('with only first param', () => {

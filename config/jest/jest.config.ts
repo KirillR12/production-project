@@ -3,11 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-<<<<<<< HEAD
 import path from 'path'
-=======
-import path from "path";
->>>>>>> origin/main
 
 export default {
     // All imported modules in your tests should be mocked automatically
@@ -41,22 +37,13 @@ export default {
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     modulePaths: [
-<<<<<<< HEAD
         '<rootDir>src',
-=======
-        "<rootDir>src",
->>>>>>> origin/main
     ],
     setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
-<<<<<<< HEAD
         '\\.svg': path.resolve(__dirname, 'jestEmplyComponent.tsx'),
     },
-=======
-        '\\.svg': path.resolve(__dirname, 'jestEmplyComponent.tsx')
-      },
->>>>>>> origin/main
     //   transform: {
     //     "^.+\\.svg$": "jest-svg-transformer"
     // }
