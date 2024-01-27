@@ -4,15 +4,20 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  jobs:
+    pipeline:
+      runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            node-version: [ 17.x ]
 
-    jobs:
-  integration:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [12]
-    runs-on: ${{ matrix.os }}
         steps:
+          name: Checkout Commit
+          uses: actions/checkout@v2
+          name: Use Node.js ${{ matrix.node }}
+          uses: actions/setup-node@v1
+    with:
+        node-version: ${{ matrix.node }}
       name: build production
       - run: npm run build:prod
       name: eslint
