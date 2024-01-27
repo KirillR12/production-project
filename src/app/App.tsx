@@ -1,8 +1,8 @@
 import './styles/index.scss'
 import { classNames } from 'shared'
-import { Suspense, useEffect } from 'react'
-import { Navbar } from 'widgets/Navbar'
+import { Suspense } from 'react'
 import { Sidebar } from 'widgets/Sidebar'
+import { Navbar } from 'widgets/Navbar'
 import { AppRouter } from './providers/RouterProvider'
 import { useTheme } from './providers/ThemeProviders/lib/useTheme'
 
