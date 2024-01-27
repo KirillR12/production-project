@@ -4,7 +4,7 @@ import { Button } from './Button'
 
 describe('Button', () => {
     test('test Button', () => {
-        render(<Button>TEST</Button>)
+        render(<Button>TEST1</Button>)
         expect(screen.getByText('TEST')).toBeInTheDocument()
         screen.debug()
     })
