@@ -1,27 +1,27 @@
 name: CI
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  jobs:
-    pipeline:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [ 17.x ]
+push:
+branches: [ main ]
+pull_request:
+branches: [ main ]
+jobs:
+pipeline:
+runs-on: ubuntu-latest
+strategy:
+matrix:
+node-version: [ 17.x ]
 
-        steps:
-         - uses: actions/checkout@v2
-         - name: Staring Node.js ${{ matrix.node-version }}
-           uses: actions/setup-node@v1
-    with:
-        node-version: ${{ matrix.node-version }}
-      name: build production
-      - run: npm run build:prod
-      name: eslint
-      - run: npm run lint:ts
-      name: stylelint
-      - run: npm run lint:ts
-      name: unit test
-      - run: npm run unit
+steps:
+- uses: actions/checkout@v2
+- name: Staring Node.js ${{ matrix.node-version }}
+uses: actions/setup-node@v1
+with:
+node-version: ${{ matrix.node-version }}
+name: build production
+- run: npm run build:prod
+name: eslint
+- run: npm run lint:ts
+name: stylelint
+- run: npm run lint:ts
+name: unit test
+- run: npm run unit
