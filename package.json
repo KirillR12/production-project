@@ -9,6 +9,7 @@
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:scss": "npx stylelint '**/*scss'",
     "test": "jest",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
