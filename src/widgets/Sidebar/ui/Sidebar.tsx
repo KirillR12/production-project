@@ -18,6 +18,7 @@ export function Sidebar({ className }: SidebarProps) {
 
     return (
         <div
+<<<<<<< HEAD:src/widgets/Sidebar/ui/Sidebar.tsx
             data-testid="sidebar"
             className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
         >
@@ -28,6 +29,18 @@ export function Sidebar({ className }: SidebarProps) {
             >
                 {t('Свернуть')}
             </button>
+=======
+        data-testid='sidebar' 
+        className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
+        >
+            <button 
+data-testid={'sidebar-button'}
+            type="button" 
+    onClick={unToggle}
+            >
+                {t('Свернуть')}
+                </button>
+>>>>>>> origin/main:src/widgets/Sidebar/ui/Sidebar/Sidebar.tsx
             <div className={styles.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={styles.lang} />
