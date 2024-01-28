@@ -29,7 +29,7 @@ export function Sidebar({ className }: SidebarProps) {
             className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
         >
             <Button
-                data-testid="sidebar-toggle"
+                data-testid="sidebar-button"
                 onClick={onToggle}
                 className={styles.collapseBtn}
                 theme={ButtonTheme.BACKGROUND_INVERTED}
