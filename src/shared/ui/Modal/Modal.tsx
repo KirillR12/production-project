@@ -1,4 +1,5 @@
 import { classNames } from 'shared'
+<<<<<<< HEAD
 import {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react'
@@ -15,10 +16,21 @@ import { Portal } from '../Portal/Portal'
 
 const ANIMATE_DELAY = 300
 
+=======
+import { ReactNode } from 'react'
+import styles from './styles.module.scss'
+
+ interface ModalProps {
+    className?: string,
+   children?: ReactNode
+}
+
+>>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
 export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
+<<<<<<< HEAD
         isOpen,
         isClose,
     } = props
@@ -78,5 +90,17 @@ export const Modal = (props: ModalProps) => {
                 </div>
             </div>
         </Portal>
+=======
+    } = props
+
+    return (
+        <div className={classNames(styles.Modal, {}, [className])}>
+            <div className={styles.overlay}>
+                <div className={styles.content}>
+                    {children}
+                </div>
+            </div>
+        </div>
+>>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
     )
 }

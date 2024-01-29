@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 .Modal {
     position: fixed;
+=======
+.overlay {
+    position: absolute;
+>>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+<<<<<<< HEAD
     z-index: -1;
 
     opacity: 0;
@@ -50,4 +56,7 @@
 
         transition: 0.3s transform;
     }
+=======
+    z-index: var(--modal-overlay-z-index);
+>>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
 }

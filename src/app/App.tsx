@@ -13,6 +13,7 @@ export function App() {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
+                <Modal />
                 <div className="contate-page">
                     <Sidebar />
                     <AppRouter />

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable */
+=======
+/* eslint-disable*/
+>>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
 const { promisify } = require('util')
 const { readdir, writeFile } = require('fs')
 const { join: joinPath, relative } = require('path')
