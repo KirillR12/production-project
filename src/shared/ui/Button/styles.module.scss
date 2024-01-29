@@ -6,7 +6,8 @@
     cursor: pointer;
 }
 
-.clear {
+.clear,
+.clear_inverted {
     padding: 0;
     border: none;
 
@@ -14,10 +15,14 @@
     outline: none;
 }
 
-.outline {
-    border: 1px solid var(--primary-color);
+.clear_inverted {
+    color: var(--inverted-secondary-color);
+}
 
-    color: var(--primary-color);
+.outline {
+    border: 1px solid var(--secondary-color);
+
+    color: var(--secondary-color);
 
     background: none;
 }
@@ -33,7 +38,7 @@
 .backgroundInverted {
     border: none;
 
-    color: var(--inverted-primary-color);
+    color: var(--inverted-secondary-color);
 
     background: var(--inverted-bg-color);
 }

@@ -1,6 +1,7 @@
 .Navbar {
     display: flex;
     align-items: center;
+    justify-content: end;
     width: 100%;
     height: var(--navbar-height);
     padding: 20px;

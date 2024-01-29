@@ -13,6 +13,10 @@
     "test:unit": "jest --config config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "open": ".loki/report.html",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html && npm run open",
     "test:ui:ci": "npx loki --requireReference update --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook"
@@ -53,6 +57,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
