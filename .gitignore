@@ -1,7 +1,4 @@
 /build
 node_modules
-<<<<<<< HEAD
 /storybook-static
-=======
->>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
 /.loki/report.html

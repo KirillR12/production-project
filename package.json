@@ -65,11 +65,7 @@
     "jest": "^27.5.1",
     "loki": "^0.34.0",
     "mini-css-extract-plugin": "^2.5.3",
-<<<<<<< HEAD
     "reg-cli": "^0.17.7",
-=======
-    "reg-cli": "^0.17.6",
->>>>>>> 21ea2e8aee9dc06833515dd01db5cb407e31fe54
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
