@@ -13,7 +13,7 @@ import { Portal } from '../Portal/Portal'
    isClose: () => void
 }
 
-const ANIMATE_DELAY = 300
+const ANIMATE_DELAY = 3000
 
 export const Modal = (props: ModalProps) => {
     const {

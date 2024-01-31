@@ -20,12 +20,6 @@ export function buildPlagins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
     ]
 
-    if (isDev) {
-        // eslint-disable-next-line no-unused-expressions
-        plugins.push(new webpack.HotModuleReplacementPlugin())
-        plugins.push(new ReactRefreshWebpackPlugin())
-        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
-    }
 
     return plugins
 }
