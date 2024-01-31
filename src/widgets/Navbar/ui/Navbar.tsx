@@ -1,6 +1,8 @@
+import { Button, classNames } from 'shared'
+import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { ThemeSwitcher, classNames } from 'shared'
+import { ButtonTheme } from 'shared/ui/Button/Button'
+import { Modal } from 'shared/ui/Modal/Modal'
 import styles from './styles.module.scss'
 
 interface NavbarProps {
@@ -8,15 +10,26 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
+    const [isAuthModal, setIsAuthModal] = useState(false)
+
     const { t } = useTranslation()
+
+    const toggleAuthModal = useCallback(() => {
+        setIsAuthModal((prev) => !prev)
+    }, [])
 
     return (
         <div className={classNames(styles.Navbar, {}, [className])}>
-            <ThemeSwitcher />
-            <div className={styles.links}>
-                <AppLink theme={AppLinkTheme.SECONDARY} className={styles.mainLink} to="/">{t('Главная')}</AppLink>
-                <AppLink theme={AppLinkTheme.SECONDARY} to="AboutPage">{t('О сайте')}</AppLink>
-            </div>
+            <Button
+                theme={ButtonTheme.CLEAR_INVERTED}
+                onClick={toggleAuthModal}
+            >
+                {t('Войти')}
+            </Button>
+            <Modal isOpen={isAuthModal} isClose={() => toggleAuthModal()}>
+                {/* eslint-disable i18next/no-literal-string */}
+                Loool dsf df ds fsdf dsf sdf dsf dsf ds fdsf dsf sd f
+            </Modal>
         </div>
     )
 }
