@@ -13,7 +13,7 @@ import { Portal } from '../Portal/Portal'
    isClose: () => void
 }
 
-const ANIMATE_DELAY = 3000
+const ANIMATE_DELAY = 300
 
 export const Modal = (props: ModalProps) => {
     const {
@@ -24,8 +24,6 @@ export const Modal = (props: ModalProps) => {
     } = props
 
     const [isClosing, setIsClosing] = useState(false)
-
-    const { theme } = useTheme()
 
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
@@ -67,7 +65,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(styles.Modal, mods, [className, theme])}>
+            <div className={classNames(styles.Modal, mods, [className])}>
                 <div className={styles.overlay} onClick={() => closeHandler()}>
                     <div
                         className={styles.content}
