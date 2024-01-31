@@ -1,8 +1,8 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BuildOptions } from './types/config'
 
 export function buildPlagins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
@@ -20,6 +20,12 @@ export function buildPlagins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
     ]
 
+    if (isDev) {
+        // eslint-disable-next-line no-unused-expressions
+        plugins.push(new webpack.HotModuleReplacementPlugin())
+        plugins.push(new ReactRefreshWebpackPlugin())
+        plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+    }
 
     return plugins
 }
