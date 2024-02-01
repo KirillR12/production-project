@@ -20,8 +20,7 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html && npm run open",
     "test:ui:ci": "npx loki --requireReference update --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "storybook:build": "storybook build -c ./config/storybook",
-    "prepare": "husky"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
