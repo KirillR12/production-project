@@ -2,7 +2,7 @@ import { Button, classNames } from 'shared'
 import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ButtonTheme } from 'shared/ui/Button/Button'
-import { Modal } from 'shared/ui/Modal/Modal'
+import { LoginModal } from 'features/AuthByUsername'
 import styles from './styles.module.scss'
 
 interface NavbarProps {
@@ -26,10 +26,10 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <Modal isOpen={isAuthModal} isClose={() => toggleAuthModal()}>
-                {/* eslint-disable i18next/no-literal-string */}
-                Loool dsf df ds fsdf dsf sdf dsf dsf ds fdsf dsf sd f
-            </Modal>
+            <LoginModal
+                isOpen={isAuthModal}
+                isClose={toggleAuthModal}
+            />
         </div>
     )
 }

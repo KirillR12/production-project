@@ -2,7 +2,6 @@ import { classNames } from 'shared'
 import {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react'
-import { useTheme } from 'app/providers/ThemeProviders'
 import styles from './styles.module.scss'
 import { Portal } from '../Portal/Portal'
 
@@ -10,7 +9,7 @@ import { Portal } from '../Portal/Portal'
    className?: string,
    children?: ReactNode,
    isOpen: boolean,
-   isClose: () => void
+   isClose: () => void,
 }
 
 const ANIMATE_DELAY = 300
@@ -24,6 +23,7 @@ export const Modal = (props: ModalProps) => {
     } = props
 
     const [isClosing, setIsClosing] = useState(false)
+    const [isMouser, setIsMouser] = useState(false)
 
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
@@ -46,6 +46,12 @@ export const Modal = (props: ModalProps) => {
         }
     }, [isClose])
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsMouser(true)
+        }
+    }, [isOpen])
+
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler()
@@ -62,6 +68,10 @@ export const Modal = (props: ModalProps) => {
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [isOpen, onKeyDown])
+
+    if (!isMouser) {
+        return null
+    }
 
     return (
         <Portal>
