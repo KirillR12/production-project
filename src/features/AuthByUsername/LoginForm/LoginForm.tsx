@@ -1,5 +1,6 @@
 import { Button } from 'shared'
 import { Input, InputTheme } from 'shared/ui/Input/Input'
+import { useTranslation } from 'react-i18next'
 import styles from './styles.module.scss'
 
  interface LoginFormProps {
@@ -11,11 +12,13 @@ export const LoginForm = (props: LoginFormProps) => {
         className,
     } = props
 
+    const { t } = useTranslation()
+
     return (
         <div>
             <Input className={styles.input} />
             <Input className={styles.input} />
-            <Button className={styles.inputBtn}>Войти</Button>
+            <Button className={styles.inputBtn}>{t('Войти')}</Button>
         </div>
     )
 }

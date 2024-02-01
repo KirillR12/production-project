@@ -1,6 +1,6 @@
-npm test
+chmod ug+x .husky/*
 
-        run: npm run lint
-        run: npm run lint
-        run: npm run test
+npm run lint:ts
+npm run lint:scss
+npm run test:unit
 
