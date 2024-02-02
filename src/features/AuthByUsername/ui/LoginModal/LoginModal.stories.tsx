@@ -15,6 +15,11 @@ export const Primary: Story = {
     args: {
         isOpen: true,
     },
-    decorators: [ThemeDecorater(Theme.DARK)],
+}
 
+export const Dark: Story = {
+    args: {
+        isOpen: true,
+    },
+    decorators: [ThemeDecorater(Theme.DARK)],
 }

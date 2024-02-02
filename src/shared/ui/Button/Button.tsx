@@ -5,6 +5,7 @@ import styles from './styles.module.scss'
 export enum ButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    OUTLINE_INVERTED = 'outlineInverted',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
     CLEAR_INVERTED = 'clear_inverted'
@@ -21,6 +22,7 @@ XL = 'size_xl'
    theme?: ButtonTheme,
    square?: boolean,
    size?: ButtonSize,
+   disabled?: boolean
 }
 
 export const Button: FC <ButtonProps> = (props) => {
@@ -29,6 +31,7 @@ export const Button: FC <ButtonProps> = (props) => {
         className,
         theme,
         square,
+        disabled,
         size = ButtonSize.M,
         ...otherProps
     } = props
@@ -36,9 +39,10 @@ export const Button: FC <ButtonProps> = (props) => {
     return (
         <button
             type="button"
+            disabled={disabled}
             className={classNames(
                 styles.Button,
-                { [styles.square]: square },
+                { [styles.square]: square, [styles.disabled]: disabled },
                 [className, styles[theme], styles[size]],
             )}
             {...otherProps}

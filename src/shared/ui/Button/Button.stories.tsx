@@ -112,3 +112,11 @@ export const SizeXL: Story = {
         size: ButtonSize.XL,
     },
 }
+
+export const DisableBtn: Story = {
+    args: {
+        children: 'TEXT',
+        theme: ButtonTheme.BACKGROUND_INVERTED,
+        disabled: true,
+    },
+}

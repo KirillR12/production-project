@@ -16,6 +16,7 @@ export const LoginModal = (props: LoginModalProps) => {
 
     return (
         <Modal
+            className={classNames(styles.LoginModal)}
             isOpen={isOpen}
             isClose={isClose}
         >

@@ -8,5 +8,8 @@
     "Обновить страницу": "Refresh the page",
     "Произошла непредвиденная ошибка": "An unexpected error occurred",
     "Главная": "Main",
-    "О сайте": "About the site"
+    "О сайте": "About the site",
+    "Выйти": "Go Out",
+    "Авторизация": "Authorization",
+    "Не верный логин или пароль": "Wrong login or password"
 }

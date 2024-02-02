@@ -3,6 +3,8 @@ import { useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUsername'
+import { useDispatch, useSelector } from 'react-redux'
+import { UserActions, getAuthUser } from 'entities/User'
 import styles from './styles.module.scss'
 
 interface NavbarProps {
@@ -14,21 +16,47 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     const { t } = useTranslation()
 
-    const toggleAuthModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev)
+    const authUser = useSelector(getAuthUser)
+
+    const dispatch = useDispatch()
+
+    const toggleOpenMadal = useCallback(() => {
+        setIsAuthModal(true)
     }, [])
+
+    const toggleCloseModal = useCallback(() => {
+        setIsAuthModal(false)
+    }, [])
+
+    const toggleLogOut = useCallback(() => {
+        dispatch(UserActions.setLogOut())
+    }, [dispatch])
+
+    if (authUser) {
+        return (
+            <div className={classNames(styles.Navbar, {}, [className])}>
+                <Button
+                    theme={ButtonTheme.OUTLINE_INVERTED}
+                    onClick={toggleLogOut}
+
+                >
+                    {t('Выйти')}
+                </Button>
+            </div>
+        )
+    }
 
     return (
         <div className={classNames(styles.Navbar, {}, [className])}>
             <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={toggleAuthModal}
+                theme={ButtonTheme.OUTLINE_INVERTED}
+                onClick={toggleOpenMadal}
             >
                 {t('Войти')}
             </Button>
             <LoginModal
                 isOpen={isAuthModal}
-                isClose={toggleAuthModal}
+                isClose={toggleCloseModal}
             />
         </div>
     )

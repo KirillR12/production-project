@@ -1,12 +1,18 @@
 import { classNames } from 'shared'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Sidebar } from 'widgets/Sidebar'
 import { Navbar } from 'widgets/Navbar'
+import { useDispatch } from 'react-redux'
+
+import { UserActions } from 'entities/User'
 import { AppRouter } from './providers/RouterProvider'
-import { useTheme } from './providers/ThemeProviders/lib/useTheme'
 
 export function App() {
-    const { theme } = useTheme()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(UserActions.setByUser())
+    }, [dispatch])
 
     return (
         <div className={classNames('app', {}, [])}>

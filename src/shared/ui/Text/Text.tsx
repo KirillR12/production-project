@@ -1,0 +1,30 @@
+import { classNames } from 'shared'
+import { ReactNode } from 'react'
+import styles from './styles.module.scss'
+
+export enum TextTheme {
+    ERROR = 'error',
+}
+
+ interface TextProps {
+   className?: string
+   title?: string,
+   text?: string,
+   theme?: TextTheme
+}
+
+export const Text = (props: TextProps) => {
+    const {
+        className,
+        title,
+        text,
+        theme,
+    } = props
+
+    return (
+        <div className={classNames(styles.title, {}, [className, styles[theme]])}>
+            {title && <p className={styles.title}>{title}</p>}
+            {text && <p className={styles.text}>{text}</p>}
+        </div>
+    )
+}

@@ -9,11 +9,6 @@
       "id": "2",
       "title": "another title",
       "views": 200
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "ETyNuZ1"
     }
   ],
   "comments": [
@@ -30,5 +25,12 @@
   ],
   "profile": {
     "name": "typicode"
+  },
+  "users": [
+    {
+    "username": "admin",
+    "password": "123",
+    "id": "ETyNuZ1"
   }
+]
 }
