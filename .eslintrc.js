@@ -4,7 +4,13 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['airbnb', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+    extends: [
+        'airbnb',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+    ],
     overrides: [
         {
             env: {
@@ -55,6 +61,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'react/display-name': 'off',
+        'max-len': ['error', { code: 140 }],
         'i18next/no-literal-string': [
             'error',
             {
