@@ -11,7 +11,11 @@ interface NavbarProps {
     className?: string
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = (props: NavbarProps) => {
+    const {
+        className,
+    } = props
+
     const [isAuthModal, setIsAuthModal] = useState(false)
 
     const { t } = useTranslation()
@@ -54,10 +58,12 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal
-                isOpen={isAuthModal}
-                isClose={toggleCloseModal}
-            />
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    isClose={toggleCloseModal}
+                />
+            )}
         </div>
     )
 }
