@@ -27,7 +27,7 @@ export const DARK: Story = {
 
 export const LogOut: Story = {
     decorators: [
-
+        StoreProviderDecorator({ user: { authUser: {} } }),
     ],
 }
 
