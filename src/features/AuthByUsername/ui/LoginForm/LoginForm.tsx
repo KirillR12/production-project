@@ -11,11 +11,13 @@ import { getPassword } from 'features/AuthByUsername/model/selectors/getPassword
 import { getIsLoading } from 'features/AuthByUsername/model/selectors/getIsLoading/getIsLoading'
 import { getError } from 'features/AuthByUsername/model/selectors/getError/getError'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import styles from './styles.module.scss'
 import { LoginActions, LoginReducer } from '../../model/slice/LoginSlice'
 
  interface LoginFormProps {
-   className?: string
+   className?: string,
+   onSucces: () => void
 }
 
 const initialReducer: ReducerList = {
@@ -25,6 +27,7 @@ const initialReducer: ReducerList = {
 const LoginForm = memo((props: LoginFormProps) => {
     const {
         className,
+        onSucces,
     } = props
 
     const username = useSelector(getUsername)
@@ -33,7 +36,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     const error = useSelector(getError)
 
     const { t } = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(LoginActions.setUsername(value))
@@ -43,9 +46,12 @@ const LoginForm = memo((props: LoginFormProps) => {
         dispatch(LoginActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginBtn = useCallback(() => {
-        dispatch(LoginByUsername({ username, password }))
-    }, [username, password, dispatch])
+    const onLoginBtn = useCallback(async () => {
+        const result = await dispatch(LoginByUsername({ username, password }))
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSucces()
+        }
+    }, [onSucces, username, password, dispatch])
 
     return (
         <DynamicModuleLoader reducers={initialReducer} removeAfterUnmount>
