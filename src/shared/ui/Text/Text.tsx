@@ -1,5 +1,5 @@
 import { classNames } from 'shared'
-import { ReactNode } from 'react'
+import { memo } from 'react'
 import styles from './styles.module.scss'
 
 export enum TextTheme {
@@ -13,7 +13,7 @@ export enum TextTheme {
    theme?: TextTheme
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
     const {
         className,
         title,
@@ -27,4 +27,4 @@ export const Text = (props: TextProps) => {
             {text && <p className={styles.text}>{text}</p>}
         </div>
     )
-}
+})

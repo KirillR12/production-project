@@ -6,20 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="8598be26-707d-4efb-97f4-d9a20b41fada" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.loki/reference/chrome_iphone7_shared_Button_Clear_Inverted.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.loki/reference/chrome_iphone7_shared_Modal_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.loki/reference/chrome_iphone7_shared_Modal_Primary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.loki/reference/chrome_laptop_shared_Modal_Dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.loki/reference/chrome_laptop_shared_Modal_Primary.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/build/buildPlagins.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/build/buildPlagins.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/styles/themes/dark.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/themes/dark.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/styles/themes/normal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/themes/normal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/build/buildWebpackConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/build/buildWebpackConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/build/types/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/build/types/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/jest/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/jest/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/storybook/webpack.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/storybook/webpack.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/providers/StoreProvider/config/StateSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/providers/StoreProvider/config/StateSchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/providers/StoreProvider/config/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/providers/StoreProvider/config/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/providers/StoreProvider/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/providers/StoreProvider/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/providers/StoreProvider/ui/StoreProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/providers/StoreProvider/ui/StoreProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/types/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/types/global.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Profile/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Profile/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Profile/model/selector/getAuthUser/getAuthUser.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Profile/model/slice/UserReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/AuthByUsername/model/services/LoginByUsername/LoginByUsername.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/AuthByUsername/model/services/LoginByUsername/LoginByUsername.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Main/ui/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Main/ui/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/ui/Modal/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Modal/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/ui/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/ui/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/lib/classNames/classNames.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/lib/classNames/classNames.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Input/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Input/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/Text/Text.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/Text/Text.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,23 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fix__bag&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kirillfedotov/Desktop/Учеба/Проекты/production&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/kirillfedotov/Desktop/Учеба/Проекты/production/node_modules/stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/kirillfedotov/Desktop/Учеба/Проекты/production/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/kirillfedotov/Desktop/Учеба/Проекты/production",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "/Users/kirillfedotov/Desktop/Учеба/Проекты/production/node_modules/stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/kirillfedotov/Desktop/Учеба/Проекты/production/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +71,7 @@
       <updated>1706634667185</updated>
       <workItem from="1706634668487" duration="2612000" />
       <workItem from="1706647011743" duration="223000" />
+      <workItem from="1707475529639" duration="2080000" />
     </task>
     <servers />
   </component>

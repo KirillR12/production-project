@@ -3,6 +3,8 @@ import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { ProfileReducer } from 'entities/Profile'
 import { LoginReducer } from 'features/AuthByUsername/model/slice/LoginSlice'
+import { Suspense } from 'react'
+import { MemoryRouter } from 'react-router-dom'
 
 const defaultAsyncReducer: DeepPartial<ReducersMapObject<StateSchema>> = {
     login: LoginReducer,

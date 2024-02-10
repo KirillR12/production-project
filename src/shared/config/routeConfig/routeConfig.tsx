@@ -1,7 +1,7 @@
 import { AboutPage } from 'pages/About'
 import { MainPage } from 'pages/Main'
 import { NotFoundPage } from 'pages/NotFoundPage'
-import { Profile } from 'pages/Profile'
+import { ProfilePage } from 'pages/ProfilePage'
 import { RouteProps } from 'react-router-dom'
 
 export enum AppRouter {
@@ -29,7 +29,7 @@ export const routeConfig: Record<AppRouter, RouteProps> = {
     },
     [AppRouter.PROFILE]: {
         path: RoutePath.profile,
-        element: <Profile />,
+        element: <ProfilePage />,
     },
     [AppRouter.NOTFOUNDPAGE]: {
         path: RoutePath.notFoundPage,

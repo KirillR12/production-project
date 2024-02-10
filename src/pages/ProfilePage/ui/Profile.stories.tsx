@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ThemeDecorater } from 'shared/config/Storybook/ThemeDecorater/ThemeDecorater'
 import { Theme } from 'app/providers/ThemeProviders'
 import { StoreProviderDecorator } from 'shared/config/Storybook/StoreProviderDecorator/StoreProviderDecorator'
-import Profile from './Profile'
+import ProfilePage from './ProfilePage'
 
-const meta: Meta<typeof Profile> = {
+const meta: Meta<typeof ProfilePage> = {
     title: 'pages/Profile',
-    component: Profile,
+    component: ProfilePage,
 }
 
 export default meta
-type Story = StoryObj<typeof Profile>;
+type Story = StoryObj<typeof ProfilePage>;
 
 export const Ligth: Story = {
     decorators: [StoreProviderDecorator({})],

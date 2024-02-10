@@ -9,7 +9,7 @@ export enum InputTheme {
 }
 
 export interface InputProps extends InputHTMLAttribut {
-className: string,
+className?: string,
 value?: string,
 onChange?: (value: string) => void,
 theme?: InputTheme
