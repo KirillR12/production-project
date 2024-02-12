@@ -5,7 +5,7 @@ import { classNames } from 'shared'
 import styles from './styles.module.scss'
 
  interface SidebarButtonProps {
-item?: SidebarItemType,
+item: SidebarItemType,
 collapsed: boolean
  }
 

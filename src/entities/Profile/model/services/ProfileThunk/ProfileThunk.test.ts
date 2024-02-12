@@ -9,9 +9,9 @@ const mockedAxios = jest.mocked(axios, true)
 describe('ProfileThunk', () => {
     test('login succes ', async () => {
         const dataProfile = { first: 'kirill', lastname: 'fedotov' }
-        mockedAxios.get.mockReturnValue(Promise.resolve({ data: dataProfile }))
-
         const thunk = new TestAsyncThunk(ProfileThunk)
+        thunk.api.get.mockReturnValue(Promise.resolve({ data: dataProfile }))
+
         const result = await thunk.callThunk()
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2)
@@ -21,9 +21,10 @@ describe('ProfileThunk', () => {
     })
 
     test('login error', async () => {
-        mockedAxios.get.mockReturnValue(Promise.resolve({ status: 403 }))
-
         const thunk = new TestAsyncThunk(ProfileThunk)
+
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
+
         const result = await thunk.callThunk()
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2)

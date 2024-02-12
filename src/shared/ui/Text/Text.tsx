@@ -3,6 +3,7 @@ import { memo } from 'react'
 import styles from './styles.module.scss'
 
 export enum TextTheme {
+    DEFAULT ='default',
     ERROR = 'error',
 }
 
@@ -18,7 +19,7 @@ export const Text = memo((props: TextProps) => {
         className,
         title,
         text,
-        theme,
+        theme = TextTheme.DEFAULT,
     } = props
 
     return (

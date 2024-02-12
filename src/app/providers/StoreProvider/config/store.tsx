@@ -4,7 +4,6 @@ import {
 import { CounterReducer } from 'entities/Counter'
 import { UserReducer } from 'entities/User'
 import { $api } from 'shared/api/api'
-import { NavigateOptions, To } from 'react-router-dom'
 import { StateSchema, ThunkExtraArg } from './StateSchema'
 import { createReducerManager } from './ReducerManager'
 

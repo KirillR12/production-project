@@ -10,7 +10,7 @@
         "target": "es5",
         // будет jsx
         "jsx": "react-jsx",
-        // "strict": true,
+        "strict": true,
         // абсолютный импорт
         "baseUrl": ".",
         "paths": {

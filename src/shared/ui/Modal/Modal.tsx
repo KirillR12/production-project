@@ -1,5 +1,6 @@
 import { classNames } from 'shared'
 import {
+    MutableRefObject,
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react'
 import styles from './styles.module.scss'
@@ -34,7 +35,7 @@ export const Modal = (props: ModalProps) => {
         e.stopPropagation()
     }
 
-    const timeRef = useRef<ReturnType<typeof setTimeout>>()
+    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
     const closeHandler = useCallback(() => {
         if (isClose) {

@@ -62,6 +62,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'react/display-name': 'off',
         'max-len': ['error', { code: 140 }],
+        '@typescript-eslint/ban-ts-comment': 'off',
         'i18next/no-literal-string': [
             'error',
             {

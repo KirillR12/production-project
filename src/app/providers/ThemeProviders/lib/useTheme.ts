@@ -11,13 +11,13 @@ export function useTheme(): useThemeResulf {
 
     const toggleTheme = () => {
         const themeHalper = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
-        setTheme(themeHalper)
+        setTheme?.(themeHalper)
         document.body.className = themeHalper
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeHalper)
     }
 
     return {
-        theme,
+        theme: theme || Theme.LIGHT,
         toggleTheme,
     }
 }

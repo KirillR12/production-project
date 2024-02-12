@@ -1,12 +1,11 @@
 /* eslint-disable */
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
+import { ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { ProfileReducer } from 'entities/Profile'
 import { LoginReducer } from 'features/AuthByUsername/model/slice/LoginSlice'
-import { Suspense } from 'react'
-import { MemoryRouter } from 'react-router-dom'
+import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-const defaultAsyncReducer: DeepPartial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducer: ReducerList = {
     login: LoginReducer,
     profile: ProfileReducer
 }
