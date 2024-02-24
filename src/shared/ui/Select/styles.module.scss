@@ -1,0 +1,27 @@
+.outline {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.readonly {
+    opacity: 0.5;
+}
+
+.option {
+    color: var(--inverted-primary-color);
+
+    background: var(--inverted-bg-color);
+}
+
+.SelectBlock {
+    display: flex;
+    align-items: center;
+}
+
+.Select {
+    width: 120px;
+    margin-left: 20px;
+}

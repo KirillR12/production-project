@@ -2,8 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from 'app/providers/StoreProvider'
 import { Profile } from '../../types/ProfileSchema'
 
-export interface LoginByUsernameProps {}
-
 export const ProfileThunk = createAsyncThunk<Profile, void, ThunkConfig<string>>(
     'profile/ProfileThunk',
     async (_, { extra, rejectWithValue }) => {

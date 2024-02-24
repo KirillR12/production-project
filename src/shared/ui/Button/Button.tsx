@@ -1,10 +1,12 @@
 import { classNames } from 'shared'
 import { ButtonHTMLAttributes, FC } from 'react'
+import { Mods } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
 export enum ButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outlineRed',
     OUTLINE_INVERTED = 'outlineInverted',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
@@ -22,7 +24,7 @@ XL = 'size_xl'
    theme?: ButtonTheme,
    square?: boolean,
    size?: ButtonSize,
-   disabled?: boolean
+   disabled?: boolean,
 }
 
 export const Button: FC <ButtonProps> = (props) => {
@@ -36,13 +38,18 @@ export const Button: FC <ButtonProps> = (props) => {
         ...otherProps
     } = props
 
+    const mods: Mods = {
+        [styles.square]: square,
+        [styles.disabled]: disabled,
+    }
+
     return (
         <button
             type="button"
             disabled={disabled}
             className={classNames(
                 styles.Button,
-                { [styles.square]: square, [styles.disabled]: disabled },
+                mods,
                 [className, styles[theme], styles[size]],
             )}
             {...otherProps}

@@ -4,6 +4,10 @@
     color: var(--primary-color);
 
     cursor: pointer;
+
+    .readonly {
+        opacity: 0.5;
+    }
 }
 
 .clear,
@@ -23,6 +27,14 @@
     border: 1px solid var(--secondary-color);
 
     color: var(--secondary-color);
+
+    background: none;
+}
+
+.outlineRed {
+    border: 1px solid var(--red);
+
+    color: var(--red);
 
     background: none;
 }
