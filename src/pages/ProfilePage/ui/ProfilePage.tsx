@@ -2,7 +2,7 @@ import { classNames } from 'shared'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
     ProfileActions,
-    ProfileCard, ProfileReducer, ProfileThunk, getProfileError, getProfileIsLoading,
+    ProfileCard, ProfileReducer, ProfileThunk, ValidateProfileSchema, getProfileError, getProfileIsLoading,
 } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useCallback, useEffect } from 'react'
@@ -11,6 +11,9 @@ import { getProfileReadonly } from 'entities/Profile/model/selector/getProfileRe
 import { getProfileForm } from 'entities/Profile/model/selector/getProfileForm/getProfileForm'
 import { CurrencySchema } from 'entities/Currency/model/types/CurrencySchema'
 import { CountrySchema } from 'entities/Country'
+import { getValidateErrors } from 'entities/Profile/model/selector/getValidateErrors/getValidateErrors'
+import { useTranslation } from 'react-i18next'
+import { Text, TextTheme } from 'shared/ui/Text/Text'
 import styles from './styles.module.scss'
 import { ProfileHeaders } from './ProfileHeaders/ProfileHeaders'
 
@@ -24,15 +27,26 @@ const ProfilePage = ({ className }: ProfileProps) => {
     }
 
     const dispatch = useAppDispatch()
+    const { t } = useTranslation('profile')
+
+    const validateError = {
+        [ValidateProfileSchema.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileSchema.INCORRECT_USER_DATA]: t('Некорректное имя или фамилия'),
+        [ValidateProfileSchema.NO_DATA]: t('Нет данных'),
+        [ValidateProfileSchema.SERVER_ERROR]: t('Серверная ошибка'),
+    }
 
     useEffect(() => {
-        dispatch(ProfileThunk())
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(ProfileThunk())
+        }
     }, [dispatch])
 
     const form = useSelector(getProfileForm)
     const isLoading = useSelector(getProfileIsLoading)
     const error = useSelector(getProfileError)
     const readonly = useSelector(getProfileReadonly)
+    const errors = useSelector(getValidateErrors)
 
     const editFirstname = useCallback((value?: string) => {
         dispatch(ProfileActions.editProfile({ first: value || '' }))
@@ -67,6 +81,13 @@ const ProfilePage = ({ className }: ProfileProps) => {
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
             <ProfileHeaders />
+            {errors?.length && errors.map((err) => (
+                <Text
+                    theme={TextTheme.ERROR}
+                    key={err}
+                    title={validateError[err]}
+                />
+            ))}
             <div className={classNames(styles.Profile, {}, [className])}>
                 <ProfileCard
                     data={form}

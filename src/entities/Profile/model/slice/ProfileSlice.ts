@@ -20,6 +20,7 @@ export const ProfileSlice = createSlice({
         cancelEdit: (state) => {
             state.readonly = true
             state.form = state.data
+            state.validateError = undefined
         },
         saveEdit: (state) => {
             state.readonly = true
@@ -44,6 +45,8 @@ export const ProfileSlice = createSlice({
                 state.isLoading = false
                 state.data = action.payload
                 state.form = action.payload
+                state.readonly = true
+                state.validateError = undefined
             })
             .addCase(ProfileThunk.rejected, (state, action) => {
                 state.isLoading = false
@@ -51,7 +54,7 @@ export const ProfileSlice = createSlice({
             })
 
             .addCase(ProfileSaveEditThunk.pending, (state) => {
-                state.error = undefined
+                state.validateError = undefined
                 state.isLoading = true
             })
             .addCase(ProfileSaveEditThunk.fulfilled, (
@@ -62,10 +65,11 @@ export const ProfileSlice = createSlice({
                 state.data = action.payload
                 state.form = action.payload
                 state.readonly = true
+                state.validateError = undefined
             })
             .addCase(ProfileSaveEditThunk.rejected, (state, action) => {
                 state.isLoading = false
-                state.error = action.payload
+                state.validateError = action.payload
             })
     },
 })

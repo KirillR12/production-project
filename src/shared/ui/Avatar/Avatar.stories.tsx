@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import avatar from 'shared/assets/test/avatarTest.png'
 import { Avatar } from './Avatar'
 
 const meta: Meta<typeof Avatar> = {
@@ -11,7 +12,7 @@ type Story = StoryObj<typeof Avatar>;
 
 export const Small: Story = {
     args: {
-        src: 'https://icons.iconarchive.com/icons/iconarchive/incognito-animals/512/Lion-Avatar-icon.png',
+        src: avatar,
         size: 100,
         alt: '.',
     },
@@ -19,7 +20,7 @@ export const Small: Story = {
 
 export const Large: Story = {
     args: {
-        src: 'https://icons.iconarchive.com/icons/iconarchive/incognito-animals/512/Lion-Avatar-icon.png',
+        src: avatar,
         size: 200,
         alt: '.',
     },

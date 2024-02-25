@@ -1,3 +1,5 @@
+export { ValidateProfileSchema } from './model/types/ProfileSchema'
+
 export { getProfileData } from './model/selector/getProfileData/getProfileData'
 export { getProfileError } from './model/selector/getProfileError/getProfileError'
 export { getProfileIsLoading } from './model/selector/getProfileIsLoading/getProfileIsLoading'
