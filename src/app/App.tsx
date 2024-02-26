@@ -2,13 +2,14 @@ import { classNames } from 'shared'
 import { Suspense, useEffect } from 'react'
 import { Sidebar } from 'widgets/Sidebar'
 import { Navbar } from 'widgets/Navbar'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { UserActions } from 'entities/User'
+import { UserActions, getUserInited } from 'entities/User'
 import { AppRouter } from './providers/RouterProvider'
 
 export function App() {
     const dispatch = useDispatch()
+    const inited = useSelector(getUserInited)
 
     useEffect(() => {
         dispatch(UserActions.setByUser())
@@ -20,7 +21,7 @@ export function App() {
                 <Navbar />
                 <div className="contate-page">
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>
