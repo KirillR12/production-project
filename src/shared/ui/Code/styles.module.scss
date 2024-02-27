@@ -1,0 +1,19 @@
+.blockCode {
+    position: relative;
+
+    padding: 20px;
+    border: 1px solid var(--inverted-bg-color);
+    overflow-y: auto;
+
+    background-color: var(--bg-code);
+}
+
+.copeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.iconCope path {
+    stroke: var(--primary-color);
+}
