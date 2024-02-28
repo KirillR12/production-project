@@ -17,14 +17,13 @@ export const ProfileSaveEditThunk = createAsyncThunk<Profile, void, ThunkConfig<
         }
 
         try {
-            const response = await extra.api.put<Profile>('/profile', formData)
+            const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData)
             if (!response.data) {
                 throw new Error()
             }
 
             return response.data
         } catch (error) {
-            console.log(error)
             return rejectWithValue([ValidateProfileSchema.SERVER_ERROR])
         }
     },

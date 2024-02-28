@@ -9,7 +9,7 @@ import { CommentBlock } from '../../model/types/CommentBlock'
 
  interface CommentItemProps {
    className?: string
-   comment: CommentBlock
+   comment?: CommentBlock
    isLoading?: boolean
 }
 
@@ -22,7 +22,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.CommentItem, {}, [className])}>
+            <div className={classNames(styles.CommentItem, {}, [className, styles.loading])}>
                 <div className={styles.blockUser}>
                     <Skeleton width={30} height={30} border="50%" />
                     <Skeleton className={styles.nameUser} height={16} width={100} />
@@ -30,6 +30,10 @@ export const CommentItem = memo((props: CommentItemProps) => {
                 <Skeleton height={40} width="100%" />
             </div>
         )
+    }
+
+    if (!comment) {
+        return null
     }
 
     return (

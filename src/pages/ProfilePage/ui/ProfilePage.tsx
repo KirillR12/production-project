@@ -5,7 +5,7 @@ import {
     ProfileCard, ProfileReducer, ProfileThunk, ValidateProfileSchema, getProfileError, getProfileIsLoading,
 } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useCallback, useEffect } from 'react'
+import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getProfileReadonly } from 'entities/Profile/model/selector/getProfileReadonly/getProfileReadonly'
 import { getProfileForm } from 'entities/Profile/model/selector/getProfileForm/getProfileForm'
