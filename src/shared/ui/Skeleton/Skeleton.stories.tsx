@@ -14,12 +14,16 @@ type Story = StoryObj<typeof Skeleton>;
 export const NormalRound: Story = {
     args: {
         border: '50%',
+        height: 100,
+        width: 100,
     },
 }
 
 export const DarkRound: Story = {
     args: {
         border: '50%',
+        height: 100,
+        width: 100,
     },
     decorators: [ThemeDecorater(Theme.DARK)],
 }
@@ -27,20 +31,28 @@ export const DarkRound: Story = {
 export const RedRound: Story = {
     args: {
         border: '50%',
+        height: 100,
+        width: 100,
     },
     decorators: [ThemeDecorater(Theme.RED)],
 }
 
 export const Normal: Story = {
-    args: {},
+    args: {
+        height: 100,
+    },
 }
 
 export const Dark: Story = {
-    args: {},
+    args: {
+        height: 100,
+    },
     decorators: [ThemeDecorater(Theme.DARK)],
 }
 
 export const Red: Story = {
-    args: {},
+    args: {
+        height: 100,
+    },
     decorators: [ThemeDecorater(Theme.RED)],
 }

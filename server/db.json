@@ -102,6 +102,54 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "text": "123",
+      "articleId": "1",
+      "userId": "1",
+      "id": "zi6Y5lG"
+    },
+    {
+      "text": "123",
+      "articleId": "1",
+      "userId": "1",
+      "id": "BCD9sPa"
+    },
+    {
+      "text": "123",
+      "articleId": "1",
+      "userId": "1",
+      "id": "EdAlUlp"
+    },
+    {
+      "text": "123",
+      "articleId": "1",
+      "userId": "2",
+      "id": "wnUwdVC"
+    },
+    {
+      "text": "123",
+      "articleId": "1",
+      "userId": "2",
+      "id": "nZtgUZ1"
+    },
+    {
+      "text": "hello",
+      "articleId": "1",
+      "userId": "2",
+      "id": "BpoBQyi"
+    },
+    {
+      "text": "",
+      "articleId": "1",
+      "userId": "2",
+      "id": "rSxFGYP"
+    },
+    {
+      "text": "привет",
+      "articleId": "1",
+      "userId": "2",
+      "id": "OxWUN_s"
     }
   ],
   "users": [
@@ -109,23 +157,39 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://fineproxy.org/wp-content/uploads/2023/05/Hacker.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://t3.ftcdn.net/jpg/05/56/29/10/360_F_556291020_q2ieMiOCKYbtoLITrnt7qcSL1LJYyWrU.jpg"
     }
   ],
-  "profile": {
-    "first": "Kirill",
-    "lastname": "Fedotov",
-    "age": 20,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Saratov",
-    "username": "admin213",
-    "avatar": "https://fineproxy.org/wp-content/uploads/2023/05/Hacker.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Kirill",
+      "lastname": "Fedotov",
+      "age": 20,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Saratov",
+      "username": "admin213",
+      "avatar": "https://fineproxy.org/wp-content/uploads/2023/05/Hacker.jpg"
+    },
+    {
+      "id": "2",
+      "first": "ulbi",
+      "lastname": "Fedotov",
+      "age": 28,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Saratov",
+      "username": "admin213",
+      "avatar": "https://t3.ftcdn.net/jpg/05/56/29/10/360_F_556291020_q2ieMiOCKYbtoLITrnt7qcSL1LJYyWrU.jpg"
+    }
+  ]
 }

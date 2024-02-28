@@ -1,6 +1,7 @@
 export interface User {
-username: string,
+username: string
 id: string
+avatar?: string
 }
 
 export interface UserSchema {

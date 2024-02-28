@@ -13,7 +13,6 @@ export const ArticleDetaliThunk = createAsyncThunk<Article, string, ThunkConfig<
 
             return response.data
         } catch (error) {
-            console.log(error)
             return rejectWithValue('error')
         }
     },

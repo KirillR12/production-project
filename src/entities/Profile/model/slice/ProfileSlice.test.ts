@@ -1,7 +1,7 @@
 import { CountrySchema } from 'entities/Country'
 import { CurrencySchema } from 'entities/Currency'
 import { ProfileThunk } from '../services/ProfileThunk/ProfileThunk'
-import { ProfileSchema, ValidateProfileSchema } from '../types/ProfileSchema'
+import { ProfileSchema } from '../types/ProfileSchema'
 import { ProfileActions, ProfileReducer } from './ProfileSlice'
 
 const data = {
@@ -40,7 +40,7 @@ describe('ProfileSlice', () => {
 
     test('fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = { isLoading: true }
-        expect(ProfileReducer(state as ProfileSchema, ProfileThunk.fulfilled(data, '')))
+        expect(ProfileReducer(state as ProfileSchema, ProfileThunk.fulfilled(data, '', '1')))
             .toEqual({
                 data,
                 form: data,

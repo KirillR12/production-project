@@ -44,19 +44,21 @@ export const ArticleDetali = memo((props: ArticleDetaliProps) => {
     const isLoading = useSelector(getArticleDetaliIsLoading)
 
     useEffect(() => {
-        dispatch(ArticleDetaliThunk(id))
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(ArticleDetaliThunk(id))
+        }
     }, [dispatch, id])
 
     const renderWith = useCallback((block: ArticleBlockType) => {
         switch (block.type) {
         case ArticleBlock.CODE:
-            return <ArticleDetaliCode block={block} className={styles.block} />
+            return <ArticleDetaliCode key={block.id} block={block} className={styles.block} />
             break
         case ArticleBlock.IMAGE:
-            return <ArticleDetaliImage block={block} className={styles.block} />
+            return <ArticleDetaliImage key={block.id} block={block} className={styles.block} />
             break
         case ArticleBlock.TEXT:
-            return <ArticleDetaliText block={block} className={styles.block} />
+            return <ArticleDetaliText key={block.id} block={block} className={styles.block} />
             break
         default:
             return null

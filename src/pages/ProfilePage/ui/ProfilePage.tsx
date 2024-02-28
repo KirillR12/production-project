@@ -14,6 +14,8 @@ import { CountrySchema } from 'entities/Country'
 import { getValidateErrors } from 'entities/Profile/model/selector/getValidateErrors/getValidateErrors'
 import { useTranslation } from 'react-i18next'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { useParams } from 'react-router-dom'
 import styles from './styles.module.scss'
 import { ProfileHeaders } from './ProfileHeaders/ProfileHeaders'
 
@@ -36,11 +38,13 @@ const ProfilePage = ({ className }: ProfileProps) => {
         [ValidateProfileSchema.SERVER_ERROR]: t('Серверная ошибка'),
     }
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(ProfileThunk())
+    const { id } = useParams<{id: string}>()
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(ProfileThunk(String(id)))
         }
-    }, [dispatch])
+    })
 
     const form = useSelector(getProfileForm)
     const isLoading = useSelector(getProfileIsLoading)
