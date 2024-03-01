@@ -1,9 +1,9 @@
-import { SidebarItemType } from 'widgets/Sidebar/model/items'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared'
 import { useSelector } from 'react-redux'
 import { getAuthUser } from 'entities/User'
+import { SidebarItemType } from '../../model/types/sidebar'
 import styles from './styles.module.scss'
 
  interface SidebarButtonProps {
