@@ -44,3 +44,8 @@ createdAt: string,
 type: ArticleDataType[],
 blocks: ArticleBlockType[]
 }
+
+export enum ArticleView {
+    BIG = 'BIG',
+    SMALL = 'SMALL'
+}
