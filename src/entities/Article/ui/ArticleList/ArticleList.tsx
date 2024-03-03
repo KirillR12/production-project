@@ -23,7 +23,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     } = props
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem />
+        <ArticleListItem
+            article={article}
+            view={view}
+        />
     )
 
     return (

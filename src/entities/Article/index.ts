@@ -1,3 +1,4 @@
+export { ArticleList } from './ui/ArticleList/ArticleList'
 export {
     Article, ArticleBlock, ArticleDataType, ArticleView,
 } from './model/types/ArticleType'

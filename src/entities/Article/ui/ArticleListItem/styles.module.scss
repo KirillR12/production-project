@@ -1,3 +1,72 @@
 .ArticleListItem {
     background-color: var(--bg-color);
 }
+
+// .BIG {
+
+// }
+
+.SMALL {
+    width: 230px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    .date {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        display: none;
+    }
+
+    &:hover {
+        transform: scale(1.01);
+        opacity: 0.8;
+
+        .date {
+            display: block;
+        }
+    }
+
+    .imageWrapper {
+        position: relative;
+
+        width: 200px;
+        height: 200px;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .infoWrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .type p {
+        width: 130px;
+        overflow: hidden;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .views {
+        margin-right: 8px;
+        margin-left: auto;
+    }
+
+    .title p {
+        width: 200px;
+        margin-top: 8px;
+        overflow: hidden;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

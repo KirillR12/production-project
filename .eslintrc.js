@@ -19,6 +19,7 @@ module.exports = {
             files: [
                 '.eslintrc.{js,cjs}',
                 '**/src/**/*.test.{ts,tsx}',
+                '**/src/**/*.stories.{ts,tsx}',
             ],
             parserOptions: {
                 sourceType: 'script',
@@ -68,6 +69,7 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: ['data-testid', 'to', 'name'],
+
             },
         ],
     },
