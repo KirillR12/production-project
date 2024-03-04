@@ -4,13 +4,24 @@ import { memo } from 'react'
 import styles from './styles.module.scss'
 import { Article, ArticleView } from '../../model/types/ArticleType'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 
  interface ArticleListProps {
    className?: string
    articles: Article[]
-   isLoading?: boolean
-   view?: ArticleView
+   isLoading: boolean
+   view: ArticleView
 }
+
+const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0)
+    .map((el) => (
+        <ArticleListItemSkeleton
+            className={styles.card}
+            key={el}
+            view={view}
+        />
+    ))
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation()
@@ -26,11 +37,21 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <ArticleListItem
             article={article}
             view={view}
+            className={styles.card}
+            key={article.id}
         />
     )
 
+    if (isLoading) {
+        return (
+            <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
+                {getSkeleton(view)}
+            </div>
+        )
+    }
+
     return (
-        <div className={classNames(styles.ArticleList, {}, [className])}>
+        <div className={classNames(styles.ArticleList, {}, [className, styles[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}

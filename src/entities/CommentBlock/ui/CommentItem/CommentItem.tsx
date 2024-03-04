@@ -38,7 +38,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     return (
         <div className={classNames(styles.CommentItem, {}, [className])}>
-            <AppLink to={`/${RoutePath.profile}${comment.user.id}`} className={styles.blockUser}>
+            <AppLink to={RoutePath.profile + comment.user.id} className={styles.blockUser}>
                 {comment?.user.avatar && <Avatar src={comment.user.avatar} size={30} />}
                 <Text className={styles.nameUser} title={comment?.user.username} />
             </AppLink>

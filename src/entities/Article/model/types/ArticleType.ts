@@ -1,3 +1,5 @@
+import { User } from 'entities/User/model/types/UserSchema'
+
 export enum ArticleBlock {
     IMAGE = 'IMAGE',
     TEXT = 'TEXT',
@@ -39,6 +41,7 @@ id: string,
 title: string,
 subtitle: string,
 img: string,
+user: User,
 views: number,
 createdAt: string,
 type: ArticleDataType[],

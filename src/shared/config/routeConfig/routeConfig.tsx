@@ -20,11 +20,11 @@ export enum AppRouter {
 }
 
 export const RoutePath: Record<AppRouter, string> = {
-    [AppRouter.MAIN]: '',
-    [AppRouter.ABOUT]: 'about',
-    [AppRouter.PROFILE]: 'profile/',
-    [AppRouter.ARTICLE]: 'article',
-    [AppRouter.ARTICLE_DETALI]: 'article/',
+    [AppRouter.MAIN]: '/',
+    [AppRouter.ABOUT]: '/about',
+    [AppRouter.PROFILE]: '/profile/', // + id
+    [AppRouter.ARTICLE]: '/article',
+    [AppRouter.ARTICLE_DETALI]: '/article/', // + id
     [AppRouter.NOTFOUNDPAGE]: '*',
 }
 
