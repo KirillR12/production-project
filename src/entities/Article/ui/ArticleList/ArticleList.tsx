@@ -1,5 +1,4 @@
 import { classNames } from 'shared'
-import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import styles from './styles.module.scss'
 import { Article, ArticleView } from '../../model/types/ArticleType'
@@ -24,8 +23,6 @@ const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.SMALL 
     ))
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const { t } = useTranslation()
-
     const {
         className,
         articles,
