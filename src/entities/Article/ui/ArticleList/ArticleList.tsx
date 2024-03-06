@@ -8,16 +8,16 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
  interface ArticleListProps {
    className?: string
    articles: Article[]
-   isLoading: boolean
+   isLoading?: boolean
    view: ArticleView
 }
 
 const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
     .fill(0)
-    .map((el) => (
+    .map((el, index) => (
         <ArticleListItemSkeleton
             className={styles.card}
-            key={el}
+            key={index}
             view={view}
         />
     ))
@@ -27,7 +27,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className,
         articles,
         isLoading,
-        view,
+        view = ArticleView.SMALL,
     } = props
 
     const renderArticle = (article: Article) => (

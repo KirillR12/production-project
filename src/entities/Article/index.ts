@@ -1,3 +1,4 @@
+export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector'
 export { ArticleList } from './ui/ArticleList/ArticleList'
 export {
     Article, ArticleBlock, ArticleDataType, ArticleView,
