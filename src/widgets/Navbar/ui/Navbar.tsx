@@ -38,7 +38,7 @@ export const Navbar = (props: NavbarProps) => {
 
     if (authUser) {
         return (
-            <div className={classNames(styles.Navbar, {}, [className])}>
+            <header className={classNames(styles.Navbar, {}, [className])}>
                 <Button
                     theme={ButtonTheme.OUTLINE_INVERTED}
                     onClick={toggleLogOut}
@@ -46,12 +46,12 @@ export const Navbar = (props: NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-            </div>
+            </header>
         )
     }
 
     return (
-        <div className={classNames(styles.Navbar, {}, [className])}>
+        <header className={classNames(styles.Navbar, {}, [className])}>
             <Button
                 theme={ButtonTheme.OUTLINE_INVERTED}
                 onClick={toggleOpenMadal}
@@ -64,6 +64,6 @@ export const Navbar = (props: NavbarProps) => {
                     isClose={toggleCloseModal}
                 />
             )}
-        </div>
+        </header>
     )
 }

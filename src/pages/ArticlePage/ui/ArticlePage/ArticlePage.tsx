@@ -6,7 +6,11 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { getArticlePageIsLoading, getArticlePageView } from '../../model/selectors/ArticlePageSelectors'
+import { Page } from 'shared/ui/Page/Page'
+import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/ArticlePageNextThunk'
+import {
+    getArticlePageIsLoading, getArticlePageView,
+} from '../../model/selectors/ArticlePageSelectors'
 import { ArticlePageActions, ArticlePageReducer, getSelectorsArticles } from '../../model/slice/ArticlePageSlice'
 import styles from './styles.module.scss'
 import { ArticlePageThunk } from '../../model/servers/ArticlePageThunk/ArticlePageThunk'
@@ -27,17 +31,26 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
     const dispatch = useAppDispatch()
 
     useInitialEffect(() => {
-        dispatch(ArticlePageThunk())
         dispatch(ArticlePageActions.setInitView())
+        dispatch(ArticlePageThunk({
+            page: 1,
+        }))
     })
 
     const onViewClick = useCallback((newView: ArticleView) => {
         dispatch(ArticlePageActions.setView(newView))
     }, [dispatch])
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(ArticlePageNextThunk())
+    }, [dispatch])
+
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <div className={classNames(styles.ArticlePage, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(styles.ArticlePage, {}, [className])}
+            >
                 <ArticleViewSelector
                     onViewClick={onViewClick}
                     view={view}
@@ -47,7 +60,7 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
                     view={view}
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

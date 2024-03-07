@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 import styles from './styles.module.scss'
 import { ProfileHeaders } from './ProfileHeaders/ProfileHeaders'
 
@@ -84,29 +85,31 @@ const ProfilePage = ({ className }: ProfileProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <ProfileHeaders />
-            {errors?.length && errors.map((err) => (
-                <Text
-                    theme={TextTheme.ERROR}
-                    key={err}
-                    title={validateError[err]}
-                />
-            ))}
-            <div className={classNames(styles.Profile, {}, [className])}>
-                <ProfileCard
-                    data={form}
-                    isLoading={isLoading}
-                    error={error}
-                    editFirstname={editFirstname}
-                    editLastname={editLastname}
-                    readonly={readonly}
-                    editCity={editCity}
-                    editAge={editAge}
-                    editAvatar={editAvatar}
-                    editCurrency={editCurrency}
-                    editCountry={editCountry}
-                />
-            </div>
+            <Page>
+                <ProfileHeaders />
+                {errors?.length && errors.map((err) => (
+                    <Text
+                        theme={TextTheme.ERROR}
+                        key={err}
+                        title={validateError[err]}
+                    />
+                ))}
+                <div className={classNames(styles.Profile, {}, [className])}>
+                    <ProfileCard
+                        data={form}
+                        isLoading={isLoading}
+                        error={error}
+                        editFirstname={editFirstname}
+                        editLastname={editLastname}
+                        readonly={readonly}
+                        editCity={editCity}
+                        editAge={editAge}
+                        editAvatar={editAvatar}
+                        editCurrency={editCurrency}
+                        editCountry={editCountry}
+                    />
+                </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

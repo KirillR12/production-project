@@ -12,6 +12,7 @@ import { AddCommentForm, addCommentArticleThunk } from 'features/addCommentForm'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { Page } from 'shared/ui/Page/Page'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk'
 import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/ArticleComment'
 import styles from './styles.module.scss'
@@ -53,7 +54,7 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -70,7 +71,7 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
                     isLoading={isLoading}
                     error={error}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }
