@@ -4,17 +4,17 @@ import { CommentBlock } from 'entities/CommentBlock'
 
 export const ArticleCommentThunk = createAsyncThunk<CommentBlock[], string | undefined, ThunkConfig<string>>(
     'ArticleDetali/ArticleCommentThunk',
-    async (commentId, thunkApi) => {
+    async (articleId, thunkApi) => {
         const { extra, rejectWithValue } = thunkApi
 
-        if (!commentId) {
+        if (!articleId) {
             return rejectWithValue('error')
         }
 
         try {
             const response = await extra.api.get<CommentBlock[]>('/comments', {
                 params: {
-                    commentId,
+                    articleId,
                     _expand: 'user',
                 },
             })

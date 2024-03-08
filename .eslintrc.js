@@ -65,6 +65,7 @@ module.exports = {
         'max-len': ['error', { code: 140 }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/no-array-index-key': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
         'i18next/no-literal-string': [
             'error',
             {

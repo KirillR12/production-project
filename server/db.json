@@ -477,82 +477,22 @@
       "userId": "1"
     },
     {
-      "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
+      "text": "Привет",
       "articleId": "1",
       "userId": "1",
-      "text": "123",
-      "id": "4Cljjzl"
+      "id": "Jxm7lkv"
     },
     {
-      "articleId": "1",
+      "text": "Але",
+      "articleId": "5",
       "userId": "1",
-      "text": "123asfasf",
-      "id": "AEM4Dvc"
+      "id": "U1KfqOt"
     },
     {
-      "articleId": "1",
-      "userId": "2",
-      "text": "123asfasf",
-      "id": "IFEOWl0"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "привет мир",
-      "id": "dBacYRZ"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "хехехехе",
-      "id": "rBX_C-e"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "фыафыа",
-      "id": "5k0ApX-"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "sdfsdfsd",
-      "id": "w-HDIRq"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "asdasdasd",
-      "id": "MVvGQoZ"
-    },
-    {
-      "articleId": "3",
-      "userId": "1",
-      "text": "comment 1",
-      "id": "bAs7YBE"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "python!!!",
-      "id": "p5rMadd"
-    },
-    {
-      "text": "привет",
+      "text": "Круто!",
       "articleId": "4",
       "userId": "1",
-      "id": "qds9JeU"
+      "id": "Ytxh_5g"
     }
   ],
   "users": [
@@ -561,7 +501,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+      "avatar": "https://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ"
     },
     {
       "id": "2",
