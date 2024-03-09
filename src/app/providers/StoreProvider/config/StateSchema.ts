@@ -10,10 +10,12 @@ import { LoginSchema } from 'features/AuthByUsername'
 import { AddCommentFormSchema } from 'features/addCommentForm'
 import { ArticleCommentSchema } from 'pages/ArticleDetaliPage'
 import { ArticlePageSchema } from 'pages/ArticlePage'
+import { ScrollSchema } from 'widgets/Page'
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
+    scrollPage: ScrollSchema
 
     login?: LoginSchema,
     profile?: ProfileSchema

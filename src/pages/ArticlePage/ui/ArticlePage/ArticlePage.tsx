@@ -6,7 +6,7 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page'
 import { initArticlePage } from 'pages/ArticlePage/model/servers/initArticlePage/initArticlePage'
 import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/ArticlePageNextThunk'
 import {
@@ -31,7 +31,7 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
     const dispatch = useAppDispatch()
 
     useInitialEffect(() => {
-        initArticlePage()
+        dispatch(initArticlePage())
     })
 
     const onViewClick = useCallback((newView: ArticleView) => {

@@ -4,25 +4,25 @@ import {
 import { CounterReducer } from 'entities/Counter'
 import { UserReducer } from 'entities/User'
 import { $api } from 'shared/api/api'
+import { ScrollReducer } from 'widgets/Page'
 import { StateSchema, ThunkExtraArg } from './StateSchema'
 import { createReducerManager } from './ReducerManager'
 
 export function createReduxStore(
     initialState: StateSchema,
     asyncReducer: ReducersMapObject<StateSchema>,
-    // navigate: (to: To, options?: NavigateOptions) => void,
 ) {
     const rootReducer: ReducersMapObject = {
         ...asyncReducer,
         counter: CounterReducer,
         user: UserReducer,
+        scrollPage: ScrollReducer,
     }
 
     const reducerManager = createReducerManager(rootReducer)
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        // navigate,
     }
 
     const store = configureStore({
