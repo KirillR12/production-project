@@ -4,8 +4,9 @@ import {
     createSlice,
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleView } from 'entities/Article'
+import { Article, ArticleSortField, ArticleView } from 'entities/Article'
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localStorage'
+import { SortOrder } from 'shared/types'
 import { ArticlePageSchema } from '../tyles/ArticlePageSchema'
 import { ArticlePageThunk } from '../servers/ArticlePageThunk/ArticlePageThunk'
 
@@ -28,6 +29,9 @@ const ArticlePageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        sort: ArticleSortField.CREATED,
+        search: '',
+        order: 'asc',
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -43,20 +47,38 @@ const ArticlePageSlice = createSlice({
             state.limit = view === ArticleView.BIG ? 4 : 9
             state._inited = true
         },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload
+        },
+        setSort: (state, action: PayloadAction<ArticleSortField>) => {
+            state.sort = action.payload
+        },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(ArticlePageThunk.pending, (state) => {
+            .addCase(ArticlePageThunk.pending, (state, action) => {
                 state.error = undefined
                 state.isLoading = true
+
+                if (action.meta.arg.replace) {
+                    articlePageAdapter.removeAll(state)
+                }
             })
             .addCase(ArticlePageThunk.fulfilled, (
                 state,
-                action: PayloadAction<Article[]>,
+                action,
             ) => {
                 state.isLoading = false
-                articlePageAdapter.addMany(state, action.payload)
                 state.hasMore = action.payload.length > 0
+
+                if (action.meta.arg.replace) {
+                    articlePageAdapter.setAll(state, action.payload)
+                } else {
+                    articlePageAdapter.addMany(state, action.payload)
+                }
             })
             .addCase(ArticlePageThunk.rejected, (state, action) => {
                 state.isLoading = false

@@ -1,7 +1,6 @@
-/* eslint-disable max-len */
 import { classNames } from 'shared'
 import { memo, useCallback } from 'react'
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article'
+import { ArticleList } from 'entities/Article'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
@@ -12,8 +11,9 @@ import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/A
 import {
     getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/ArticlePageSelectors'
-import { ArticlePageActions, ArticlePageReducer, getSelectorsArticles } from '../../model/slice/ArticlePageSlice'
+import { ArticlePageReducer, getSelectorsArticles } from '../../model/slice/ArticlePageSlice'
 import styles from './styles.module.scss'
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 
  interface ArticlePageProps {
    className?: string
@@ -25,18 +25,14 @@ const reducer: ReducerList = {
 
 const ArticlePage = ({ className }: ArticlePageProps) => {
     const isLoading = useSelector(getArticlePageIsLoading)
-    const view = useSelector(getArticlePageView)
     const articles = useSelector(getSelectorsArticles.selectAll)
+    const view = useSelector(getArticlePageView)
 
     const dispatch = useAppDispatch()
 
     useInitialEffect(() => {
         dispatch(initArticlePage())
     })
-
-    const onViewClick = useCallback((newView: ArticleView) => {
-        dispatch(ArticlePageActions.setView(newView))
-    }, [dispatch])
 
     const onLoadNextPart = useCallback(() => {
         dispatch(ArticlePageNextThunk())
@@ -48,14 +44,12 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(styles.ArticlePage, {}, [className])}
             >
-                <ArticleViewSelector
-                    onViewClick={onViewClick}
-                    view={view}
-                />
+                <ArticlePageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
+                    className={styles.list}
                 />
             </Page>
         </DynamicModuleLoader>

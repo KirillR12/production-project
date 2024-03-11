@@ -1,9 +1,9 @@
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
-import { ChangeEvent, memo, useMemo } from 'react'
+import { ChangeEvent, useMemo } from 'react'
 import styles from './styles.module.scss'
 
-interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     content: string;
 }
 
@@ -11,17 +11,17 @@ export enum SelectTheme {
     OUTLINE = 'outline'
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
     label?: string
-    value?: string
+    value?: T
     className?: string
     theme?: SelectTheme
-    onChange?: (value: string) => void
-    options: SelectOption[]
+    onChange?: (value: T) => void
+    options?: SelectOption<T>[]
     readonly?: boolean
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
         className,
         options,
@@ -33,13 +33,14 @@ export const Select = memo((props: SelectProps) => {
     } = props
 
     const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value)
+        onChange?.(e.target.value as T)
     }
 
     const optionsHalper = useMemo(() => options?.map((el) => (
         <option
             className={styles.option}
             key={el.value}
+            value={el.value}
         >
             {el.content}
         </option>
@@ -62,4 +63,4 @@ export const Select = memo((props: SelectProps) => {
             </select>
         </div>
     )
-})
+}

@@ -14,9 +14,7 @@ export const initArticlePage = createAsyncThunk<void, void, ThunkConfig<string>>
         const inited = getArticlePageInited(getState())
         if (!inited) {
             dispatch(ArticlePageActions.setInitView())
-            dispatch(ArticlePageThunk({
-                page: 1,
-            }))
+            dispatch(ArticlePageThunk({}))
         }
     },
 )

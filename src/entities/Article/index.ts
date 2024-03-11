@@ -1,3 +1,5 @@
+export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector'
+export { ArticleSortField } from './model/types/ArticleType'
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector'
 export { ArticleList } from './ui/ArticleList/ArticleList'
 export {

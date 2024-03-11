@@ -23,9 +23,7 @@ export const ArticlePageNextThunk = createAsyncThunk<void, void, ThunkConfig<str
 
         if (hasMore && !isLoading) {
             dispatch(ArticlePageActions.setPage(page + 1))
-            dispatch(ArticlePageThunk({
-                page: page + 1,
-            }))
+            dispatch(ArticlePageThunk({}))
         }
     },
 )

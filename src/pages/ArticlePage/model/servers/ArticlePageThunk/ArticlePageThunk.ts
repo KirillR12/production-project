@@ -1,21 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from 'app/providers/StoreProvider'
 import { Article } from 'entities/Article'
-import { getArticlePageLimit } from '../../selectors/ArticlePageSelectors'
+import {
+    getArticlePageLimit, getArticlePageNum, getArticlePageOrder, getArticlePageSearch, getArticlePageSort,
+} from '../../selectors/ArticlePageSelectors'
 
-export interface addCommentFormThunkProps {
-    page?: number
+interface ArticlePageThunkProps {
+replace?: boolean
 }
 
-export const ArticlePageThunk = createAsyncThunk<Article[], addCommentFormThunkProps, ThunkConfig<string>>(
+export const ArticlePageThunk = createAsyncThunk<Article[], ArticlePageThunkProps, ThunkConfig<string>>(
     'articlePage/ArticlePageThunk',
-    async (props, thunkApi) => {
+    async (_, thunkApi) => {
         const {
             extra, rejectWithValue, getState,
         } = thunkApi
 
-        const { page = 1 } = props
+        const page = getArticlePageNum(getState())
         const limit = getArticlePageLimit(getState())
+        const order = getArticlePageOrder(getState())
+        const sort = getArticlePageSort(getState())
+        const search = getArticlePageSearch(getState())
 
         try {
             const response = await extra.api.get<Article[]>('/articles', {
@@ -23,6 +28,9 @@ export const ArticlePageThunk = createAsyncThunk<Article[], addCommentFormThunkP
                     _expand: 'user',
                     _limit: limit,
                     _page: page,
+                    _order: order,
+                    _sort: sort,
+                    q: search,
                 },
             })
 
