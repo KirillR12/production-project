@@ -4,7 +4,9 @@ import {
     createSlice,
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleSortField, ArticleView } from 'entities/Article'
+import {
+    Article, ArticleDataType, ArticleSortField, ArticleView,
+} from 'entities/Article'
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/const/localStorage'
 import { SortOrder } from 'shared/types'
 import { ArticlePageSchema } from '../tyles/ArticlePageSchema'
@@ -32,6 +34,8 @@ const ArticlePageSlice = createSlice({
         sort: ArticleSortField.CREATED,
         search: '',
         order: 'asc',
+        limit: 1,
+        type: ArticleDataType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -56,6 +60,9 @@ const ArticlePageSlice = createSlice({
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload
         },
+        setType: (state, action: PayloadAction<ArticleDataType>) => {
+            state.type = action.payload
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -72,7 +79,7 @@ const ArticlePageSlice = createSlice({
                 action,
             ) => {
                 state.isLoading = false
-                state.hasMore = action.payload.length > 0
+                state.hasMore = action.payload.length >= state.limit
 
                 if (action.meta.arg.replace) {
                     articlePageAdapter.setAll(state, action.payload)

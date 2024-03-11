@@ -1,6 +1,7 @@
 import { classNames } from 'shared'
-import { memo, useCallback } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import {
+    ArticleDataType,
     ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
 } from 'entities/Article'
 import { useSelector } from 'react-redux'
@@ -9,9 +10,12 @@ import { useTranslation } from 'react-i18next'
 import { Card } from 'shared/ui/Card/Card'
 import { Input } from 'shared/ui/Input/Input'
 import { SortOrder } from 'shared/types'
+import { useDebounce } from 'shared/lib/hooks/useDebounce'
+import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs'
+import { ArticleTypeTab } from 'entities/Article/ui/ArticleTypeTab/ArticleTypeTab'
 import styles from './styles.module.scss'
 import {
-    getArticlePageOrder, getArticlePageSearch, getArticlePageSort, getArticlePageView,
+    getArticlePageOrder, getArticlePageSearch, getArticlePageSort, getArticlePageType, getArticlePageView,
 } from '../../model/selectors/ArticlePageSelectors'
 import { ArticlePageActions } from '../../model/slice/ArticlePageSlice'
 import { ArticlePageThunk } from '../../model/servers/ArticlePageThunk/ArticlePageThunk'
@@ -34,10 +38,13 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
     const order = useSelector(getArticlePageOrder)
     const sort = useSelector(getArticlePageSort)
     const search = useSelector(getArticlePageSearch)
+    const type = useSelector(getArticlePageType)
 
     const fetchData = useCallback(() => {
         dispatch(ArticlePageThunk({ replace: true }))
     }, [dispatch])
+
+    const debounceFetchData = useDebounce(fetchData, 500)
 
     const onChangeView = useCallback((newView: ArticleView) => {
         dispatch(ArticlePageActions.setView(newView))
@@ -60,8 +67,14 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
     const onChangeSearch = useCallback((newSearch: string) => {
         dispatch(ArticlePageActions.setSearch(newSearch))
         dispatch(ArticlePageActions.setPage(1))
-        fetchData()
-    }, [fetchData, dispatch])
+        debounceFetchData()
+    }, [dispatch, debounceFetchData])
+
+    const onChangeType = useCallback((newType: TabsItem<ArticleDataType>) => {
+        dispatch(ArticlePageActions.setType(newType.value))
+        dispatch(ArticlePageActions.setPage(1))
+        debounceFetchData()
+    }, [dispatch, debounceFetchData])
 
     return (
         <div className={classNames(styles.ArticlePageFilters, {}, [className])}>
@@ -85,6 +98,11 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
                     onChange={onChangeSearch}
                 />
             </Card>
+            <ArticleTypeTab
+                type={type}
+                onChangeType={onChangeType}
+                className={styles.tabs}
+            />
         </div>
     )
 })

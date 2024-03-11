@@ -35,6 +35,7 @@ export interface ArticlBlockCode extends ArticlBlock {
 }
 
 export enum ArticleDataType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'

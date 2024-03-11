@@ -7,6 +7,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Page } from 'widgets/Page'
 import { initArticlePage } from 'pages/ArticlePage/model/servers/initArticlePage/initArticlePage'
+import { useSearchParams } from 'react-router-dom'
 import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/ArticlePageNextThunk'
 import {
     getArticlePageIsLoading, getArticlePageView,
@@ -30,8 +31,10 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
 
     const dispatch = useAppDispatch()
 
+    const [searcParams] = useSearchParams()
+
     useInitialEffect(() => {
-        dispatch(initArticlePage())
+        dispatch(initArticlePage(searcParams))
     })
 
     const onLoadNextPart = useCallback(() => {
