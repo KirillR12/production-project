@@ -14,9 +14,10 @@ import { ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { Page } from 'widgets/Page'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk'
-import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/ArticleComment'
+import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/getArticleComment'
 import styles from './styles.module.scss'
 import { ArticleCommentBlockReducer, getSelectorsComments } from '../../model/slice/ArticleCommentSlice'
+import { ArticleRecommendatiosReducer } from '../../model/slice/ArticleRecommendatios'
 
  interface ArticleDetaliPageProps {
    className?: string
@@ -24,6 +25,7 @@ import { ArticleCommentBlockReducer, getSelectorsComments } from '../../model/sl
 
 const reducers: ReducerList = {
     articleComment: ArticleCommentBlockReducer,
+    articleRecommends: ArticleRecommendatiosReducer,
 }
 
 const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
