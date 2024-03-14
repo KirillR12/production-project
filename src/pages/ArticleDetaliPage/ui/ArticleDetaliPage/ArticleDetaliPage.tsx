@@ -1,10 +1,10 @@
 import { Button, classNames } from 'shared'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { ArticleDetali } from 'entities/Article'
+import { ArticleDetali, ArticleList, ArticleView } from 'entities/Article'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CommentList } from 'entities/CommentBlock'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
@@ -16,16 +16,18 @@ import { Page } from 'widgets/Page'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk'
 import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/getArticleComment'
 import styles from './styles.module.scss'
-import { ArticleCommentBlockReducer, getSelectorsComments } from '../../model/slice/ArticleCommentSlice'
-import { ArticleRecommendatiosReducer } from '../../model/slice/ArticleRecommendatios'
+import { getSelectorsComments } from '../../model/slice/ArticleCommentSlice'
+import { getArticleRecommends } from '../../model/slice/ArticleRecommendatiosSlice'
+import { getArticleRecommendsIsLoading } from '../../model/selector/getArticleRecommends'
+import { ArticleRecommendsThunk } from '../../model/servers/ArticleRecommendsThunk'
+import { articleDetaliReducer } from '../../model/slice'
 
  interface ArticleDetaliPageProps {
    className?: string
 }
 
 const reducers: ReducerList = {
-    articleComment: ArticleCommentBlockReducer,
-    articleRecommends: ArticleRecommendatiosReducer,
+    articleDetaliPage: articleDetaliReducer,
 }
 
 const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
@@ -35,8 +37,11 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
     const navigate = useNavigate()
 
     const comments = useSelector(getSelectorsComments.selectAll)
-    const isLoading = useSelector(getArticleCommentIsLoading)
-    const error = useSelector(getArticleCommentError)
+    const isLoadingComment = useSelector(getArticleCommentIsLoading)
+    const errorComment = useSelector(getArticleCommentError)
+
+    const recommendation = useSelector(getArticleRecommends.selectAll)
+    const isLoadingRecommendation = useSelector(getArticleRecommendsIsLoading)
 
     const onBackToList = useCallback(() => {
         navigate(RoutePath.article)
@@ -44,6 +49,7 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
 
     useInitialEffect(() => {
         dispatch(ArticleCommentThunk(id))
+        dispatch(ArticleRecommendsThunk())
     })
 
     const onSendComment = useCallback((text: string) => {
@@ -65,13 +71,26 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
                     onSendComment={onSendComment}
                 />
                 <Text
+                    size={TextSize.L}
+                    className={styles.title}
+                    title={t('Рекомендуем')}
+                />
+                <ArticleList
+                    articles={recommendation}
+                    isLoading={isLoadingRecommendation}
+                    view={ArticleView.SMALL}
+                    className={styles.articleList}
+                    target="_black"
+                />
+                <Text
+                    size={TextSize.L}
                     className={styles.title}
                     title={t('Комментарии')}
                 />
                 <CommentList
                     comments={comments}
-                    isLoading={isLoading}
-                    error={error}
+                    isLoading={isLoadingComment}
+                    error={errorComment}
                 />
             </Page>
         </DynamicModuleLoader>

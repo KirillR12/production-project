@@ -1,5 +1,5 @@
 import { classNames } from 'shared'
-import { memo } from 'react'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import styles from './styles.module.scss'
@@ -12,6 +12,7 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
    articles: Article[]
    isLoading?: boolean
    view: ArticleView
+   target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeleton = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
@@ -32,6 +33,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.SMALL,
+        target,
     } = props
 
     const renderArticle = (article: Article) => (
@@ -40,6 +42,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             view={view}
             className={styles.card}
             key={article.id}
+            target={target}
         />
     )
 

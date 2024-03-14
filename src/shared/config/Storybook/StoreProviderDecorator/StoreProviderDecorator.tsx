@@ -1,18 +1,16 @@
 /* eslint-disable */
 import { ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
-import { ArticleDetaliReducer } from 'entities/Article/model/slice/ArticleDetaliSlice/ArticleDetaliSlice'
 import { ProfileReducer } from 'entities/Profile'
 import { LoginReducer } from 'features/AuthByUsername/model/slice/LoginSlice'
 import { addCommentFormReducer } from 'features/addCommentForm'
-import { ArticleCommentBlockReducer } from 'pages/ArticleDetaliPage'
+import {  articleDetaliReducer } from 'pages/ArticleDetaliPage'
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducer: ReducerList = {
     login: LoginReducer,
     profile: ProfileReducer,
-    articleDetali: ArticleDetaliReducer,
-    articleComment: ArticleCommentBlockReducer,
+articleDetaliPage: articleDetaliReducer,
     addComment: addCommentFormReducer
 }
 

@@ -8,7 +8,7 @@ import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername'
 import { AddCommentFormSchema } from 'features/addCommentForm'
-import { ArticleCommentSchema, ArticleRecommendatiosSchema } from 'pages/ArticleDetaliPage'
+import { ArticleDetaliPageSchema } from 'pages/ArticleDetaliPage'
 import { ArticlePageSchema } from 'pages/ArticlePage'
 import { ScrollSchema } from 'widgets/Page'
 
@@ -20,8 +20,7 @@ export interface StateSchema {
     login?: LoginSchema,
     profile?: ProfileSchema
     articleDetali?: ArticleSchema
-    articleComment?: ArticleCommentSchema
-    articleRecommends?: ArticleRecommendatiosSchema
+    articleDetaliPage?: ArticleDetaliPageSchema
     addComment?: AddCommentFormSchema
     articlePage?: ArticlePageSchema
 }
