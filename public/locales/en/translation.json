@@ -11,5 +11,8 @@
     "О сайте": "About the site",
     "Выйти": "Go Out",
     "Авторизация": "Authorization",
-    "Не верный логин или пароль": "Wrong login or password"
+    "Не верный логин или пароль": "Wrong login or password",
+    "Профиль": "Profile",
+    "Статьи": "Article",
+    "Создать новую статью": "Create new article"
 }

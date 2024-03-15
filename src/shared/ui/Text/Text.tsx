@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 
 export enum TextTheme {
     DEFAULT ='default',
+    INVERTED = 'inverted',
     ERROR = 'error',
 }
 

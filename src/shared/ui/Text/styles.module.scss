@@ -6,6 +6,16 @@
     color: var(--primary-color);
 }
 
+.inverted {
+    .text {
+        color: var(--inverted-primary-color);
+    }
+
+    .title {
+        color: var(--inverted-secondary-color);
+    }
+}
+
 .error {
     .title {
         color: var(--red);

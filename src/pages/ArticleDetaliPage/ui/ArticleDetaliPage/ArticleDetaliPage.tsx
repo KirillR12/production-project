@@ -1,8 +1,8 @@
-import { Button, classNames } from 'shared'
+import { classNames } from 'shared'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { ArticleDetali, ArticleList, ArticleView } from 'entities/Article'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { CommentList } from 'entities/CommentBlock'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -10,8 +10,6 @@ import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { AddCommentForm, addCommentArticleThunk } from 'features/addCommentForm'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { ButtonTheme } from 'shared/ui/Button/Button'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { Page } from 'widgets/Page'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk'
 import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/getArticleComment'
@@ -21,6 +19,7 @@ import { getArticleRecommends } from '../../model/slice/ArticleRecommendatiosSli
 import { getArticleRecommendsIsLoading } from '../../model/selector/getArticleRecommends'
 import { ArticleRecommendsThunk } from '../../model/servers/ArticleRecommendsThunk'
 import { articleDetaliReducer } from '../../model/slice'
+import { ArticleDetaliPageHeader } from '../ArticleDetaliPageHeader/ArticleDetaliPageHeader'
 
  interface ArticleDetaliPageProps {
    className?: string
@@ -34,7 +33,6 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
     const { t } = useTranslation()
     const { id } = useParams<{id: string}>()
     const dispatch = useAppDispatch()
-    const navigate = useNavigate()
 
     const comments = useSelector(getSelectorsComments.selectAll)
     const isLoadingComment = useSelector(getArticleCommentIsLoading)
@@ -42,10 +40,6 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
 
     const recommendation = useSelector(getArticleRecommends.selectAll)
     const isLoadingRecommendation = useSelector(getArticleRecommendsIsLoading)
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.article)
-    }, [navigate])
 
     useInitialEffect(() => {
         dispatch(ArticleCommentThunk(id))
@@ -63,9 +57,7 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetaliPageHeader />
                 <ArticleDetali id={id} />
                 <AddCommentForm
                     onSendComment={onSendComment}
