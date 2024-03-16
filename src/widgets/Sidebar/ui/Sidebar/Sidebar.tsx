@@ -2,7 +2,7 @@ import { LangSwitcher, ThemeSwitcher, classNames } from 'shared'
 import { memo, useMemo, useState } from 'react'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { useSelector } from 'react-redux'
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import styles from './styles.module.scss'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 

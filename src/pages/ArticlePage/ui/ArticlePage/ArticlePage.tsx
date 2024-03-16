@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom'
 import { classNames } from 'shared'
 import { memo, useCallback } from 'react'
 import { ArticleList } from 'entities/Article'
@@ -6,8 +7,7 @@ import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Page } from 'widgets/Page'
-import { initArticlePage } from 'pages/ArticlePage/model/servers/initArticlePage/initArticlePage'
-import { useSearchParams } from 'react-router-dom'
+import { initArticlePage } from '../../model/servers/initArticlePage/initArticlePage'
 import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/ArticlePageNextThunk'
 import {
     getArticlePageIsLoading, getArticlePageView,
