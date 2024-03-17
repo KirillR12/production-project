@@ -12,6 +12,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import Eye from 'shared/assets/icons/eye.svg'
 import Calindar from 'shared/assets/icons/calindar.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
+import { HStack, VStack } from 'shared/ui/Stack'
 import { getArticleDetaliData, getArticleDetaliError, getArticleDetaliIsLoading } from '../../model/selector/articleDetali'
 import { ArticleDetaliReducer } from '../../model/slice/ArticleDetaliSlice/ArticleDetaliSlice'
 import { ArticleDetaliThunk } from '../../model/servers/ArticleDetaliThunk/ArticleDetaliThunk'
@@ -69,13 +70,13 @@ export const ArticleDetali = memo((props: ArticleDetaliProps) => {
 
     if (isLoading) {
         content = (
-            <div>
+            <VStack max gap="16">
                 <Skeleton className={styles.avatar} width={200} height={200} border="50%" />
                 <Skeleton className={styles.title} width={300} height={32} />
                 <Skeleton className={styles.skeleton} width={600} height={24} />
                 <Skeleton className={styles.skeleton} width="100%" height={200} />
                 <Skeleton className={styles.skeleton} width="100%" height={200} />
-            </div>
+            </VStack>
         )
     } else if (error) {
         content = (
@@ -87,38 +88,40 @@ export const ArticleDetali = memo((props: ArticleDetaliProps) => {
         )
     } else {
         content = (
-            <>
-                <div className={styles.avatarWrapper}>
+            <VStack gap="16">
+                <HStack justify="center" max>
                     <Avatar
                         className={styles.avatar}
                         alt={data?.subtitle}
                         src={data?.img}
                         size={200}
                     />
-                </div>
-                <Text
-                    title={data?.title}
-                    text={data?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={styles.articleInfo}>
-                    <Icon className={styles.icon} Svg={Eye} />
-                    <Text text={String(data?.views)} />
-                </div>
-                <div className={styles.articleInfo}>
-                    <Icon className={styles.icon} Svg={Calindar} />
-                    <Text text={data?.createdAt} />
-                </div>
+                </HStack>
+                <VStack gap="4">
+                    <Text
+                        title={data?.title}
+                        text={data?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack gap="8">
+                        <Icon Svg={Eye} />
+                        <Text text={String(data?.views)} />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon Svg={Calindar} />
+                        <Text text={data?.createdAt} />
+                    </HStack>
+                </VStack>
                 {data?.blocks.map(renderWith)}
-            </>
+            </VStack>
         )
     }
 
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <div className={classNames(styles.ArticleDetali, {}, [className])}>
+            <VStack max className={classNames(styles.ArticleDetali, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     )
 })

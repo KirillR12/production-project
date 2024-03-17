@@ -1,4 +1,3 @@
-import { classNames } from 'shared'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {
     ProfileActions,
@@ -17,8 +16,8 @@ import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page/'
-import styles from './styles.module.scss'
-import { ProfileHeaders } from './ProfileHeaders/ProfileHeaders'
+import { VStack } from 'shared/ui/Stack'
+import { ProfileHeaders } from '../ProfileHeaders/ProfileHeaders'
 
  interface ProfileProps {
    className?: string
@@ -86,15 +85,15 @@ const ProfilePage = ({ className }: ProfileProps) => {
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
             <Page>
-                <ProfileHeaders />
-                {errors?.length && errors.map((err) => (
-                    <Text
-                        theme={TextTheme.ERROR}
-                        key={err}
-                        title={validateError[err]}
-                    />
-                ))}
-                <div className={classNames(styles.Profile, {}, [className])}>
+                <VStack gap="8">
+                    <ProfileHeaders />
+                    {errors?.length && errors.map((err) => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            key={err}
+                            title={validateError[err]}
+                        />
+                    ))}
                     <ProfileCard
                         data={form}
                         isLoading={isLoading}
@@ -108,7 +107,7 @@ const ProfilePage = ({ className }: ProfileProps) => {
                         editCurrency={editCurrency}
                         editCountry={editCountry}
                     />
-                </div>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )

@@ -1,4 +1,5 @@
 import { Loader, classNames } from 'shared'
+import { Page } from 'widgets/Page'
 import styles from './styles.module.scss'
 
  interface PageLoaderProps {
@@ -6,7 +7,7 @@ import styles from './styles.module.scss'
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => (
-    <div className={classNames(styles.PageLoader, {}, [className])}>
+    <Page className={classNames(styles.PageLoader, {}, [className])}>
         <Loader />
-    </div>
+    </Page>
 )

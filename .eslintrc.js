@@ -38,7 +38,7 @@ module.exports = {
         'react',
         'i18next',
         'react-hooks',
-        'ulbi-tv-plugin',
+        'fedotov-fsd',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -68,12 +68,12 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/no-array-index-key': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
-        'ulbi-tv-plugin/path-checker': 'error',
+        'fedotov-fsd/path-checker': 'error',
         'i18next/no-literal-string': [
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'name', 'target'],
+                ignoreAttribute: ['align', 'justify', 'direction', 'data-testid', 'to', 'name', 'target'],
 
             },
         ],

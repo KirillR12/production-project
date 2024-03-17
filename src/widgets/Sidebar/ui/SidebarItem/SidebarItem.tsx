@@ -30,7 +30,6 @@ export const SidebarItem = (props: SidebarButtonProps) => {
             <AppLink
                 theme={AppLinkTheme.SECONDARY}
                 to={item.path}
-                className={styles.item}
             >
                 <item.Icon className={styles.icon} />
                 <span className={styles.link}>

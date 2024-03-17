@@ -4,6 +4,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Text } from 'shared/ui/Text/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { VStack } from 'shared/ui/Stack'
 import styles from './styles.module.scss'
 import { CommentBlock } from '../../model/types/CommentBlock'
 
@@ -22,13 +23,13 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.CommentItem, {}, [className, styles.loading])}>
+            <VStack max className={classNames(styles.CommentItem, {}, [className, styles.loading])}>
                 <div className={styles.blockUser}>
                     <Skeleton width={30} height={30} border="50%" />
                     <Skeleton className={styles.nameUser} height={16} width={100} />
                 </div>
                 <Skeleton height={40} width="100%" />
-            </div>
+            </VStack>
         )
     }
 
@@ -37,12 +38,12 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
 
     return (
-        <div className={classNames(styles.CommentItem, {}, [className])}>
+        <VStack gap="4" max className={classNames(styles.CommentItem, {}, [className])}>
             <AppLink to={RoutePath.profile + comment.user.id} className={styles.blockUser}>
                 {comment?.user.avatar && <Avatar src={comment.user.avatar} size={30} />}
                 <Text className={styles.nameUser} title={comment?.user.username} />
             </AppLink>
             <Text text={comment?.text} />
-        </div>
+        </VStack>
     )
 })

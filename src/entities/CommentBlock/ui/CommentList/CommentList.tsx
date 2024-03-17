@@ -2,7 +2,7 @@ import { classNames } from 'shared'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { Text } from 'shared/ui/Text/Text'
-import styles from './styles.module.scss'
+import { VStack } from 'shared/ui/Stack'
 import { CommentBlock } from '../../model/types/CommentBlock'
 import { CommentItem } from '../CommentItem/CommentItem'
 
@@ -25,28 +25,27 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (error) {
         return (
-            <div className={classNames(styles.CommentList, {}, [className])}>
+            <VStack className={classNames('', {}, [className])}>
                 <Text title={t('Произошла ошибка')} />
-            </div>
+            </VStack>
         )
     }
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.CommentList, {}, [className])}>
+            <VStack max className={classNames('', {}, [className])}>
                 <CommentItem isLoading />
                 <CommentItem isLoading />
                 <CommentItem isLoading />
-            </div>
+            </VStack>
         )
     }
 
     return (
-        <div className={classNames(styles.CommentList, {}, [className])}>
+        <VStack gap="8" max className={classNames('', {}, [className])}>
             {comments?.length
                 ? comments?.map((comment) => (
                     <CommentItem
-                        className={styles.comment}
                         key={comment.id}
                         comment={comment}
                         isLoading={isLoading}
@@ -54,6 +53,6 @@ export const CommentList = memo((props: CommentListProps) => {
                 )) : (
                     <Text title={t('Комментарии отсутствуют')} />
                 )}
-        </div>
+        </VStack>
     )
 })

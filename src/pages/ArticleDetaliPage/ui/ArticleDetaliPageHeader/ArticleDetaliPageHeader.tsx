@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
 import { getArticleDetaliData } from 'entities/Article'
+import { HStack } from 'shared/ui/Stack'
 import styles from './styles.module.scss'
 import { getArticle } from '../../model/selector/getArticle'
 
@@ -36,7 +37,7 @@ export const ArticleDetaliPageHeader = memo((props: ArticleDetaliPageHeaderProps
     }, [navigate, article])
 
     return (
-        <div className={classNames(styles.ArticleDetaliPageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames(styles.ArticleDetaliPageHeader, {}, [className])}>
             <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
@@ -50,6 +51,6 @@ export const ArticleDetaliPageHeader = memo((props: ArticleDetaliPageHeaderProps
                 </Button>
             )}
 
-        </div>
+        </HStack>
     )
 })

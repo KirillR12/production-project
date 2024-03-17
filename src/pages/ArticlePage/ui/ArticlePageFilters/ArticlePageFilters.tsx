@@ -1,5 +1,5 @@
 import { classNames } from 'shared'
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback } from 'react'
 import {
     ArticleDataType,
     ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
@@ -11,14 +11,14 @@ import { Card } from 'shared/ui/Card/Card'
 import { Input } from 'shared/ui/Input/Input'
 import { SortOrder } from 'shared/types'
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
-import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs'
+import { TabsItem } from 'shared/ui/Tabs/Tabs'
 import { ArticleTypeTab } from 'entities/Article/ui/ArticleTypeTab/ArticleTypeTab'
+import { ArticlePageThunk } from '../../model/servers/ArticlePageThunk/ArticlePageThunk'
 import styles from './styles.module.scss'
 import {
     getArticlePageOrder, getArticlePageSearch, getArticlePageSort, getArticlePageType, getArticlePageView,
 } from '../../model/selectors/ArticlePageSelectors'
 import { ArticlePageActions } from '../../model/slice/ArticlePageSlice'
-import { ArticlePageThunk } from '../../model/servers/ArticlePageThunk/ArticlePageThunk'
 
  interface ArticlePageFiltersProps {
    className?: string

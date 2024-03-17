@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
+import { HStack } from 'shared/ui/Stack'
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice'
 import styles from './styles.module.scss'
-import { getAddCommentForm, getAddCommentFormError } from '../../model/selectors/getAddCommentForm'
+import { getAddCommentForm } from '../../model/selectors/getAddCommentForm'
 
  interface addCommentFormProps {
    className?: string
@@ -29,7 +30,6 @@ const AddCommentForm = memo((props: addCommentFormProps) => {
     const dispatch = useAppDispatch()
 
     const comment = useSelector(getAddCommentForm)
-    const error = useSelector(getAddCommentFormError)
 
     const setCommentText = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value))
@@ -42,9 +42,8 @@ const AddCommentForm = memo((props: addCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <div className={classNames(styles.addCommentForm, {}, [className])}>
+            <HStack max justify="between" className={classNames(styles.addCommentForm, {}, [className])}>
                 <Input
-                    className={styles.input}
                     label={t('Введите текст комментария')}
                     value={comment}
                     onChange={setCommentText}
@@ -55,7 +54,7 @@ const AddCommentForm = memo((props: addCommentFormProps) => {
                 >
                     {t('Отправить')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     )
 })

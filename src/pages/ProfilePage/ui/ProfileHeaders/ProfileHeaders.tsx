@@ -1,6 +1,5 @@
 import { Button, classNames } from 'shared'
 import { ButtonTheme } from 'shared/ui/Button/Button'
-import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { ProfileActions, getProfileData } from 'entities/Profile'
@@ -9,7 +8,8 @@ import { ProfileSaveEditThunk } from 'entities/Profile/model/services/ProfileSav
 import { useSelector } from 'react-redux'
 import { getProfileReadonly } from 'entities/Profile/model/selector/getProfileReadonly/getProfileReadonly'
 import { getAuthUser } from 'entities/User'
-import styles from './styles.module.scss'
+import { HStack } from 'shared/ui/Stack/HStack/HStack'
+import { Text } from 'shared/ui/Text/Text'
 
  interface ProfileHeadersProps {
    className?: string,
@@ -42,39 +42,33 @@ export const ProfileHeaders = (props: ProfileHeadersProps) => {
     }, [dispatch])
 
     return (
-        <div className={classNames(styles.ProfileHeaders, {}, [className])}>
+        <HStack justify="between" max className={classNames('', {}, [className])}>
             <Text title={t('Профиль')} />
             {canEdit && (
-                <div className={styles.header}>
-                    {readonly ? (
+                readonly ? (
+                    <Button
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onEdit}
+                    >
+                        {t('Редактировать')}
+                    </Button>
+                ) : (
+                    <HStack gap="8">
                         <Button
-                            className={styles.editBtn}
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={onEdit}
+                            theme={ButtonTheme.OUTLINE_RED}
+                            onClick={undoEditing}
                         >
-                            {t('Редактировать')}
+                            {t('Отменить')}
                         </Button>
-                    ) : (
-
-                        <>
-                            <Button
-                                className={styles.editBtn}
-                                theme={ButtonTheme.OUTLINE_RED}
-                                onClick={undoEditing}
-                            >
-                                {t('Отменить')}
-                            </Button>
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={saveEditing}
-                            >
-                                {t('Сохранить')}
-                            </Button>
-                        </>
-                    )}
-                </div>
+                        <Button
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={saveEditing}
+                        >
+                            {t('Сохранить')}
+                        </Button>
+                    </HStack>
+                )
             )}
-
-        </div>
+        </HStack>
     )
 }
