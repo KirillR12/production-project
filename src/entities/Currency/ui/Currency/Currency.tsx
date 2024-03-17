@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { classNames } from 'shared'
-import { Select } from 'shared/ui/Select/Select'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Listbox } from 'shared/ui/ListBox/ListBox'
 import { CurrencySchema } from '../../model/types/CurrencySchema'
 
  interface CurrencyProps {
@@ -33,10 +33,11 @@ export const Currency = memo((props: CurrencyProps) => {
     const { t } = useTranslation()
 
     return (
-        <Select
-            className={classNames('', {}, [className])}
+        <Listbox
+            className={className}
             label={t('Укажите валюту')}
-            options={options}
+            defaultValue={t('Укажите валюту')}
+            items={options}
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}

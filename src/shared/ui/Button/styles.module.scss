@@ -14,6 +14,17 @@
     }
 }
 
+.form_theme {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 10px;
+
+    color: black;
+
+    background: white;
+    outline: none;
+}
+
 .clear,
 .clear_inverted {
     padding: 0;
@@ -106,5 +117,10 @@
 }
 
 .disabled {
+    cursor: default;
     opacity: 0.4;
+
+    &:hover {
+        opacity: 0.4;
+    }
 }

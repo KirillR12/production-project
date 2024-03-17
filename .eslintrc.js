@@ -73,7 +73,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['align', 'justify', 'direction', 'data-testid', 'to', 'name', 'target'],
+                ignoreAttribute: ['as', 'role', 'align', 'justify', 'direction', 'data-testid', 'to', 'name', 'target'],
 
             },
         ],

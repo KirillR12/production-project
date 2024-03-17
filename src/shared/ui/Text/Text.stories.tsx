@@ -90,3 +90,11 @@ export const TextL: Story = {
         size: TextSize.L,
     },
 }
+
+export const TextS: Story = {
+    args: {
+        title: 'Title appearance check',
+        text: 'Text appearance check variables',
+        size: TextSize.S,
+    },
+}

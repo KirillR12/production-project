@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, memo } from 'react'
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
+import { HStack } from '../Stack'
 
 type InputHTMLAttribut = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
 
@@ -38,7 +39,7 @@ export const Input = memo((props: InputProps) => {
     }
 
     return (
-        <div>
+        <HStack gap="8">
             {label && (<span>{label}</span>)}
             <input
                 className={classNames('', mods, [className, styles[theme]])}
@@ -48,6 +49,6 @@ export const Input = memo((props: InputProps) => {
                 readOnly={readonly}
                 {...otherProps}
             />
-        </div>
+        </HStack>
     )
 })
