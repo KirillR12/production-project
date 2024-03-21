@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
 import { Article } from 'entities/Article'
-import { ArticleRecommendsThunk } from '../servers/ArticleRecommendsThunk'
+import { ArticleRecommendsThunk } from '../servers/ArticleRecommendsThunk/ArticleRecommendsThunk'
 import { ArticleRecommendatiosSchema } from '../types/ArticleRecommendatiosSchema'
 
 const recommendAdapter = createEntityAdapter<Article>({

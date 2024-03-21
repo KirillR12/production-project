@@ -3,7 +3,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider'
 import { CommentBlock } from 'entities/CommentBlock'
 import { getAuthUser } from 'entities/User'
 import { getArticleDetaliData } from 'entities/Article/model/selector/articleDetali'
-import { ArticleCommentThunk } from 'pages/ArticleDetaliPage/model/servers/ArticleCommentThunk'
+import { ArticleCommentThunk } from 'pages/ArticleDetaliPage/model/servers/ArticleCommentThunk/ArticleCommentThunk'
 
 export interface addCommentFormThunkProps {}
 

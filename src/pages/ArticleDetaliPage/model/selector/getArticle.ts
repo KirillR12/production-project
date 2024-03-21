@@ -9,6 +9,6 @@ export const getArticle = createSelector(
         if (!user || !article) {
             return false
         }
-        return article.user.id === user.id
+        return article?.user?.id === user.id
     },
 )

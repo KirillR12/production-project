@@ -6,7 +6,7 @@ import {
 import { StateSchema } from 'app/providers/StoreProvider'
 import { CommentBlock } from 'entities/CommentBlock'
 import { ArticleCommentSchema } from '../types/ArticleCommentSchema'
-import { ArticleCommentThunk } from '../servers/ArticleCommentThunk'
+import { ArticleCommentThunk } from '../servers/ArticleCommentThunk/ArticleCommentThunk'
 
 const commentAdapter = createEntityAdapter<CommentBlock>({
     selectId: (comment: CommentBlock) => comment.id,
