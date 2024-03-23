@@ -31,7 +31,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const { t } = useTranslation()
 
-    const types = <Text text={article.type.join(', ')} className={styles.type} />
+    const types = <Text text={article.type?.join(', ')} className={styles.type} />
     const img = <img src={article.img} alt={article.title} className={styles.img} />
     const views = (
         <>
@@ -41,15 +41,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     )
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks.find((block) => block.type === ArticleBlock.TEXT) as ArticlBlockText
+        const textBlock = article.blocks?.find((block) => block.type === ArticleBlock.TEXT) as ArticlBlockText
 
         return (
             <div className={classNames(styles.ArticleListItem, {}, [className, styles.BIG])}>
 
                 <Card>
                     <div className={styles.header}>
-                        <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={styles.username} />
+                        <Avatar size={30} src={article.user?.avatar} />
+                        <Text text={article.user?.username} className={styles.username} />
                         <Text text={article.createdAt} className={styles.date} />
                     </div>
                     <Text title={article.title} className={styles.title} />

@@ -1,9 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { Profile, ProfileSchema } from '../types/ProfileSchema'
+import { Profile } from 'entities/Profile'
 import { ProfileThunk } from '../services/ProfileThunk/ProfileThunk'
 import { ProfileSaveEditThunk } from '../services/ProfileSaveEditThunk/ProfileSaveEditThunk'
+import { ProfileCardSchema } from '../types/EditableProfileCardSchema'
 
-const initialState: ProfileSchema = {
+const initialState: ProfileCardSchema = {
     data: undefined,
     error: undefined,
     isLoading: false,

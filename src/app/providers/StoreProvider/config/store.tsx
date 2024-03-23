@@ -5,6 +5,7 @@ import { CounterReducer } from 'entities/Counter'
 import { UserReducer } from 'entities/User'
 import { $api } from 'shared/api/api'
 import { ScrollReducer } from 'widgets/Page'
+import { rtkApi } from 'shared/api/rtkApi'
 import { StateSchema, ThunkExtraArg } from './StateSchema'
 import { createReducerManager } from './ReducerManager'
 
@@ -17,6 +18,7 @@ export function createReduxStore(
         counter: CounterReducer,
         user: UserReducer,
         scrollPage: ScrollReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     }
 
     const reducerManager = createReducerManager(rootReducer)
@@ -33,7 +35,7 @@ export function createReduxStore(
             thunk: {
                 extraArgument: extraArg,
             },
-        }),
+        }).concat(rtkApi.middleware),
     })
 
     // @ts-expect-error error

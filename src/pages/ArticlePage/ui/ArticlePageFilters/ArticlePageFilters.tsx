@@ -1,4 +1,3 @@
-import { classNames } from 'shared'
 import { memo, useCallback } from 'react'
 import {
     ArticleDataType,
@@ -13,6 +12,7 @@ import { SortOrder } from 'shared/types'
 import { useDebounce } from 'shared/lib/hooks/useDebounce'
 import { TabsItem } from 'shared/ui/Tabs/Tabs'
 import { ArticleTypeTab } from 'entities/Article/ui/ArticleTypeTab/ArticleTypeTab'
+import { HStack, VStack } from 'shared/ui/Stack'
 import { ArticlePageThunk } from '../../model/servers/ArticlePageThunk/ArticlePageThunk'
 import styles from './styles.module.scss'
 import {
@@ -77,8 +77,8 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
     }, [dispatch, debounceFetchData])
 
     return (
-        <div className={classNames(styles.ArticlePageFilters, {}, [className])}>
-            <div className={styles.sortWrapper}>
+        <VStack gap="16" max>
+            <HStack justify="between" max>
                 <ArticleSortSelector
                     sort={sort}
                     order={order}
@@ -90,8 +90,8 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
                     onViewClick={onChangeView}
                     view={view}
                 />
-            </div>
-            <Card className={styles.search}>
+            </HStack>
+            <Card className={styles.input}>
                 <Input
                     label={t('Поиск')}
                     value={search}
@@ -101,8 +101,7 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
             <ArticleTypeTab
                 type={type}
                 onChangeType={onChangeType}
-                className={styles.tabs}
             />
-        </div>
+        </VStack>
     )
 })

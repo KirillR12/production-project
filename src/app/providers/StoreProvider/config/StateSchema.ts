@@ -4,21 +4,23 @@ import {
 import { AxiosInstance } from 'axios'
 import { ArticleSchema } from 'entities/Article'
 import { CounterSchema } from 'entities/Counter'
-import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername'
 import { AddCommentFormSchema } from 'features/addCommentForm'
+import { ProfileCardSchema } from 'features/editableProfileCard'
 import { ArticleDetaliPageSchema } from 'pages/ArticleDetaliPage'
 import { ArticlePageSchema } from 'pages/ArticlePage'
+import { rtkApi } from 'shared/api/rtkApi'
 import { ScrollSchema } from 'widgets/Page'
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
     scrollPage: ScrollSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     login?: LoginSchema,
-    profile?: ProfileSchema
+    profile?: ProfileCardSchema
     articleDetali?: ArticleSchema
     articleDetaliPage?: ArticleDetaliPageSchema
     addComment?: AddCommentFormSchema

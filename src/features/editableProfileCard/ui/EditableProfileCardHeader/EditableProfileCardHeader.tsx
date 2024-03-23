@@ -2,20 +2,21 @@ import { Button, classNames } from 'shared'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { ProfileActions, getProfileData } from 'entities/Profile'
 import { useCallback } from 'react'
-import { ProfileSaveEditThunk } from 'entities/Profile/model/services/ProfileSaveEditThunk/ProfileSaveEditThunk'
 import { useSelector } from 'react-redux'
-import { getProfileReadonly } from 'entities/Profile/model/selector/getProfileReadonly/getProfileReadonly'
 import { getAuthUser } from 'entities/User'
 import { HStack } from 'shared/ui/Stack/HStack/HStack'
 import { Text } from 'shared/ui/Text/Text'
+import { getProfileReadonly } from '../../model/selector/getProfileReadonly/getProfileReadonly'
+import { getProfileData } from '../../model/selector/getProfileData/getProfileData'
+import { ProfileActions } from '../../model/slice/ProfileSlice'
+import { ProfileSaveEditThunk } from '../../model/services/ProfileSaveEditThunk/ProfileSaveEditThunk'
 
- interface ProfileHeadersProps {
+ interface EditableProfileCardHeaderProps {
    className?: string,
 }
 
-export const ProfileHeaders = (props: ProfileHeadersProps) => {
+export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
     const {
         className,
     } = props

@@ -1,9 +1,9 @@
 /* eslint-disable */
 import { ReducersMapObject } from '@reduxjs/toolkit'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
-import { ProfileReducer } from 'entities/Profile'
 import { LoginReducer } from 'features/AuthByUsername/model/slice/LoginSlice'
 import { addCommentFormReducer } from 'features/addCommentForm'
+import { ProfileReducer } from 'features/editableProfileCard'
 import {  articleDetaliReducer } from 'pages/ArticleDetaliPage'
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 

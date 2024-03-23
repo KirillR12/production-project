@@ -44,7 +44,7 @@ export enum ArticleDataType {
 export type ArticleBlockType = ArticlBlockImage | ArticlBlockText | ArticlBlockCode
 
 export interface Article {
-id?: string,
+id: string,
 title?: string,
 subtitle?: string,
 img?: string,

@@ -1,20 +1,17 @@
 import { useSearchParams } from 'react-router-dom'
 import { classNames } from 'shared'
 import { memo, useCallback } from 'react'
-import { ArticleList } from 'entities/Article'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Page } from 'widgets/Page'
+import { VStack } from 'shared/ui/Stack'
 import { initArticlePage } from '../../model/servers/initArticlePage/initArticlePage'
 import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/ArticlePageNextThunk'
-import {
-    getArticlePageIsLoading, getArticlePageView,
-} from '../../model/selectors/ArticlePageSelectors'
-import { ArticlePageReducer, getSelectorsArticles } from '../../model/slice/ArticlePageSlice'
+import { ArticlePageReducer } from '../../model/slice/ArticlePageSlice'
 import styles from './styles.module.scss'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
+import { ArticleItfiteList } from '../ArticleItfiteList/ArticleItfiteList'
 
  interface ArticlePageProps {
    className?: string
@@ -25,10 +22,6 @@ const reducer: ReducerList = {
 }
 
 const ArticlePage = ({ className }: ArticlePageProps) => {
-    const isLoading = useSelector(getArticlePageIsLoading)
-    const articles = useSelector(getSelectorsArticles.selectAll)
-    const view = useSelector(getArticlePageView)
-
     const dispatch = useAppDispatch()
 
     const [searcParams] = useSearchParams()
@@ -47,13 +40,10 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(styles.ArticlePage, {}, [className])}
             >
-                <ArticlePageFilters />
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                    className={styles.list}
-                />
+                <VStack max gap="16">
+                    <ArticlePageFilters />
+                    <ArticleItfiteList />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )

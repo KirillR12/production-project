@@ -4,7 +4,9 @@ import { ArticleDetaliThunk } from '../../servers/ArticleDetaliThunk/ArticleDeta
 import { ArticleSchema } from '../../types/ArticleSchema'
 
 const initialState: ArticleSchema = {
-    data: {},
+    data: {
+        id: '',
+    },
     error: undefined,
     isLoading: false,
 }

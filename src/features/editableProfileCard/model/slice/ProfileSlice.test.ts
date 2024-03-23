@@ -1,8 +1,8 @@
 import { CountrySchema } from 'entities/Country'
 import { CurrencySchema } from 'entities/Currency'
 import { ProfileThunk } from '../services/ProfileThunk/ProfileThunk'
-import { ProfileSchema } from '../types/ProfileSchema'
 import { ProfileActions, ProfileReducer } from './ProfileSlice'
+import { ProfileCardSchema } from '../types/EditableProfileCardSchema'
 
 const data = {
     username: 'admin',
@@ -16,14 +16,14 @@ const data = {
 
 describe('ProfileSlice', () => {
     test('setReadonly', () => {
-        const state: DeepPartial<ProfileSchema> = { readonly: false }
-        expect(ProfileReducer(state as ProfileSchema, ProfileActions.setReadonly(true)))
+        const state: DeepPartial<ProfileCardSchema> = { readonly: false }
+        expect(ProfileReducer(state as ProfileCardSchema, ProfileActions.setReadonly(true)))
             .toEqual({ readonly: true })
     })
 
     test('cancelEdit', () => {
-        const state: DeepPartial<ProfileSchema> = { data, form: { first: '' } }
-        expect(ProfileReducer(state as ProfileSchema, ProfileActions.cancelEdit()))
+        const state: DeepPartial<ProfileCardSchema> = { data, form: { first: '' } }
+        expect(ProfileReducer(state as ProfileCardSchema, ProfileActions.cancelEdit()))
             .toEqual({
                 readonly: true,
                 validateError: undefined,
@@ -33,14 +33,14 @@ describe('ProfileSlice', () => {
     })
 
     test('pending', () => {
-        const state: DeepPartial<ProfileSchema> = { isLoading: false, error: 'error' }
-        expect(ProfileReducer(state as ProfileSchema, ProfileThunk.pending))
+        const state: DeepPartial<ProfileCardSchema> = { isLoading: false, error: 'error' }
+        expect(ProfileReducer(state as ProfileCardSchema, ProfileThunk.pending))
             .toEqual({ isLoading: true, error: undefined })
     })
 
     test('fulfilled', () => {
-        const state: DeepPartial<ProfileSchema> = { isLoading: true }
-        expect(ProfileReducer(state as ProfileSchema, ProfileThunk.fulfilled(data, '', '1')))
+        const state: DeepPartial<ProfileCardSchema> = { isLoading: true }
+        expect(ProfileReducer(state as ProfileCardSchema, ProfileThunk.fulfilled(data, '', '1')))
             .toEqual({
                 data,
                 form: data,
@@ -51,8 +51,8 @@ describe('ProfileSlice', () => {
     })
 
     test('rejected', () => {
-        const state: DeepPartial<ProfileSchema> = { }
-        expect(ProfileReducer(state as ProfileSchema, ProfileThunk.rejected))
+        const state: DeepPartial<ProfileCardSchema> = { }
+        expect(ProfileReducer(state as ProfileCardSchema, ProfileThunk.rejected))
             .toEqual({
                 isLoading: false,
             })

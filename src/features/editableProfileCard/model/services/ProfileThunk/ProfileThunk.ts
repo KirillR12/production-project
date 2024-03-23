@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Profile } from '../../types/ProfileSchema'
+import { Profile } from 'entities/Profile'
 
 export const ProfileThunk = createAsyncThunk<Profile, string, ThunkConfig<string>>(
     'profile/ProfileThunk',
@@ -13,7 +13,6 @@ export const ProfileThunk = createAsyncThunk<Profile, string, ThunkConfig<string
 
             return response.data
         } catch (error) {
-            console.log(error)
             return rejectWithValue('error')
         }
     },
