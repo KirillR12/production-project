@@ -4,27 +4,12 @@ import { memo } from 'react'
 import { ArticleList, ArticleView } from 'entities/Article'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { VStack } from 'shared/ui/Stack'
-import { rtkApi } from 'shared/api/rtkApi'
 import { Loader } from 'shared'
+import { useArticleRecommendationsList } from '../../api/articleRecommendationsListApi/articleRecommendationsListApi'
 
 interface ArticleRecommendationsListProps {
     className?: string
 }
-
-const recommendationsApi = rtkApi.injectEndpoints({
-    endpoints: (build) => ({
-        getArticleRecommendationsList: build.query({
-            query: (limit) => ({
-                url: '/articles',
-                params: {
-                    _limit: limit,
-                },
-            }),
-        }),
-    }),
-})
-
-const useArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const { className } = props
@@ -32,7 +17,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 
     const { data: articles, isLoading } = useArticleRecommendationsList(3)
 
-    if (isLoading) {
+    if (isLoading || !articles) {
         return <Loader />
     }
 

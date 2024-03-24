@@ -91,12 +91,14 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 label={t('Ваше имя')}
                 readonly={readonly}
                 onChange={editFirstname}
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 value={data?.lastname}
                 label={t('Ваша фамилия')}
                 readonly={readonly}
                 onChange={editLastname}
+                data-testid="ProfileCard.lastname"
             />
             <Input
                 value={data?.city}
