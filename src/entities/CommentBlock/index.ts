@@ -1,2 +1,2 @@
 export { CommentList } from './ui/CommentList/CommentList'
-export { CommentBlock } from './model/types/CommentBlock'
+export type { CommentBlock } from './model/types/CommentBlock'

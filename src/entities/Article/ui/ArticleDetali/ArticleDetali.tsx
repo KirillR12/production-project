@@ -24,7 +24,7 @@ import { ArticleDetaliText } from '../ArticleDetaliText/ArticleDetaliText'
 
  interface ArticleDetaliProps {
    className?: string
-   id: string
+   id?: string
 }
 
 const reducer: ReducerList = {

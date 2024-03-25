@@ -3,6 +3,7 @@ import { Theme } from 'app/providers/ThemeProviders'
 import { RouterDecorator } from 'shared/config/Storybook/RouterDecorator/RouterDecorator'
 import { StoreProviderDecorator } from 'shared/config/Storybook/StoreProviderDecorator/StoreProviderDecorator'
 import { StylesDecorator } from 'shared/config/Storybook/StylesDecorator/StylesDecorator'
+import { SuspenceDecorator } from 'shared/config/Storybook/SuspenceDecorator/SuspenceDecorator'
 import { ThemeDecorater } from 'shared/config/Storybook/ThemeDecorater/ThemeDecorater'
 
 const preview: Preview = {
@@ -10,6 +11,7 @@ const preview: Preview = {
         ThemeDecorater(Theme.LIGHT),
         RouterDecorator,
         StylesDecorator,
+        SuspenceDecorator,
         StoreProviderDecorator({}),
 
     ],

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
-import { UserActions, getAuthUser } from 'entities/User'
+import { UserActions, getAuthUser, isUserAdmin } from 'entities/User'
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
@@ -29,6 +29,8 @@ export const Navbar = (props: NavbarProps) => {
 
     const dispatch = useDispatch()
 
+    const isAdmin = useSelector(isUserAdmin)
+
     const toggleOpenMadal = useCallback(() => {
         setIsAuthModal(true)
     }, [])
@@ -40,19 +42,6 @@ export const Navbar = (props: NavbarProps) => {
     const toggleLogOut = useCallback(() => {
         dispatch(UserActions.setLogOut())
     }, [dispatch])
-
-    // const itemsDropdown = useMemo(() => (
-    //     [
-    //         {
-    //             content: t('Профиль'),
-    //             href: RoutePath.profile + authUser.id,
-    //         },
-    //         {
-    //             content: t('Выйти'),
-    //             onClick: toggleLogOut,
-    //         },
-    //     ]
-    // ), [t, toggleLogOut, authUser])
 
     if (authUser) {
         return (
@@ -74,6 +63,10 @@ export const Navbar = (props: NavbarProps) => {
                     trigger={<Avatar src={authUser.avatar} size={30} />}
                     className={styles.btn}
                     items={[
+                        ...(isAdmin ? [{
+                            content: t('Админка'),
+                            href: RoutePath.admin_panel,
+                        }] : []),
                         {
                             content: t('Профиль'),
                             href: RoutePath.profile + authUser.id,
@@ -90,7 +83,12 @@ export const Navbar = (props: NavbarProps) => {
 
     return (
         <header className={classNames(styles.Navbar, {}, [className])}>
-            <Text title={t('Habr.ru')} />
+            <Text
+                title={t('Habr.ru')}
+                theme={TextTheme.INVERTED}
+                size={TextSize.L}
+                className={styles.appName}
+            />
             <Button
                 theme={ButtonTheme.OUTLINE_INVERTED}
                 onClick={toggleOpenMadal}

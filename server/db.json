@@ -505,6 +505,18 @@
       "articleId": "1",
       "userId": "1",
       "id": "eF4oQ-3"
+    },
+    {
+      "text": "4324",
+      "articleId": "1",
+      "userId": "1",
+      "id": "uEBrm0e"
+    },
+    {
+      "text": "243",
+      "articleId": "1",
+      "userId": "1",
+      "id": "Q9gI06F"
     }
   ],
   "users": [
@@ -512,14 +524,18 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],

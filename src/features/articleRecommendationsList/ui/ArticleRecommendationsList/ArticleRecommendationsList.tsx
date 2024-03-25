@@ -20,6 +20,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     if (isLoading || !articles) {
         return <Loader />
     }
+    console.log(articles)
 
     return (
         <VStack gap="8" className={classNames('', {}, [className])}>

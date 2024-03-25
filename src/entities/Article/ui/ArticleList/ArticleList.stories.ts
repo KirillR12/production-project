@@ -180,6 +180,7 @@ export const Small: Story = {
 export const LoadingBig: Story = {
     args: {
         isLoading: true,
+        articles: [],
         view: ArticleView.BIG,
     },
 }
@@ -187,6 +188,7 @@ export const LoadingBig: Story = {
 export const LoadingSmall: Story = {
     args: {
         isLoading: true,
+        articles: [],
         view: ArticleView.SMALL,
     },
 }

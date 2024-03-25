@@ -7,6 +7,7 @@ import { CommentList } from 'entities/CommentBlock'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { VStack } from 'shared/ui/Stack'
 import { getSelectorsComments } from '../../model/slice/ArticleCommentSlice'
 import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/getArticleComment/getArticleComment'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk/ArticleCommentThunk'
@@ -38,7 +39,7 @@ export const ArticleDetaliCommentPage = memo((props: ArticleDetaliCommentPagePro
     }, [dispatch])
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <VStack gap="8" max className={classNames('', {}, [className])}>
             <Text
                 size={TextSize.L}
                 title={t('Комментарии')}
@@ -51,6 +52,6 @@ export const ArticleDetaliCommentPage = memo((props: ArticleDetaliCommentPagePro
                 isLoading={isLoadingComment}
                 error={errorComment}
             />
-        </div>
+        </VStack>
     )
 })

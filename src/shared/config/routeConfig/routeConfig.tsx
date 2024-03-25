@@ -1,7 +1,10 @@
+import { UserRole } from 'entities/User/model/types/UserSchema'
 import { AboutPage } from 'pages/About'
+import AdminPanel from 'pages/AdminPanel/ui/AdminPanel/AdminPanel'
 import { ArticleDetaliPage } from 'pages/ArticleDetaliPage'
 import { ArticleEditPage } from 'pages/ArticleEditPage'
 import { ArticlePage } from 'pages/ArticlePage'
+import { ForbiddenPage } from 'pages/ForbiddenPage'
 import { MainPage } from 'pages/Main'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePage } from 'pages/ProfilePage'
@@ -9,6 +12,7 @@ import { RouteProps } from 'react-router-dom'
 
 export type AppRouterProps = RouteProps & {
     authOnly?: boolean
+    roles?: UserRole[]
 }
 
 export enum AppRouter {
@@ -19,7 +23,9 @@ export enum AppRouter {
     ARTICLE = 'article',
     ARTICLE_DETALI = 'article_detale',
     ARTICLE_CREATE = 'article_create',
-    ARTICLE_EDIT = 'article_edit'
+    ARTICLE_EDIT = 'article_edit',
+    ADMIN_PANEL = 'admin_panel',
+    FORBIDDEN_PAGE = 'forbidden_page'
 }
 
 export const RoutePath: Record<AppRouter, string> = {
@@ -30,6 +36,8 @@ export const RoutePath: Record<AppRouter, string> = {
     [AppRouter.ARTICLE_DETALI]: '/article/', // + id
     [AppRouter.ARTICLE_CREATE]: '/article/create', // + id
     [AppRouter.ARTICLE_EDIT]: '/article/:id/edit', // + id
+    [AppRouter.ADMIN_PANEL]: '/admin',
+    [AppRouter.FORBIDDEN_PAGE]: '/forbidden',
     [AppRouter.NOTFOUNDPAGE]: '*',
 }
 
@@ -66,6 +74,16 @@ export const routeConfig: Record<AppRouter, AppRouterProps> = {
         path: `${RoutePath.article_detale}:id`,
         element: <ArticleDetaliPage />,
         authOnly: true,
+    },
+    [AppRouter.ADMIN_PANEL]: {
+        path: RoutePath.admin_panel,
+        element: <AdminPanel />,
+        authOnly: true,
+        roles: [UserRole.MANAGER, UserRole.ADMIN],
+    },
+    [AppRouter.FORBIDDEN_PAGE]: {
+        path: RoutePath.forbidden_page,
+        element: <ForbiddenPage />,
     },
     [AppRouter.NOTFOUNDPAGE]: {
         path: RoutePath.notFoundPage,

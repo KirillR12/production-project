@@ -23,7 +23,7 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
         onTabClick,
     } = props
 
-    const clickHandler = useCallback((tab) => () => {
+    const clickHandler = useCallback((tab: TabsItem<T>) => () => {
         onTabClick(tab as TabsItem<T>)
     }, [onTabClick])
 

@@ -93,6 +93,9 @@ export const Primary: Story = {
             data: article,
         },
     })],
+    args: {
+        id: '1',
+    },
 }
 
 export const Loading: Story = {
@@ -101,6 +104,9 @@ export const Loading: Story = {
             isLoading: true,
         },
     })],
+    args: {
+        id: '1',
+    },
 }
 
 export const Error: Story = {
@@ -109,4 +115,7 @@ export const Error: Story = {
             error: 'error',
         },
     })],
+    args: {
+        id: '1',
+    },
 }
