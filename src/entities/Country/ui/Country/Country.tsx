@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { memo, useCallback } from 'react'
-import { Select } from 'shared/ui/Select/Select'
-import { classNames } from 'shared'
 import { useTranslation } from 'react-i18next'
 import { Listbox } from 'shared/ui/ListBox/ListBox'
 import { CountrySchema } from '../../model/types/CountrySchema'

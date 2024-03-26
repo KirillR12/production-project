@@ -1,10 +1,10 @@
-import { Button, classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
 import { memo } from 'react'
 import Block from 'shared/assets/icons/blockView.svg'
 import List from 'shared/assets/icons/listView.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
-import { ButtonTheme } from 'shared/ui/Button/Button'
-import { ArticleView } from '../../model/types/ArticleType'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { ArticleView } from '../../model/consts/consts'
 import styles from './styles.module.scss'
 
  interface ArticleViewSelectorProps {

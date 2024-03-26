@@ -1,4 +1,4 @@
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
 import { Suspense, useEffect } from 'react'
 import { Sidebar } from 'widgets/Sidebar'
 import { Navbar } from 'widgets/Navbar'

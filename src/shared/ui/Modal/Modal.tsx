@@ -1,9 +1,9 @@
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
+
 import {
     MutableRefObject,
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react'
-import { Mods } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { Portal } from '../Portal/Portal'
 

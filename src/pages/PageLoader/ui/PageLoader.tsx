@@ -1,5 +1,6 @@
-import { Loader, classNames } from 'shared'
 import { Page } from 'widgets/Page'
+import { Loader } from 'shared/ui/Loader/Loader'
+import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
  interface PageLoaderProps {

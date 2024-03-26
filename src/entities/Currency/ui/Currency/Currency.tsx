@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-import { classNames } from 'shared'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Listbox } from 'shared/ui/ListBox/ListBox'
@@ -26,8 +24,8 @@ export const Currency = memo((props: CurrencyProps) => {
         readonly,
     } = props
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as CurrencySchema)
+    const onChangeHandler = useCallback((valueNew: string) => {
+        onChange?.(valueNew as CurrencySchema)
     }, [onChange])
 
     const { t } = useTranslation()

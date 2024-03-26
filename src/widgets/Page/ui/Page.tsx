@@ -1,4 +1,4 @@
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
 import {
     MutableRefObject, ReactNode, UIEvent, memo, useRef,
 } from 'react'

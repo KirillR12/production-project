@@ -1,4 +1,4 @@
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
 import { CSSProperties, useMemo } from 'react'
 import styles from './styles.module.scss'
 

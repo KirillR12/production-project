@@ -1,5 +1,5 @@
-import { Button, classNames } from 'shared'
-import { ButtonTheme } from 'shared/ui/Button/Button'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useCallback } from 'react'

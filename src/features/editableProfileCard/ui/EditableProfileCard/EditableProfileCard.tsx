@@ -15,8 +15,8 @@ import { getProfileReadonly } from '../../model/selector/getProfileReadonly/getP
 import { getValidateErrors } from '../../model/selector/getValidateErrors/getValidateErrors'
 import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
 import { ProfileThunk } from '../../model/services/ProfileThunk/ProfileThunk'
-import { ValidateProfileSchema } from '../../model/types/EditableProfileCardSchema'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
+import { ValidateProfileSchema } from '../../model/consts/consts'
 
 interface EditableProfileCardProps {
     id: string

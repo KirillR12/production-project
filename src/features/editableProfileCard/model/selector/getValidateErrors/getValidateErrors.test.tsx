@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { getValidateErrors } from './getValidateErrors'
-import { ValidateProfileSchema } from '../../types/EditableProfileCardSchema'
+import { ValidateProfileSchema } from '../../consts/consts'
 
 describe('getValidateErrors', () => {
     test('age error', () => {

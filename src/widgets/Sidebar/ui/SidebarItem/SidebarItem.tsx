@@ -1,6 +1,7 @@
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
+
 import { useSelector } from 'react-redux'
 import { getAuthUser } from 'entities/User'
 import { SidebarItemType } from '../../model/types/sidebar'

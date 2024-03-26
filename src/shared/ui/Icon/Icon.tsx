@@ -1,6 +1,6 @@
-import { classNames } from 'shared'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
  interface IconProps {

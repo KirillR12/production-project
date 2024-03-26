@@ -1,6 +1,6 @@
 import { CurrencySchema } from 'entities/Currency'
 import { ValidateProfile } from './ValidateProfile'
-import { ValidateProfileSchema } from '../../types/EditableProfileCardSchema'
+import { ValidateProfileSchema } from '../../consts/consts'
 
 const dataProfile = {
     first: 'Кирилл',

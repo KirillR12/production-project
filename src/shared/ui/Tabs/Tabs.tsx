@@ -1,5 +1,5 @@
-import { classNames } from 'shared'
 import { ReactNode, useCallback } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { Card, CardTheme } from '../Card/Card'
 

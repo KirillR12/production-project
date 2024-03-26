@@ -1,6 +1,5 @@
-import { classNames } from 'shared'
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
-import { Mods } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'

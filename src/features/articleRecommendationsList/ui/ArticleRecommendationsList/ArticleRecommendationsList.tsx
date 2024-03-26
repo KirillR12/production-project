@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
+import { Loader } from 'shared/ui/Loader/Loader'
 import { ArticleList, ArticleView } from 'entities/Article'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { VStack } from 'shared/ui/Stack'
-import { Loader } from 'shared'
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsListApi/articleRecommendationsListApi'
 
 interface ArticleRecommendationsListProps {
@@ -20,7 +20,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     if (isLoading || !articles) {
         return <Loader />
     }
-    console.log(articles)
 
     return (
         <VStack gap="8" className={classNames('', {}, [className])}>

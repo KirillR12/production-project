@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom'
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
 import { memo, useCallback } from 'react'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'

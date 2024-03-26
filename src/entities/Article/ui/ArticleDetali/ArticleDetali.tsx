@@ -1,4 +1,4 @@
-import { classNames } from 'shared'
+import { classNames } from 'shared/lib/classNames/classNames'
 import { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -17,10 +17,11 @@ import { getArticleDetaliData, getArticleDetaliError, getArticleDetaliIsLoading 
 import { ArticleDetaliReducer } from '../../model/slice/ArticleDetaliSlice/ArticleDetaliSlice'
 import { ArticleDetaliThunk } from '../../model/servers/ArticleDetaliThunk/ArticleDetaliThunk'
 import styles from './styles.module.scss'
-import { ArticleBlock, ArticleBlockType } from '../../model/types/ArticleType'
+import { ArticleBlockType } from '../../model/types/ArticleType'
 import { ArticleDetaliImage } from '../ArticleDetaliImage/ArticleDetaliImage'
 import { ArticleDetaliCode } from '../ArticleDetaliCode/ArticleDetaliCode'
 import { ArticleDetaliText } from '../ArticleDetaliText/ArticleDetaliText'
+import { ArticleBlock } from '../../model/consts/consts'
 
  interface ArticleDetaliProps {
    className?: string
