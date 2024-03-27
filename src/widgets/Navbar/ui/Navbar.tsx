@@ -8,8 +8,11 @@ import { UserActions, getAuthUser, isUserAdmin } from 'entities/User'
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Dropdown } from 'shared/ui/Popups/ui/Dropdown/Dropdown'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { HStack } from 'shared/ui/Stack'
+import Notification from 'shared/assets/icons/notification.svg'
+import { Icon } from 'shared/ui/Icon/Icon'
 import styles from './styles.module.scss'
 
 interface NavbarProps {
@@ -58,25 +61,29 @@ export const Navbar = (props: NavbarProps) => {
                 >
                     {t('Создать новую статью')}
                 </AppLink>
-                <Dropdown
-                    direction="bottom left"
-                    trigger={<Avatar src={authUser.avatar} size={30} />}
-                    className={styles.btn}
-                    items={[
-                        ...(isAdmin ? [{
-                            content: t('Админка'),
-                            href: RoutePath.admin_panel,
-                        }] : []),
-                        {
-                            content: t('Профиль'),
-                            href: RoutePath.profile + authUser.id,
-                        },
-                        {
-                            content: t('Выйти'),
-                            onClick: toggleLogOut,
-                        },
-                    ]}
-                />
+                <HStack gap="16" className={styles.actions}>
+                    <Button theme={ButtonTheme.CLEAR}>
+                        <Icon Svg={Notification} inverted />
+                    </Button>
+                    <Dropdown
+                        direction="bottom left"
+                        trigger={<Avatar src={authUser.avatar} size={30} />}
+                        items={[
+                            ...(isAdmin ? [{
+                                content: t('Админка'),
+                                href: RoutePath.admin_panel,
+                            }] : []),
+                            {
+                                content: t('Профиль'),
+                                href: RoutePath.profile + authUser.id,
+                            },
+                            {
+                                content: t('Выйти'),
+                                onClick: toggleLogOut,
+                            },
+                        ]}
+                    />
+                </HStack>
             </header>
         )
     }

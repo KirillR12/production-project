@@ -1,6 +1,6 @@
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import path from 'path'
-import { stylesLoader } from '../build/loaders/stylesLoader'
+import { buildCssLoader } from '../build/loaders/buildCssLoader'
 import { BuildPaths } from '../build/types/config'
 
 export default ({ config }: {config: webpack.Configuration}) => {
@@ -22,7 +22,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
     config.resolve!.extensions!.push('.tsx', '.ts', '.js')
     config.resolve!.modules!.push(paths.src)
-    config.module!.rules.push(stylesLoader(true))
+    config.module!.rules.push(buildCssLoader(true))
     config.module!.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],

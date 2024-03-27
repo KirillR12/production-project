@@ -2,10 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
 import { Page } from 'widgets/Page'
 
- interface ForbiddenPageProps {
-}
-
-const ForbiddenPage = (props: ForbiddenPageProps) => {
+const ForbiddenPage = () => {
     const { t } = useTranslation()
     return (
         <Page>

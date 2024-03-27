@@ -5,8 +5,6 @@ import { getAuthUser } from 'entities/User'
 import { getArticleDetaliData } from 'entities/Article/model/selector/articleDetali'
 import { ArticleCommentThunk } from 'pages/ArticleDetaliPage/model/servers/ArticleCommentThunk/ArticleCommentThunk'
 
-export interface addCommentFormThunkProps {}
-
 export const addCommentArticleThunk = createAsyncThunk<CommentBlock, string, ThunkConfig<string>>(
     'articleDetali/addCommentArticleThunk',
     async (text, thunkApi) => {

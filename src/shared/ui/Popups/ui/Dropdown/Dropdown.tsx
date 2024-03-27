@@ -1,9 +1,10 @@
 import { Menu } from '@headlessui/react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Fragment, ReactNode } from 'react'
-import { DropdownDirection } from 'shared/types/ui'
 import styles from './styles.module.scss'
-import { AppLink } from '../AppLink/AppLink'
+import { AppLink } from '../../../AppLink/AppLink'
+import { mapDirectionClasses } from '../../styles/consts'
+import { DropdownDirection } from '../../../../types/ui'
 
 interface DropdownItem {
 disabled?: boolean
@@ -17,13 +18,6 @@ export interface DropdownProps {
     items: DropdownItem[]
     trigger: ReactNode
     direction?: DropdownDirection
-}
-
-const mapDirectionClasses: Record<DropdownDirection, string> = {
-    'top rigth': styles.topRigth,
-    'bottom rigth': styles.bottomRigth,
-    'top left': styles.topLift,
-    'bottom left': styles.bottomLift,
 }
 
 export function Dropdown(props: DropdownProps) {

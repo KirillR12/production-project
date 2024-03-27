@@ -1,0 +1,20 @@
+.list {
+    position: absolute;
+    z-index: 10000;
+
+    display: block;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    background: var(--listbox-bg);
+}
+
+.item {
+    min-width: 100%;
+    padding: 10px 20px;
+}
+
+.selected {
+    background: var(--inverted-primary-color);
+}

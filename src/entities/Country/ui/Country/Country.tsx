@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Listbox } from 'shared/ui/ListBox/ListBox'
+import { Listbox } from 'shared/ui/Popups/ui/ListBox/ListBox'
 import { CountrySchema } from '../../model/types/CountrySchema'
 
  interface CountryProps {
