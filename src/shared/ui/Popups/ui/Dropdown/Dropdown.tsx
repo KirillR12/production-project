@@ -5,6 +5,7 @@ import styles from './styles.module.scss'
 import { AppLink } from '../../../AppLink/AppLink'
 import { mapDirectionClasses } from '../../styles/consts'
 import { DropdownDirection } from '../../../../types/ui'
+import popupsStyles from '../../styles/styles.module.scss'
 
 interface DropdownItem {
 disabled?: boolean
@@ -34,7 +35,7 @@ export function Dropdown(props: DropdownProps) {
 
     return (
         <Menu as="div" className={classNames(styles.Dropdown, {}, [className])}>
-            <Menu.Button className={styles.btn}>
+            <Menu.Button className={popupsStyles.btn}>
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
@@ -43,7 +44,7 @@ export function Dropdown(props: DropdownProps) {
                         <button
                             onClick={item.onClick}
                             type="button"
-                            className={classNames(styles.item, { [styles.active]: active })}
+                            className={classNames(styles.item, { [popupsStyles.active]: active })}
                         >
                             {item.content}
                         </button>

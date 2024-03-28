@@ -6,6 +6,10 @@
     left: 0;
     z-index: -1;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     color: var(--primary-color);
 
     opacity: 0;
@@ -13,22 +17,12 @@
     pointer-events: none;
 }
 
-.overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--overlay-color);
-}
-
 .content {
     max-width: 60%;
     padding: 20px;
     border-radius: 12px;
 
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     transform: scale(0.5);
 
     transition: 0.3s transform;
@@ -48,8 +42,6 @@
 
 .isClosing {
     .content {
-        transform: scale(0.05);
-
-        transition: 0.3s transform;
+        transform: scale(0.2);
     }
 }
