@@ -25,7 +25,7 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (error) {
         return (
-            <VStack className={classNames('', {}, [className])}>
+            <VStack data-testid="error" className={classNames('', {}, [className])}>
                 <Text title={t('Произошла ошибка')} />
             </VStack>
         )
@@ -33,7 +33,7 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <VStack max className={classNames('', {}, [className])}>
+            <VStack data-testid="loading" max className={classNames('', {}, [className])}>
                 <CommentItem isLoading />
                 <CommentItem isLoading />
                 <CommentItem isLoading />
@@ -42,7 +42,7 @@ export const CommentList = memo((props: CommentListProps) => {
     }
 
     return (
-        <VStack gap="8" max className={classNames('', {}, [className])}>
+        <VStack data-testid="comment" gap="8" max className={classNames('', {}, [className])}>
             {comments?.length
                 ? comments?.map((comment) => (
                     <CommentItem
