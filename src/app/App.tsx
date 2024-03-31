@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames'
 import { Suspense, useEffect } from 'react'
-import { Sidebar } from 'widgets/Sidebar'
-import { Navbar } from 'widgets/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Sidebar } from '@/widgets/Sidebar'
+import { Navbar } from '@/widgets/Navbar'
 
-import { UserActions, getUserInited } from 'entities/User'
+import { UserActions, getUserInited } from '@/entities/User'
 import { AppRouter } from './providers/RouterProvider'
 
 export function App() {

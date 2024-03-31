@@ -1,10 +1,10 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames'
 import {
     memo, ReactNode, useCallback, useEffect,
 } from 'react'
-import { useTheme } from 'app/providers/ThemeProviders'
-import { useModal } from 'shared/lib/hooks/useModal'
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider'
+import { classNames, Mods } from '@/shared/lib/classNames/classNames'
+import { useTheme } from '@/app/providers/ThemeProviders'
+import { useModal } from '@/shared/lib/hooks/useModal'
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider'
 import { Overlay } from '../Overlay/Overlay'
 import styles from './styles.module.scss'
 import { Portal } from '../Portal/Portal'
@@ -109,7 +109,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     )
 })
 
-export const Drawer = memo((props: DrawerProps) => {
+export const DrawerAsync = memo((props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs()
 
     if (!isLoaded) {
@@ -120,3 +120,9 @@ export const Drawer = memo((props: DrawerProps) => {
         <DrawerContent {...props} />
     )
 })
+
+export const Drawer = memo((props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+))

@@ -1,4 +1,4 @@
-import { Profile } from 'entities/Profile'
+import { Profile } from '@/entities/Profile'
 import { ValidateProfileSchema } from '../../consts/consts'
 
 export const ValidateProfile = (profile?: Profile) => {

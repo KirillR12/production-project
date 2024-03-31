@@ -1,7 +1,7 @@
 import {
     FC, ReactNode, useMemo, useState,
 } from 'react'
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from 'app/providers/ThemeProviders/lib/ThemeContext'
+import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '@/app/providers/ThemeProviders/lib/ThemeContext'
 
 export interface ThemeProviderProps {
     initialState?: Theme,

@@ -1,4 +1,4 @@
-import { CurrencySchema } from 'entities/Currency'
+import { CurrencySchema } from '@/entities/Currency'
 import { ValidateProfile } from './ValidateProfile'
 import { ValidateProfileSchema } from '../../consts/consts'
 

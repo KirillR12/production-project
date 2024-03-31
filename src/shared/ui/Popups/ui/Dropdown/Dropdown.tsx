@@ -1,6 +1,6 @@
 import { Menu } from '@headlessui/react'
-import { classNames } from 'shared/lib/classNames/classNames'
 import { Fragment, ReactNode } from 'react'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { AppLink } from '../../../AppLink/AppLink'
 import { mapDirectionClasses } from '../../styles/consts'

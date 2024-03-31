@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { Dropdown } from 'shared/ui/Popups'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { UserActions, getAuthUser, isUserAdmin } from 'entities/User'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { Dropdown } from '@/shared/ui/Popups'
+import { Avatar } from '@/shared/ui/Avatar/Avatar'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { UserActions, getAuthUser, isUserAdmin } from '@/entities/User'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 
 export const AvatarDropdown = memo(() => {
     const { t } = useTranslation()

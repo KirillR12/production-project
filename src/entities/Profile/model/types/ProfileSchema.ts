@@ -1,5 +1,5 @@
-import { CountrySchema } from 'entities/Country'
-import { CurrencySchema } from 'entities/Currency'
+import { CountrySchema } from '@/entities/Country'
+import { CurrencySchema } from '@/entities/Currency'
 
 export interface Profile {
     id?: string

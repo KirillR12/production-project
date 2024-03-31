@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { CommentBlock } from 'entities/CommentBlock'
-import { getAuthUser } from 'entities/User'
-import { getArticleDetaliData } from 'entities/Article/model/selector/articleDetali'
-import { ArticleCommentThunk } from 'pages/ArticleDetaliPage/model/servers/ArticleCommentThunk/ArticleCommentThunk'
+import { ThunkConfig } from '@/app/providers/StoreProvider'
+import { CommentBlock } from '@/entities/CommentBlock'
+import { getAuthUser } from '@/entities/User'
+import { getArticleDetaliData } from '@/entities/Article/model/selector/articleDetali'
+import { ArticleCommentThunk } from '@/pages/ArticleDetaliPage/model/servers/ArticleCommentThunk/ArticleCommentThunk'
 
 export const addCommentArticleThunk = createAsyncThunk<CommentBlock, string, ThunkConfig<string>>(
     'articleDetali/addCommentArticleThunk',

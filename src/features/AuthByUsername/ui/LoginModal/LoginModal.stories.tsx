@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorater } from 'shared/config/Storybook/ThemeDecorater/ThemeDecorater'
-import { Theme } from 'app/providers/ThemeProviders'
+import { ThemeDecorater } from '@/shared/config/Storybook/ThemeDecorater/ThemeDecorater'
+import { Theme } from '@/app/providers/ThemeProviders'
 import { LoginModal } from './LoginModal'
 
 const meta: Meta<typeof LoginModal> = {

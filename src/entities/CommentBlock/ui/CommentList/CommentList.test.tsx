@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { componentRender } from 'shared/lib/test/componentRender/componentRender'
+import { componentRender } from '@/shared/lib/test/componentRender/componentRender'
 import { CommentList } from './CommentList'
 
 const comment = {

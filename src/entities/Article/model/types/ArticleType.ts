@@ -1,4 +1,4 @@
-import { User } from 'entities/User/model/types/UserSchema'
+import { User } from '@/entities/User/model/types/UserSchema'
 import { ArticleBlock, ArticleDataType } from '../consts/consts'
 
 export interface ArticlBlock {

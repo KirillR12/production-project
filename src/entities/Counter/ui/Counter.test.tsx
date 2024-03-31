@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { componentRender } from 'shared/lib/test/componentRender/componentRender'
+import { componentRender } from '@/shared/lib/test/componentRender/componentRender'
 import { Counter } from './Counter'
 
 describe('Counter', () => {

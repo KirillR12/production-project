@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames'
 import { memo } from 'react'
-import { Card, CardTheme } from 'shared/ui/Card/Card'
-import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Card, CardTheme } from '@/shared/ui/Card/Card'
+import { Text } from '@/shared/ui/Text/Text'
 import styles from './styles.module.scss'
 import { Notification } from '../../model/types/Notification'
 

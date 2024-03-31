@@ -1,6 +1,6 @@
 .menu {
     position: absolute;
-    z-index: 10000;
+    z-index: var(--modal-z-index);
 
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import Cope from 'shared/assets/icons/cope.svg'
-import { classNames } from 'shared/lib/classNames/classNames'
+import Cope from '@/shared/assets/icons/cope.svg'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { Button } from '../Button/Button'
 

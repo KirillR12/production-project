@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, memo } from 'react'
-import { Mods, classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { HStack } from '../Stack'
 

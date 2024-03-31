@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/lib/test/TestAsyncThunk/TestAsyncThunk'
 import { addCommentArticleThunk } from './addCommentArticleThunk'
 
 jest.mock('axios')

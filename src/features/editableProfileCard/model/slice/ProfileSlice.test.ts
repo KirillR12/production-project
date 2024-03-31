@@ -1,5 +1,5 @@
-import { CountrySchema } from 'entities/Country'
-import { CurrencySchema } from 'entities/Currency'
+import { CountrySchema } from '@/entities/Country'
+import { CurrencySchema } from '@/entities/Currency'
 import { ProfileThunk } from '../services/ProfileThunk/ProfileThunk'
 import { ProfileActions, ProfileReducer } from './ProfileSlice'
 import { ProfileCardSchema } from '../types/EditableProfileCardSchema'

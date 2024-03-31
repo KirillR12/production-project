@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk'
-import { CurrencySchema } from 'entities/Currency'
+import { TestAsyncThunk } from '@/shared/lib/test/TestAsyncThunk/TestAsyncThunk'
+import { CurrencySchema } from '@/entities/Currency'
 import { ProfileThunk } from './ProfileThunk'
 
 jest.mock('axios')

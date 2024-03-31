@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from 'app/providers/StoreProvider'
-import { CommentBlock } from 'entities/CommentBlock'
+import { ThunkConfig } from '@/app/providers/StoreProvider'
+import { CommentBlock } from '@/entities/CommentBlock'
 
 export const ArticleCommentThunk = createAsyncThunk<CommentBlock[], string | undefined, ThunkConfig<string>>(
     'ArticleDetali/ArticleCommentThunk',

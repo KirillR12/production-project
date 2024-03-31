@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from '@storybook/react'
-import { StoreProviderDecorator } from 'shared/config/Storybook/StoreProviderDecorator/StoreProviderDecorator'
-import { Article, ArticleBlock, ArticleDataType } from 'entities/Article'
+import { StoreProviderDecorator } from '@/shared/config/Storybook/StoreProviderDecorator/StoreProviderDecorator'
+import { Article, ArticleBlock, ArticleDataType } from '@/entities/Article'
 import ArticleDetaliPage from './ArticleDetaliPage'
 
 const meta: Meta<typeof ArticleDetaliPage> = {

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from '@storybook/react'
-import { ArticleBlock, ArticleDataType } from 'entities/Article'
+import { ArticleBlock, ArticleDataType } from '@/entities/Article'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
 
 const article = {

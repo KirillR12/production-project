@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
-import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { Tabs, TabsItem } from '@/shared/ui/Tabs/Tabs'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { ArticleDataType } from '../../model/consts/consts'
 
  interface ArticleTypeTabProps {

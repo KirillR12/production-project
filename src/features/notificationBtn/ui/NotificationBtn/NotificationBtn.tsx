@@ -1,12 +1,12 @@
 import { memo, useCallback, useState } from 'react'
-import { MyPopover } from 'shared/ui/Popups'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Icon } from 'shared/ui/Icon/Icon'
-import { NotificationsList } from 'entities/Notifications'
-import Notification from 'shared/assets/icons/notification.svg'
-import { Drawer } from 'shared/ui/Drawer/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
+import { MyPopover } from '@/shared/ui/Popups'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import { Icon } from '@/shared/ui/Icon/Icon'
+import { NotificationsList } from '@/entities/Notifications'
+import Notification from '@/shared/assets/icons/notification.svg'
+import { Drawer } from '@/shared/ui/Drawer/Drawer'
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 import styles from './styles.module.scss'
 
 export const NotificationBtn = memo(() => {
@@ -40,11 +40,9 @@ export const NotificationBtn = memo(() => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <AnimationProvider>
-                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                        <NotificationsList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                    <NotificationsList />
+                </Drawer>
             </MobileView>
         </div>
 
