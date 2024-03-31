@@ -77,7 +77,7 @@ export const Navbar = (props: NavbarProps) => {
             {isAuthModal && (
                 <LoginModal
                     isOpen={isAuthModal}
-                    isClose={toggleCloseModal}
+                    onClose={toggleCloseModal}
                 />
             )}
         </header>

@@ -9,7 +9,7 @@ import { Overlay } from '../Overlay/Overlay'
    className?: string,
    children?: ReactNode,
    isOpen: boolean,
-   isClose: () => void,
+   onClose: () => void,
 }
 
 const ANIMATE_DELAY = 300
@@ -19,19 +19,15 @@ export const Modal = (props: ModalProps) => {
         className,
         children,
         isOpen,
-        isClose,
+        onClose,
     } = props
-
-    const closeHandler = (e: React.MouseEvent) => {
-        e.stopPropagation()
-    }
 
     const {
         isClosing,
-        isMouser,
+        isMounted,
         close,
     } = useModal({
-        isClose,
+        onClose,
         isOpen,
         animationDelay: ANIMATE_DELAY,
     })
@@ -41,7 +37,7 @@ export const Modal = (props: ModalProps) => {
         [styles.isClosing]: isClosing,
     }
 
-    if (!isMouser) {
+    if (!isMounted) {
         return null
     }
 
@@ -51,7 +47,6 @@ export const Modal = (props: ModalProps) => {
                 <Overlay onClick={() => close()} />
                 <div
                     className={styles.content}
-                    onClick={closeHandler}
                 >
                     {children}
                 </div>

@@ -6,6 +6,7 @@ import { NotificationsList } from 'entities/Notifications'
 import Notification from 'shared/assets/icons/notification.svg'
 import { Drawer } from 'shared/ui/Drawer/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider'
 import styles from './styles.module.scss'
 
 export const NotificationBtn = memo(() => {
@@ -26,8 +27,8 @@ export const NotificationBtn = memo(() => {
     )
 
     return (
-        <div>
-            <BrowserView>
+        <div className="hello234234">
+            <BrowserView className="hello">
                 <MyPopover trigger={(
                     <Button theme={ButtonTheme.CLEAR}>
                         <Icon Svg={Notification} inverted />
@@ -39,9 +40,11 @@ export const NotificationBtn = memo(() => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <NotificationsList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationsList />
+                    </Drawer>
+                </AnimationProvider>
             </MobileView>
         </div>
 

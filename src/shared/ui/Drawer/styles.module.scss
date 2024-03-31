@@ -45,8 +45,6 @@
     border-radius: 12px;
 
     background: var(--bg-color);
-
-    content: "";
 }
 
 .opened {
@@ -59,4 +57,24 @@
     .content {
         transform: translateY(0%);
     }
+}
+
+.isClosing {
+    .content {
+        transform: translateY(100%);
+    }
+}
+
+.sheet {
+    position: fixed;
+    left: 2vw;
+    z-index: 100;
+
+    width: 96vw;
+    height: calc(100vh + 100px);
+    border-radius: 12px 12px 0;
+
+    background: var(--bg-color);
+
+    touch-action: none;
 }

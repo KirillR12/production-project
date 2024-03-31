@@ -4,26 +4,27 @@ import { Suspense } from 'react'
 import { Loader } from 'shared/ui/Loader/Loader'
 import styles from './styles.module.scss'
 import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
+import LoginForm from '../LoginForm/LoginForm'
 
  interface LoginModalProps {
    isOpen: boolean,
-   isClose: () => void
+   onClose: () => void
 }
 
 export const LoginModal = (props: LoginModalProps) => {
     const {
         isOpen,
-        isClose,
+        onClose,
     } = props
 
     return (
         <Modal
             className={classNames(styles.LoginModal)}
             isOpen={isOpen}
-            isClose={isClose}
+            onClose={onClose}
         >
             <Suspense fallback={<Loader />}>
-                <LoginFormAsync onSucces={isClose} />
+                <LoginForm onSucces={onClose} />
             </Suspense>
         </Modal>
     )

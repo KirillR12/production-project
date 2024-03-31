@@ -3,5 +3,5 @@ import { ArticleRecommendatiosSchema } from './ArticleRecommendatiosSchema'
 
 export interface ArticleDetaliPageSchema {
     comments: ArticleCommentSchema
-    recommendations?: ArticleRecommendatiosSchema
+    recommendations: ArticleRecommendatiosSchema
 }

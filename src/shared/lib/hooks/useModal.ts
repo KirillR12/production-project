@@ -2,40 +2,36 @@ import {
     MutableRefObject, useCallback, useEffect, useRef, useState,
 } from 'react'
 
-interface useModalProps {
-    isClose: () => void
-isOpen: boolean
-animationDelay: number
+interface UseModalProps {
+    onClose?: () => void;
+    isOpen?: boolean;
+    animationDelay: number;
 }
 
-export function useModal(props: useModalProps) {
-    const {
-        isClose,
-        isOpen,
-        animationDelay,
-    } = props
-
+export function useModal({
+    animationDelay, isOpen, onClose,
+}: UseModalProps) {
     const [isClosing, setIsClosing] = useState(false)
-    const [isMouser, setIsMouser] = useState(false)
-
-    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
-
-    const close = useCallback(() => {
-        if (isClose) {
-            setIsClosing(true)
-            timeRef.current = setTimeout(() => {
-                isClose()
-                setIsClosing(false)
-            }, animationDelay)
-        }
-    }, [isClose, animationDelay])
+    const [isMounted, setIsMounted] = useState(false)
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
     useEffect(() => {
         if (isOpen) {
-            setIsMouser(true)
+            setIsMounted(true)
         }
     }, [isOpen])
 
+    const close = useCallback(() => {
+        if (onClose) {
+            setIsClosing(true)
+            timerRef.current = setTimeout(() => {
+                onClose()
+                setIsClosing(false)
+            }, animationDelay)
+        }
+    }, [animationDelay, onClose])
+
+    // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             close()
@@ -48,14 +44,14 @@ export function useModal(props: useModalProps) {
         }
 
         return () => {
-            clearTimeout(timeRef.current)
+            clearTimeout(timerRef.current)
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [isOpen, onKeyDown])
 
     return {
         isClosing,
-        isMouser,
+        isMounted,
         close,
     }
 }
