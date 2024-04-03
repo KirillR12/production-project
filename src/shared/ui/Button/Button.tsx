@@ -25,6 +25,7 @@ XL = 'size_xl'
    square?: boolean,
    size?: ButtonSize,
    disabled?: boolean,
+   fillWidth?: boolean
 }
 
 export const Button: FC <ButtonProps> = (props) => {
@@ -34,6 +35,7 @@ export const Button: FC <ButtonProps> = (props) => {
         theme = ButtonTheme.CLEAR,
         square,
         disabled,
+        fillWidth,
         size = ButtonSize.M,
         ...otherProps
     } = props
@@ -41,6 +43,7 @@ export const Button: FC <ButtonProps> = (props) => {
     const mods: Mods = {
         [styles.square]: square,
         [styles.disabled]: disabled,
+        [styles.fillWidth]: fillWidth,
     }
 
     return (

@@ -7,9 +7,9 @@ import { Overlay } from '../Overlay/Overlay'
 
  interface ModalProps {
    className?: string,
-   children?: ReactNode,
+   children: ReactNode,
    isOpen: boolean,
-   onClose: () => void,
+   onClose?: () => void,
 }
 
 const ANIMATE_DELAY = 300
