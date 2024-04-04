@@ -11,6 +11,7 @@ import { articleDetaliReducer } from '../../model/slice'
 import { ArticleDetaliPageHeader } from '../ArticleDetaliPageHeader/ArticleDetaliPageHeader'
 import { ArticleDetaliCommentPage } from '../ArticleDetaliCommentPage/ArticleDetaliCommentPage'
 import { RatingCard } from '@/entities/RatingCard'
+import { ArticleRating } from '@/features/articleRating'
 
  interface ArticleDetaliPageProps {
    className?: string
@@ -34,12 +35,8 @@ const ArticleDetaliPage = ({ className }: ArticleDetaliPageProps) => {
                 <VStack gap="16">
                     <ArticleDetaliPageHeader />
                     <ArticleDetali id={id} />
+                    <ArticleRating id={id} />
                     <ArticleRecommendationsList />
-                    <RatingCard
-                        title={t('Как вам статья?')}
-                        feedbackTitle={t('Оставьте отзыв о статье?')}
-                        hasFeedback
-                    />
                     <ArticleDetaliCommentPage id={id} />
                 </VStack>
             </Page>
