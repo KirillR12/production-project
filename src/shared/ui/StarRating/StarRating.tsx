@@ -1,5 +1,4 @@
 import { memo, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import Star from '@/shared/assets/icons/star.svg'
 import { Icon } from '../Icon/Icon'
@@ -12,6 +11,8 @@ interface StarRatingProps {
    selectedStars?: number
 }
 
+const stars = [1, 2, 3, 4, 5]
+
 export const StarRating = memo((props: StarRatingProps) => {
     const {
         className,
@@ -20,9 +21,6 @@ export const StarRating = memo((props: StarRatingProps) => {
         selectedStars = 0,
     } = props
 
-    const stars = [1, 2, 3, 4, 5]
-
-    const [isHovered, setIsHovered] = useState(false)
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars)
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars))
 

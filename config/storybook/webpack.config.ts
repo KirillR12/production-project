@@ -22,6 +22,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
     config.resolve!.extensions!.push('.tsx', '.ts', '.js')
     config.resolve!.modules!.push(paths.src)
+    config.resolve!.alias = {
+        ...config.resolve!.alias,
+        '@': paths.src,
+    }
     config.module!.rules.push(buildCssLoader(true))
     config.module!.rules.push({
         test: /\.svg$/,
