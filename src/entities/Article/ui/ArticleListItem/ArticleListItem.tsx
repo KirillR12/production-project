@@ -1,20 +1,20 @@
 import { useTranslation } from 'react-i18next'
 import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text } from '@/shared/ui/Text/Text'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import { Text } from '@/shared/ui/Text'
+import { Icon } from '@/shared/ui/Icon'
 import Eye from '@/shared/assets/icons/eye.svg'
-import { Card } from '@/shared/ui/Card/Card'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
-import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { Card } from '@/shared/ui/Card'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { AppLink } from '@/shared/ui/AppLink'
 import styles from './styles.module.scss'
 import {
     ArticlBlockText, Article,
 } from '../../model/types/ArticleType'
 import { ArticleDetaliText } from '../ArticleDetaliText/ArticleDetaliText'
 import { ArticleBlock, ArticleView } from '../../model/consts/consts'
+import { RoutePath } from '@/shared/const/router'
 
  interface ArticleListItemProps {
    className?: string

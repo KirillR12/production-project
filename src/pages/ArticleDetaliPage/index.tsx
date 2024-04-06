@@ -1,4 +1,3 @@
-export { articleDetaliReducer } from './model/slice'
 export { ArticleCommentBlockReducer } from './model/slice/ArticleCommentSlice'
 export type { ArticleCommentSchema } from './model/types/ArticleCommentSchema'
 export { ArticleDetaliPageAsync as ArticleDetaliPage } from './ui/ArticleDetaliPage/ArticleDetaliPageAsync'

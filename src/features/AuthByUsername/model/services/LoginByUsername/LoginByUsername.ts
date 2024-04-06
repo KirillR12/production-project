@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from '@/app/providers/StoreProvider'
-import { UserActions } from '@/entities/User'
-import { User } from '@/entities/User/model/types/UserSchema'
+import { UserActions, User } from '@/entities/User'
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage'
 
 export interface LoginByUsernameProps {
@@ -26,7 +25,6 @@ export const LoginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
 
             return response.data
         } catch (error) {
-            console.log(error)
             return rejectWithValue('error')
         }
     },

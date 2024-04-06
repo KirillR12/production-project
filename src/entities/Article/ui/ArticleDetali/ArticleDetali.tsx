@@ -6,12 +6,12 @@ import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/Dynami
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import {
     Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text/Text'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
+} from '@/shared/ui/Text'
+import { Skeleton } from '@/shared/ui/Skeleton'
+import { Avatar } from '@/shared/ui/Avatar'
 import Eye from '@/shared/assets/icons/eye.svg'
 import Calindar from '@/shared/assets/icons/calindar.svg'
-import { Icon } from '@/shared/ui/Icon/Icon'
+import { Icon } from '@/shared/ui/Icon'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { getArticleDetaliData, getArticleDetaliError, getArticleDetaliIsLoading } from '../../model/selector/articleDetali'
 import { ArticleDetaliReducer } from '../../model/slice/ArticleDetaliSlice/ArticleDetaliSlice'

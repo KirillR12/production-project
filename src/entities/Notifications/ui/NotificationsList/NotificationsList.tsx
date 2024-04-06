@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/Stack'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import styles from './styles.module.scss'
 import { useArticleRecommendationsList } from '../../api/notificationsApi'
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem'

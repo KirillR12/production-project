@@ -1,3 +1,4 @@
+export { ArticleTypeTab } from './ui/ArticleTypeTab/ArticleTypeTab'
 export {
     ArticleBlock, ArticleDataType, ArticleSortField, ArticleView,
 } from './model/consts/consts'

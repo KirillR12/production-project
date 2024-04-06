@@ -1,7 +1,6 @@
-import { RouteProps } from 'react-router-dom'
-import { UserRole } from '@/entities/User/model/types/UserSchema'
+import { UserRole } from '@/entities/User'
 import { AboutPage } from '@/pages/About'
-import AdminPanel from '@/pages/AdminPanel/ui/AdminPanel/AdminPanel'
+import { AdminPanel } from '@/pages/AdminPanel'
 import { ArticleDetaliPage } from '@/pages/ArticleDetaliPage'
 import { ArticleEditPage } from '@/pages/ArticleEditPage'
 import { ArticlePage } from '@/pages/ArticlePage'
@@ -9,37 +8,8 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage'
 import { MainPage } from '@/pages/Main'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { ProfilePage } from '@/pages/ProfilePage'
-
-export type AppRouterProps = RouteProps & {
-    authOnly?: boolean
-    roles?: UserRole[]
-}
-
-export enum AppRouter {
-    MAIN = 'main',
-    ABOUT = 'about',
-    NOTFOUNDPAGE = 'notFoundPage',
-    PROFILE = 'profile',
-    ARTICLE = 'article',
-    ARTICLE_DETALI = 'article_detale',
-    ARTICLE_CREATE = 'article_create',
-    ARTICLE_EDIT = 'article_edit',
-    ADMIN_PANEL = 'admin_panel',
-    FORBIDDEN_PAGE = 'forbidden_page'
-}
-
-export const RoutePath: Record<AppRouter, string> = {
-    [AppRouter.MAIN]: '/',
-    [AppRouter.ABOUT]: '/about',
-    [AppRouter.PROFILE]: '/profile/', // + id
-    [AppRouter.ARTICLE]: '/article',
-    [AppRouter.ARTICLE_DETALI]: '/article/', // + id
-    [AppRouter.ARTICLE_CREATE]: '/article/create', // + id
-    [AppRouter.ARTICLE_EDIT]: '/article/:id/edit', // + id
-    [AppRouter.ADMIN_PANEL]: '/admin',
-    [AppRouter.FORBIDDEN_PAGE]: '/forbidden',
-    [AppRouter.NOTFOUNDPAGE]: '*',
-}
+import { AppRouter, RoutePath } from '@/shared/const/router'
+import { AppRouterProps } from '@/shared/types/router'
 
 export const routeConfig: Record<AppRouter, AppRouterProps> = {
     [AppRouter.MAIN]: {
@@ -89,5 +59,4 @@ export const routeConfig: Record<AppRouter, AppRouterProps> = {
         path: RoutePath.notFoundPage,
         element: <NotFoundPage />,
     },
-
 }

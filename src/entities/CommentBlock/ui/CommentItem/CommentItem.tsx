@@ -1,13 +1,13 @@
 import { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Avatar } from '@/shared/ui/Avatar/Avatar'
-import { Text } from '@/shared/ui/Text/Text'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Text } from '@/shared/ui/Text'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { VStack } from '@/shared/ui/Stack'
-import { AppLink } from '@/shared/ui/AppLink/AppLink'
+import { AppLink } from '@/shared/ui/AppLink'
 import styles from './styles.module.scss'
 import { CommentBlock } from '../../model/types/CommentBlock'
+import { RoutePath } from '@/shared/const/router'
 
  interface CommentItemProps {
    className?: string

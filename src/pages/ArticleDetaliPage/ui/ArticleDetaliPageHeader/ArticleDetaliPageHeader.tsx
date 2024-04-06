@@ -2,13 +2,13 @@ import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { getArticleDetaliData } from '@/entities/Article'
 import { HStack } from '@/shared/ui/Stack'
 import styles from './styles.module.scss'
 import { getArticle } from '../../model/selector/getArticle'
+import { RoutePath } from '@/shared/const/router'
 
  interface ArticleDetaliPageHeaderProps {
    className?: string

@@ -4,14 +4,14 @@ import { useTranslation } from 'react-i18next'
 import {
     ArticleDataType,
     ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
+    ArticleTypeTab,
 } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Card } from '@/shared/ui/Card/Card'
-import { Input } from '@/shared/ui/Input/Input'
+import { Card } from '@/shared/ui/Card'
+import { Input } from '@/shared/ui/Input'
 import { SortOrder } from '@/shared/types'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce'
-import { TabsItem } from '@/shared/ui/Tabs/Tabs'
-import { ArticleTypeTab } from '@/entities/Article/ui/ArticleTypeTab/ArticleTypeTab'
+import { TabsItem } from '@/shared/ui/Tabs'
 import { HStack, VStack } from '@/shared/ui/Stack'
 import { ArticlePageThunk } from '../../model/servers/ArticlePageThunk/ArticlePageThunk'
 import styles from './styles.module.scss'
@@ -20,15 +20,7 @@ import {
 } from '../../model/selectors/ArticlePageSelectors'
 import { ArticlePageActions } from '../../model/slice/ArticlePageSlice'
 
- interface ArticlePageFiltersProps {
-   className?: string
-}
-
-export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
-    const {
-        className,
-    } = props
-
+export const ArticlePageFilters = memo(() => {
     const { t } = useTranslation()
 
     const view = useSelector(getArticlePageView)

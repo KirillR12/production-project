@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { AddCommentForm, addCommentArticleThunk } from '@/features/addCommentForm'
-import { Text, TextSize } from '@/shared/ui/Text/Text'
+import { AddCommentForm } from '@/features/addCommentForm'
+import { Text, TextSize } from '@/shared/ui/Text'
 import { CommentList } from '@/entities/CommentBlock'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
@@ -11,6 +11,7 @@ import { VStack } from '@/shared/ui/Stack'
 import { getSelectorsComments } from '../../model/slice/ArticleCommentSlice'
 import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/getArticleComment/getArticleComment'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk/ArticleCommentThunk'
+import { addCommentArticleThunk } from '../../model/servers/addCommentArticleThunk/addCommentArticleThunk'
 
  interface ArticleDetaliCommentPageProps {
    className?: string
