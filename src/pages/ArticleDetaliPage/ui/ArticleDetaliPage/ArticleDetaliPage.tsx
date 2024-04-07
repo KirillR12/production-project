@@ -10,7 +10,6 @@ import { ArticleRecommendationsList } from '@/features/articleRecommendationsLis
 import { articleDetaliReducer } from '../../model/slice'
 import { ArticleDetaliPageHeader } from '../ArticleDetaliPageHeader/ArticleDetaliPageHeader'
 import { ArticleDetaliCommentPage } from '../ArticleDetaliCommentPage/ArticleDetaliCommentPage'
-import { RatingCard } from '@/entities/RatingCard'
 import { ArticleRating } from '@/features/articleRating'
 
  interface ArticleDetaliPageProps {

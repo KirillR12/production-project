@@ -6,7 +6,6 @@ import { Icon } from '@/shared/ui/Icon'
 import { NotificationsList } from '@/entities/Notifications'
 import Notification from '@/shared/assets/icons/notification.svg'
 import { Drawer } from '@/shared/ui/Drawer'
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 import styles from './styles.module.scss'
 
 export const NotificationBtn = memo(() => {

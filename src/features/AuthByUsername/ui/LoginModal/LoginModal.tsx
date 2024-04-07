@@ -3,7 +3,6 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Modal } from '@/shared/ui/Modal'
 import { Loader } from '@/shared/ui/Loader'
 import styles from './styles.module.scss'
-import { LoginFormAsync } from '../LoginForm/LoginFormAsync'
 import LoginForm from '../LoginForm/LoginForm'
 
  interface LoginModalProps {

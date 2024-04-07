@@ -39,6 +39,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'fedotov-fsd',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -63,12 +64,14 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'react/display-name': 'off',
         'max-len': ['error', { code: 140 }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/no-array-index-key': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         'fedotov-fsd/path-checker': ['error', { alias: '@' }],
+        'fedotov-fsd/layer-imports': ['error', { alias: '@' }],
         'fedotov-fsd/public-api-import': ['error', { alias: '@', fileTypes: ['**/StoreProviderDecorator.tsx'] }],
         'i18next/no-literal-string': [
             'error',
