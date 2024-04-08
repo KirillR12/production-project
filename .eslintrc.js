@@ -40,6 +40,7 @@ module.exports = {
         'react-hooks',
         'fedotov-fsd',
         'unused-imports',
+        'ulbi-tv-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -71,7 +72,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         'fedotov-fsd/path-checker': ['error', { alias: '@' }],
-        'fedotov-fsd/layer-imports': ['error', { alias: '@' }],
+        'ulbi-tv-plugin/layer-imports': ['error', { alias: '@' }],
         'fedotov-fsd/public-api-import': ['error', { alias: '@', fileTypes: ['**/StoreProviderDecorator.tsx'] }],
         'i18next/no-literal-string': [
             'error',
