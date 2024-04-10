@@ -11,15 +11,12 @@ export enum AppRouter {
     FORBIDDEN_PAGE = 'forbidden_page'
 }
 
-export const RoutePath: Record<AppRouter, string> = {
-    [AppRouter.MAIN]: '/',
-    [AppRouter.ABOUT]: '/about',
-    [AppRouter.PROFILE]: '/profile/', // + id
-    [AppRouter.ARTICLE]: '/article',
-    [AppRouter.ARTICLE_DETALI]: '/article/', // + id
-    [AppRouter.ARTICLE_CREATE]: '/article/create', // + id
-    [AppRouter.ARTICLE_EDIT]: '/article/:id/edit', // + id
-    [AppRouter.ADMIN_PANEL]: '/admin',
-    [AppRouter.FORBIDDEN_PAGE]: '/forbidden',
-    [AppRouter.NOTFOUNDPAGE]: '*',
-}
+export const getRouteMain = () => '/'
+export const getRouteAbout = () => '/about'
+export const getRouteProfile = (id: string) => `/profile/${id}`
+export const getRouteArticle = () => '/article'
+export const getRouteArticleDetali = (id: string) => `/article/${id}`
+export const getRouteArticleCreate = () => '/article/create'
+export const getRouteArticleEdit = (id: string) => `/article/${id}/edit`
+export const getRouteAdminPanel = () => '/admin'
+export const getRouteForbiddenPage = () => '/forbidden'

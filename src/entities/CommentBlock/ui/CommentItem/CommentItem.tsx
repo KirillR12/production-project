@@ -7,7 +7,7 @@ import { VStack } from '@/shared/ui/Stack'
 import { AppLink } from '@/shared/ui/AppLink'
 import styles from './styles.module.scss'
 import { CommentBlock } from '../../model/types/CommentBlock'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteProfile } from '@/shared/const/router'
 
  interface CommentItemProps {
    className?: string
@@ -40,7 +40,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     return (
         <VStack gap="4" max className={classNames(styles.CommentItem, {}, [className])}>
-            <AppLink to={RoutePath.profile + comment.user.id} className={styles.blockUser}>
+            <AppLink to={getRouteProfile(comment.user.id)} className={styles.blockUser}>
                 {comment?.user.avatar && <Avatar src={comment.user.avatar} size={30} />}
                 <Text className={styles.nameUser} title={comment?.user.username} />
             </AppLink>

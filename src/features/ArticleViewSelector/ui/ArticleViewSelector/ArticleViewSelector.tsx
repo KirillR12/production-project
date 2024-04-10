@@ -4,8 +4,8 @@ import Block from '@/shared/assets/icons/blockView.svg'
 import List from '@/shared/assets/icons/listView.svg'
 import { Icon } from '@/shared/ui/Icon'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { ArticleView } from '../../model/consts/consts'
 import styles from './styles.module.scss'
+import { ArticleView } from '@/entities/Article'
 
  interface ArticleViewSelectorProps {
    className?: string

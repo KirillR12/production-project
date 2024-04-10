@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Select, SelectOption } from '@/shared/ui/Select'
 import { SortOrder } from '@/shared/types'
 import styles from './styles.module.scss'
-import { ArticleSortField } from '../../model/consts/consts'
+import { ArticleSortField } from '@/entities/Article'
 
  interface ArticleSortSelectorProps {
    className?: string

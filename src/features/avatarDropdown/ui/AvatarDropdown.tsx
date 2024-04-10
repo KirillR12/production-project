@@ -5,7 +5,7 @@ import { Dropdown } from '@/shared/ui/Popups'
 import { Avatar } from '@/shared/ui/Avatar'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { UserActions, getAuthUser, isUserAdmin } from '@/entities/User'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router'
 
 export const AvatarDropdown = memo(() => {
     const { t } = useTranslation()
@@ -28,11 +28,11 @@ export const AvatarDropdown = memo(() => {
                 items={[
                     ...(isAdmin ? [{
                         content: t('Админка'),
-                        href: RoutePath.admin_panel,
+                        href: getRouteAdminPanel(),
                     }] : []),
                     {
                         content: t('Профиль'),
-                        href: RoutePath.profile + authUser.id,
+                        href: getRouteProfile(authUser.id),
                     },
                     {
                         content: t('Выйти'),

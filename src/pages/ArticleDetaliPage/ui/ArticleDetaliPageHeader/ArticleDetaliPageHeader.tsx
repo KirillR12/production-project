@@ -8,7 +8,7 @@ import { getArticleDetaliData } from '@/entities/Article'
 import { HStack } from '@/shared/ui/Stack'
 import styles from './styles.module.scss'
 import { getArticle } from '../../model/selector/getArticle'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticle, getRouteArticleDetali } from '@/shared/const/router'
 
  interface ArticleDetaliPageHeaderProps {
    className?: string
@@ -27,12 +27,12 @@ export const ArticleDetaliPageHeader = memo((props: ArticleDetaliPageHeaderProps
     const article = useSelector(getArticleDetaliData)
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.article)
+        navigate(getRouteArticle())
     }, [navigate])
 
     const onEditArticle = useCallback(() => {
         if (article) {
-            navigate(`${RoutePath.article_detale + article.id}/edit`)
+            navigate(getRouteArticleDetali(article.id))
         }
     }, [navigate, article])
 

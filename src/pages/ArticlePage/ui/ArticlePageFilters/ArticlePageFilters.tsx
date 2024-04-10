@@ -1,11 +1,7 @@
 import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import {
-    ArticleDataType,
-    ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
-    ArticleTypeTab,
-} from '@/entities/Article'
+import { ArticleDataType, ArticleSortField, ArticleView } from '@/entities/Article'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Card } from '@/shared/ui/Card'
 import { Input } from '@/shared/ui/Input'
@@ -19,6 +15,9 @@ import {
     getArticlePageOrder, getArticlePageSearch, getArticlePageSort, getArticlePageType, getArticlePageView,
 } from '../../model/selectors/ArticlePageSelectors'
 import { ArticlePageActions } from '../../model/slice/ArticlePageSlice'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleViewSelector } from '@/features/ArticleViewSelector'
+import { ArticleTypeTab } from '@/features/ArticleTypeTab'
 
 export const ArticlePageFilters = memo(() => {
     const { t } = useTranslation()
