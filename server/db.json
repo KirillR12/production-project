@@ -50,7 +50,7 @@
       "id": "1",
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "img": "ttps://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -567,7 +567,7 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ"
+      "avatar": "ttps://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ"
     },
     {
       "id": "2",
@@ -589,7 +589,7 @@
       "country": "Ukraine",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ"
+      "avatar": "ttps://play-lh.googleusercontent.com/ShO8lmMq5rNQa16SxMCGLZ1w4oS-oM17mPWlxU9UaYSzzonFZ2hY6pdqG1Zo2lyGYQ"
     },
     {
       "id": "2",

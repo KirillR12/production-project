@@ -15,8 +15,10 @@ import {
 import { ArticleDetaliText } from '../ArticleDetaliText/ArticleDetaliText'
 import { ArticleBlock, ArticleView } from '../../model/consts/consts'
 import { getRouteArticleDetali } from '@/shared/const/router'
+import { AppImage } from '@/shared/ui/AppImage'
+import { Skeleton } from '@/shared/ui/Skeleton'
 
- interface ArticleListItemProps {
+interface ArticleListItemProps {
    className?: string
    article: Article
    view?: ArticleView
@@ -34,7 +36,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation()
 
     const types = <Text text={article.type?.join(', ')} className={styles.type} />
-    const img = <img src={article.img} alt={article.title} className={styles.img} />
     const views = (
         <>
             <Text text={String(article.views)} className={styles.views} />
@@ -56,7 +57,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={styles.title} />
                     {types}
-                    {img}
+                    <AppImage
+                        fallback={<Skeleton width="100%" height={250} />}
+                        src={article.img}
+                        alt={article.title}
+                        className={styles.img}
+                    />
                     {textBlock && <ArticleDetaliText block={textBlock} className={styles.textBlock} />}
                     <div className={styles.footer}>
                         <AppLink to={getRouteArticleDetali(article.id)}>
@@ -79,7 +85,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             >
                 <Card>
                     <div className={styles.imageWrapper}>
-                        {img}
+                        <AppImage
+                            src={article.img}
+                            alt={article.title}
+                            className={styles.img}
+                            fallback={<Skeleton width={200} height={200} />}
+                        />
                         <Text text={article.createdAt} className={styles.date} />
                     </div>
                     <div className={styles.infoWrapper}>
