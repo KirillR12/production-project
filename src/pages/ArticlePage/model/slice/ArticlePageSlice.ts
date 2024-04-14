@@ -8,7 +8,7 @@ import {
     Article, ArticleDataType, ArticleSortField, ArticleView,
 } from '@/entities/Article'
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage'
-import { SortOrder } from '@/shared/types'
+import { SortOrder } from '@/shared/types/sort'
 import { ArticlePageSchema } from '../tyles/ArticlePageSchema'
 import { ArticlePageThunk } from '../servers/ArticlePageThunk/ArticlePageThunk'
 

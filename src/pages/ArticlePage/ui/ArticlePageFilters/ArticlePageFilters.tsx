@@ -5,7 +5,7 @@ import { ArticleDataType, ArticleSortField, ArticleView } from '@/entities/Artic
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Card } from '@/shared/ui/Card'
 import { Input } from '@/shared/ui/Input'
-import { SortOrder } from '@/shared/types'
+import { SortOrder } from '@/shared/types/sort'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce'
 import { TabsItem } from '@/shared/ui/Tabs'
 import { HStack, VStack } from '@/shared/ui/Stack'

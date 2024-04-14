@@ -12,8 +12,9 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import styles from './styles.module.scss'
 import { ScrollActions } from '../model/slice/ScrollSlice'
 import { getScrollPath } from '../model/selector/ScrollSelector'
+import { TestProps } from '@/shared/types/testing'
 
- interface PageProps {
+ interface PageProps extends TestProps {
    className?: string
    children: ReactNode
    onScrollEnd?: () => void
@@ -51,13 +52,14 @@ export const Page = memo((props: PageProps) => {
     })
 
     return (
-        <section
+        <main
+            data-testid={props['data-testid'] ?? 'Page'}
             ref={wrapperRef}
             className={classNames(styles.Page, {}, [className])}
             onScroll={onScroll}
         >
             {children}
             {onScrollEnd ? <div className={styles.divTriggerRef} ref={triggerRef} /> : null}
-        </section>
+        </main>
     )
 })
