@@ -10,7 +10,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
 
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
-        exclude: [/node_modules/, /reports/],
+        exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
             options: {
