@@ -71,9 +71,11 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/no-array-index-key': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        // 'ulbi-tv-plugin/layer-imports': ['error', { alias: '@' }],
+        // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
         'fedotov-fsd/path-checker': ['error', { alias: '@' }],
-        'ulbi-tv-plugin/layer-imports': ['error', { alias: '@' }],
         'fedotov-fsd/public-api-import': ['error', { alias: '@', fileTypes: ['**/StoreProviderDecorator.tsx'] }],
+        'fedotov-fsd/layer-imports': ['error', { alias: '@' }],
         'i18next/no-literal-string': [
             'error',
             {

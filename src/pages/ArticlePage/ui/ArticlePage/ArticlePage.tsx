@@ -10,8 +10,8 @@ import { initArticlePage } from '../../model/servers/initArticlePage/initArticle
 import { ArticlePageNextThunk } from '../../model/servers/ArticlePageNextThunk/ArticlePageNextThunk'
 import { ArticlePageReducer } from '../../model/slice/ArticlePageSlice'
 import styles from './styles.module.scss'
-import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { ArticleItfiteList } from '../ArticleItfiteList/ArticleItfiteList'
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 
  interface ArticlePageProps {
    className?: string
