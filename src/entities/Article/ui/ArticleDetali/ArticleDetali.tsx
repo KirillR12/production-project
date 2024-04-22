@@ -55,13 +55,10 @@ export const ArticleDetali = memo((props: ArticleDetaliProps) => {
         switch (block.type) {
         case ArticleBlock.CODE:
             return <ArticleDetaliCode key={block.id} block={block} className={styles.block} />
-            break
         case ArticleBlock.IMAGE:
             return <ArticleDetaliImage key={block.id} block={block} className={styles.block} />
-            break
         case ArticleBlock.TEXT:
             return <ArticleDetaliText key={block.id} block={block} className={styles.block} />
-            break
         default:
             return null
         }

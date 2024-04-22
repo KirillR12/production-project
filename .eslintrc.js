@@ -7,11 +7,17 @@ module.exports = {
     extends: [
         'airbnb',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
-
     ],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+    },
     overrides: [
         {
             env: {
@@ -30,10 +36,6 @@ module.exports = {
             },
         },
     ],
-    parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-    },
     plugins: [
         'react',
         'i18next',
@@ -41,8 +43,10 @@ module.exports = {
         'fedotov-fsd',
         'unused-imports',
         'ulbi-tv-plugin',
+        '@typescript-eslint',
     ],
     rules: {
+        'no-namespace': 'off',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
@@ -56,6 +60,8 @@ module.exports = {
         'react/function-component-definition': 'off',
         'react/jsx-props-no-spreading': 'warn',
         'no-shadow': 'off',
+        'no-undef': 'off',
+        'no-unused-vars': 'off',
         '@typescript-eslint/no-shadow': 'error',
         '@typescript-eslint/no-unused-vars': 'warn',
         'no-underscore-dangle': 'off',

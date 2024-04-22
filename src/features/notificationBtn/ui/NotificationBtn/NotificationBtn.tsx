@@ -26,8 +26,8 @@ export const NotificationBtn = memo(() => {
     )
 
     return (
-        <div className="hello234234">
-            <BrowserView className="hello">
+        <div>
+            <BrowserView>
                 <MyPopover trigger={(
                     <Button theme={ButtonTheme.CLEAR}>
                         <Icon Svg={Notification} inverted />

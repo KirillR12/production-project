@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorater } from '@/shared/config/Storybook/ThemeDecorater/ThemeDecorater'
-import { Theme } from '@/app/providers/ThemeProviders'
 import { Modal } from './Modal'
 
 const meta: Meta<typeof Modal> = {
@@ -15,13 +13,6 @@ export const Primary: Story = {
     args: {
         children: 'TEXT',
         isOpen: true,
+        delay: 0,
     },
-}
-
-export const Dark: Story = {
-    args: {
-        children: 'TEXT',
-        isOpen: true,
-    },
-    decorators: [ThemeDecorater(Theme.DARK)],
 }

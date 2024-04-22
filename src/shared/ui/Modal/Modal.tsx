@@ -10,6 +10,7 @@ import { Overlay } from '../Overlay/Overlay'
    children: ReactNode,
    isOpen: boolean,
    onClose?: () => void,
+   delay?: number
 }
 
 const ANIMATE_DELAY = 300
@@ -20,6 +21,7 @@ export const Modal = (props: ModalProps) => {
         children,
         isOpen,
         onClose,
+        delay,
     } = props
 
     const {
@@ -29,7 +31,7 @@ export const Modal = (props: ModalProps) => {
     } = useModal({
         onClose,
         isOpen,
-        animationDelay: ANIMATE_DELAY,
+        animationDelay: delay || ANIMATE_DELAY,
     })
 
     const mods: Record<string, boolean> = {
