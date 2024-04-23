@@ -7,7 +7,7 @@ const meta: Meta<typeof CommentList> = {
 }
 
 export default meta
-type Story = StoryObj<typeof CommentList>;
+type Story = StoryObj<typeof CommentList>
 
 export const Primary: Story = {
     args: {

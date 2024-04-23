@@ -11,7 +11,7 @@ const meta: Meta<typeof ArticleDetali> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleDetali>;
+type Story = StoryObj<typeof ArticleDetali>
 
 const article: Article = {
     id: '1',
@@ -89,33 +89,39 @@ const article: Article = {
 }
 
 export const Primary: Story = {
-    decorators: [StoreProviderDecorator({
-        articleDetali: {
-            data: article,
-        },
-    })],
+    decorators: [
+        StoreProviderDecorator({
+            articleDetali: {
+                data: article,
+            },
+        }),
+    ],
     args: {
         id: '1',
     },
 }
 
 export const Loading: Story = {
-    decorators: [StoreProviderDecorator({
-        articleDetali: {
-            isLoading: true,
-        },
-    })],
+    decorators: [
+        StoreProviderDecorator({
+            articleDetali: {
+                isLoading: true,
+            },
+        }),
+    ],
     args: {
         id: '1',
     },
 }
 
 export const Error: Story = {
-    decorators: [StoreProviderDecorator({
-        articleDetali: {
-            error: 'error',
-        },
-    })],
+    decorators: [
+        StoreProviderDecorator({
+            articleDetali: {
+                error: 'error',
+            },
+        }),
+    ],
     args: {
         id: '1',
     },

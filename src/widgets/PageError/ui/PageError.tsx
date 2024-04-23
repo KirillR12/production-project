@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui/Button'
 import styles from './styles.module.scss'
 
- interface PageErrorProps {
-   className?: string
+interface PageErrorProps {
+    className?: string
 }
 
 export const PageError = ({ className }: PageErrorProps) => {

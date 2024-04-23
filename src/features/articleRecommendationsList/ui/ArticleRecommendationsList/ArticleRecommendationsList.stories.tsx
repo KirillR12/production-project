@@ -45,7 +45,7 @@ const meta: Meta<typeof ArticleRecommendationsList> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleRecommendationsList>;
+type Story = StoryObj<typeof ArticleRecommendationsList>
 
 export const Primary: Story = {
     args: {},

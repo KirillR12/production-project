@@ -39,16 +39,16 @@ export const ProfileSlice = createSlice({
                 state.error = undefined
                 state.isLoading = true
             })
-            .addCase(ProfileThunk.fulfilled, (
-                state,
-                action: PayloadAction<Profile>,
-            ) => {
-                state.isLoading = false
-                state.data = action.payload
-                state.form = action.payload
-                state.readonly = true
-                state.validateError = undefined
-            })
+            .addCase(
+                ProfileThunk.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.isLoading = false
+                    state.data = action.payload
+                    state.form = action.payload
+                    state.readonly = true
+                    state.validateError = undefined
+                }
+            )
             .addCase(ProfileThunk.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload
@@ -58,16 +58,16 @@ export const ProfileSlice = createSlice({
                 state.validateError = undefined
                 state.isLoading = true
             })
-            .addCase(ProfileSaveEditThunk.fulfilled, (
-                state,
-                action: PayloadAction<Profile>,
-            ) => {
-                state.isLoading = false
-                state.data = action.payload
-                state.form = action.payload
-                state.readonly = true
-                state.validateError = undefined
-            })
+            .addCase(
+                ProfileSaveEditThunk.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.isLoading = false
+                    state.data = action.payload
+                    state.form = action.payload
+                    state.readonly = true
+                    state.validateError = undefined
+                }
+            )
             .addCase(ProfileSaveEditThunk.rejected, (state, action) => {
                 state.isLoading = false
                 state.validateError = action.payload

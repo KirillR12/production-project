@@ -9,7 +9,9 @@ describe('getValidateErrors', () => {
                 validateError: [ValidateProfileSchema.INCORRECT_AGE],
             },
         }
-        expect(getValidateErrors(state as StateSchema)).toEqual(['INCORRECT_AGE'])
+        expect(getValidateErrors(state as StateSchema)).toEqual([
+            'INCORRECT_AGE',
+        ])
     })
 
     test('data error', () => {
@@ -18,7 +20,9 @@ describe('getValidateErrors', () => {
                 validateError: [ValidateProfileSchema.INCORRECT_USER_DATA],
             },
         }
-        expect(getValidateErrors(state as StateSchema)).toEqual(['INCORRECT_USER_DATA'])
+        expect(getValidateErrors(state as StateSchema)).toEqual([
+            'INCORRECT_USER_DATA',
+        ])
     })
 
     test('no data error', () => {
@@ -36,7 +40,9 @@ describe('getValidateErrors', () => {
                 validateError: [ValidateProfileSchema.SERVER_ERROR],
             },
         }
-        expect(getValidateErrors(state as StateSchema)).toEqual(['SERVER_ERROR'])
+        expect(getValidateErrors(state as StateSchema)).toEqual([
+            'SERVER_ERROR',
+        ])
     })
 
     test('error', () => {

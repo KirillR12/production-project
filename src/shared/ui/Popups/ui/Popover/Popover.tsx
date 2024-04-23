@@ -13,15 +13,9 @@ interface MyPopoverProps {
 }
 
 export function MyPopover(props: MyPopoverProps) {
-    const {
-        children,
-        trigger,
-        direction = 'bottom left',
-    } = props
+    const { children, trigger, direction = 'bottom left' } = props
 
-    const menuClasses = [
-        mapDirectionClasses[direction],
-    ]
+    const menuClasses = [mapDirectionClasses[direction]]
 
     return (
         <Popover className={popupsStyles.Popups}>
@@ -29,7 +23,9 @@ export function MyPopover(props: MyPopoverProps) {
                 {trigger}
             </Popover.Button>
 
-            <Popover.Panel className={classNames(styles.popuver, {}, menuClasses)}>
+            <Popover.Panel
+                className={classNames(styles.popuver, {}, menuClasses)}
+            >
                 {children}
             </Popover.Panel>
         </Popover>

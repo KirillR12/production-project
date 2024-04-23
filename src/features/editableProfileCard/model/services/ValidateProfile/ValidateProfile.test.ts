@@ -18,7 +18,11 @@ describe('ValidateProfile', () => {
     })
 
     test('error first and lastname', async () => {
-        const result = ValidateProfile({ ...dataProfile, first: '', lastname: '' })
+        const result = ValidateProfile({
+            ...dataProfile,
+            first: '',
+            lastname: '',
+        })
         expect(result).toEqual([ValidateProfileSchema.INCORRECT_USER_DATA])
     })
 

@@ -41,23 +41,34 @@ const option = {
 describe('features/EditableProfileCard', () => {
     test('test rendor btn edit profile', async () => {
         componentRender(<EditableProfileCard id="1" />, option)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'))
-        expect(screen.getByTestId('EditableProfileCardHeader.SaveBtn')).toBeInTheDocument()
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditBtn')
+        )
+        expect(
+            screen.getByTestId('EditableProfileCardHeader.SaveBtn')
+        ).toBeInTheDocument()
     })
 
     test('when canceled the values ​​are reset to zero', async () => {
         componentRender(<EditableProfileCard id="1" />, option)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditBtn')
+        )
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'))
 
         await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'user')
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user')
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'user'
+        )
 
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user')
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user')
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelBtn'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.CancelBtn')
+        )
 
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('admin')
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('admin')
@@ -65,26 +76,39 @@ describe('features/EditableProfileCard', () => {
 
     test('error due to incorrect data', async () => {
         componentRender(<EditableProfileCard id="1" />, option)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditBtn')
+        )
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'))
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveBtn'))
-        expect(screen.getByTestId('EditableProfileCard.Error.Header')).toBeInTheDocument()
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveBtn')
+        )
+        expect(
+            screen.getByTestId('EditableProfileCard.Error.Header')
+        ).toBeInTheDocument()
     })
 
     test('no errors making a request to the server', async () => {
         const mockPutReq = jest.spyOn($api, 'put')
 
         componentRender(<EditableProfileCard id="1" />, option)
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditBtn')
+        )
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'))
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'))
 
         await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'user')
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user')
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'user'
+        )
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveBtn'))
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveBtn')
+        )
         expect(mockPutReq).toHaveBeenCalled()
     })
 })

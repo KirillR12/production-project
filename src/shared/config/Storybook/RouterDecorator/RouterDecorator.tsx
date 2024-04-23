@@ -2,7 +2,5 @@ import { Decorator } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
 
 export const RouterDecorator: Decorator = (Story) => (
-    <MemoryRouter>
-        {Story()}
-    </MemoryRouter>
+    <MemoryRouter>{Story()}</MemoryRouter>
 )

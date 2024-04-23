@@ -12,14 +12,14 @@ import { getProfileData } from '../../model/selector/getProfileData/getProfileDa
 import { ProfileActions } from '../../model/slice/ProfileSlice'
 import { ProfileSaveEditThunk } from '../../model/services/ProfileSaveEditThunk/ProfileSaveEditThunk'
 
- interface EditableProfileCardHeaderProps {
-   className?: string,
+interface EditableProfileCardHeaderProps {
+    className?: string
 }
 
-export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
-    const {
-        className,
-    } = props
+export const EditableProfileCardHeader = (
+    props: EditableProfileCardHeaderProps
+) => {
+    const { className } = props
 
     const { t } = useTranslation()
 
@@ -43,10 +43,14 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
     }, [dispatch])
 
     return (
-        <HStack justify="between" max className={classNames('', {}, [className])}>
+        <HStack
+            justify="between"
+            max
+            className={classNames('', {}, [className])}
+        >
             <Text title={t('Профиль')} />
-            {canEdit && (
-                readonly ? (
+            {canEdit &&
+                (readonly ? (
                     <Button
                         theme={ButtonTheme.OUTLINE}
                         onClick={onEdit}
@@ -71,8 +75,7 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
                             {t('Сохранить')}
                         </Button>
                     </HStack>
-                )
-            )}
+                ))}
         </HStack>
     )
 }

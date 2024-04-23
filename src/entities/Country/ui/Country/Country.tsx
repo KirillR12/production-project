@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { Listbox } from '@/shared/ui/Popups'
 import { CountrySchema } from '../../model/types/CountrySchema'
 
- interface CountryProps {
-   className?: string
-   value?: CountrySchema
-   onChange?: (value: CountrySchema) => void
-   readonly?: boolean
+interface CountryProps {
+    className?: string
+    value?: CountrySchema
+    onChange?: (value: CountrySchema) => void
+    readonly?: boolean
 }
 
 const options = [
@@ -20,16 +20,14 @@ const options = [
 ]
 
 export const Country = memo((props: CountryProps) => {
-    const {
-        className,
-        onChange,
-        value,
-        readonly,
-    } = props
+    const { className, onChange, value, readonly } = props
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as CountrySchema)
-    }, [onChange])
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as CountrySchema)
+        },
+        [onChange]
+    )
 
     const { t } = useTranslation()
 

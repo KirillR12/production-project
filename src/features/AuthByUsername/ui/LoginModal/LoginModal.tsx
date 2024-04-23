@@ -5,16 +5,13 @@ import { Loader } from '@/shared/ui/Loader'
 import styles from './styles.module.scss'
 import LoginForm from '../LoginForm/LoginForm'
 
- interface LoginModalProps {
-   isOpen: boolean,
-   onClose: () => void
+interface LoginModalProps {
+    isOpen: boolean
+    onClose: () => void
 }
 
 export const LoginModal = (props: LoginModalProps) => {
-    const {
-        isOpen,
-        onClose,
-    } = props
+    const { isOpen, onClose } = props
 
     return (
         <Modal

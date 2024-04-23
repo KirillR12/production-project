@@ -3,19 +3,22 @@ import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { HStack } from '../Stack'
 
-type InputHTMLAttribut = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
+type InputHTMLAttribut = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readonly'
+>
 
 export enum InputTheme {
-    OUTLINE = 'outline'
+    OUTLINE = 'outline',
 }
 
 export interface InputProps extends InputHTMLAttribut {
-className?: string
-value?: string | number
-onChange?: (value: string) => void
-theme?: InputTheme
-readonly?: boolean
-label?: string
+    className?: string
+    value?: string | number
+    onChange?: (value: string) => void
+    theme?: InputTheme
+    readonly?: boolean
+    label?: string
 }
 
 export const Input = memo((props: InputProps) => {
@@ -40,7 +43,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <HStack gap="8">
-            {label && (<span>{label}</span>)}
+            {label && <span>{label}</span>}
             <input
                 className={classNames('', mods, [className, styles[theme]])}
                 type={type}

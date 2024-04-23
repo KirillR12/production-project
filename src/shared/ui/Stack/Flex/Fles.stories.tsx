@@ -7,7 +7,7 @@ const meta: Meta<typeof Flex> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Flex>;
+type Story = StoryObj<typeof Flex>
 
 export const JustifyStart: Story = {
     args: {
@@ -18,7 +18,6 @@ export const JustifyStart: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
     },
 }
@@ -32,7 +31,6 @@ export const JustifyCenter: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         justify: 'center',
     },
@@ -47,7 +45,6 @@ export const JustifyEnd: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         justify: 'end',
     },
@@ -62,7 +59,6 @@ export const AlingStart: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         align: 'start',
         direction: 'column',
@@ -78,7 +74,6 @@ export const AlingCenter: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         align: 'center',
         direction: 'column',
@@ -94,7 +89,6 @@ export const AlingEnd: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         align: 'end',
         direction: 'column',
@@ -110,7 +104,6 @@ export const Gap4: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         gap: '4',
     },
@@ -125,7 +118,6 @@ export const Gap8: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         gap: '8',
     },
@@ -140,7 +132,6 @@ export const Gap16: Story = {
                 <div>hello</div>
                 <div>hello</div>
             </>
-
         ),
         gap: '16',
     },

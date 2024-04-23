@@ -4,16 +4,13 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 import { Button } from '../Button/Button'
 
- interface CodeProps {
-   className?: string
-   text: string
+interface CodeProps {
+    className?: string
+    text: string
 }
 
 export const Code = memo((props: CodeProps) => {
-    const {
-        className,
-        text,
-    } = props
+    const { className, text } = props
 
     const copeBtn = () => {
         navigator.clipboard.writeText(text)
@@ -24,9 +21,7 @@ export const Code = memo((props: CodeProps) => {
             <Button onClick={copeBtn} className={styles.copeBtn}>
                 <Cope className={styles.iconCope} />
             </Button>
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     )
 })

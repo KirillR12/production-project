@@ -9,6 +9,7 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -45,17 +46,18 @@ module.exports = {
         'ulbi-tv-plugin',
         '@typescript-eslint',
     ],
+
     rules: {
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
         'no-namespace': 'off',
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'import/no-unresolved': 'off',
         'import/extensions': 'off',
         'import/prefer-default-export': 'off',
         'react/react-in-jsx-scope': 'off',
-        semi: ['error', 'never'],
         'react/require-default-props': 'off',
         'react/function-component-definition': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -80,14 +82,38 @@ module.exports = {
         // 'ulbi-tv-plugin/layer-imports': ['error', { alias: '@' }],
         // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
         'fedotov-fsd/path-checker': ['error', { alias: '@' }],
-        'fedotov-fsd/public-api-import': ['error', { alias: '@', fileTypes: ['**/StoreProviderDecorator.tsx'] }],
-        'fedotov-fsd/layer-imports': ['error', { alias: '@' }],
+        'fedotov-fsd/public-api-import': [
+            'error',
+            { alias: '@', fileTypes: ['**/StoreProviderDecorator.tsx'] },
+        ],
+        'fedotov-fsd/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: [
+                    '**/ThemeProviders',
+                    '**/StoreProvider',
+                    '**/StateSchema',
+                    '**/testing',
+                ],
+            },
+        ],
         'i18next/no-literal-string': [
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['border', 'as', 'role', 'align', 'justify', 'direction', 'data-testid', 'to', 'name', 'target'],
-
+                ignoreAttribute: [
+                    'border',
+                    'as',
+                    'role',
+                    'align',
+                    'justify',
+                    'direction',
+                    'data-testid',
+                    'to',
+                    'name',
+                    'target',
+                ],
             },
         ],
     },

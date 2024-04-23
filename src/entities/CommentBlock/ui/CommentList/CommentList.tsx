@@ -6,26 +6,24 @@ import { VStack } from '@/shared/ui/Stack'
 import { CommentBlock } from '../../model/types/CommentBlock'
 import { CommentItem } from '../CommentItem/CommentItem'
 
- interface CommentListProps {
-   className?: string
-   comments?: CommentBlock[]
-   isLoading?: boolean
-   error?: string
+interface CommentListProps {
+    className?: string
+    comments?: CommentBlock[]
+    isLoading?: boolean
+    error?: string
 }
 
 export const CommentList = memo((props: CommentListProps) => {
     const { t } = useTranslation()
 
-    const {
-        className,
-        comments,
-        isLoading,
-        error,
-    } = props
+    const { className, comments, isLoading, error } = props
 
     if (error) {
         return (
-            <VStack data-testid="error" className={classNames('', {}, [className])}>
+            <VStack
+                data-testid="CommentList.Error"
+                className={classNames('', {}, [className])}
+            >
                 <Text title={t('Произошла ошибка')} />
             </VStack>
         )
@@ -33,7 +31,11 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <VStack data-testid="loading" max className={classNames('', {}, [className])}>
+            <VStack
+                data-testid="CommentList.Loading"
+                max
+                className={classNames('', {}, [className])}
+            >
                 <CommentItem isLoading />
                 <CommentItem isLoading />
                 <CommentItem isLoading />
@@ -42,17 +44,23 @@ export const CommentList = memo((props: CommentListProps) => {
     }
 
     return (
-        <VStack data-testid="comment" gap="8" max className={classNames('', {}, [className])}>
-            {comments?.length
-                ? comments?.map((comment) => (
+        <VStack
+            data-testid="CommentList.Comp"
+            gap="8"
+            max
+            className={classNames('', {}, [className])}
+        >
+            {comments?.length ? (
+                comments?.map((comment) => (
                     <CommentItem
                         key={comment.id}
                         comment={comment}
                         isLoading={isLoading}
                     />
-                )) : (
-                    <Text title={t('Комментарии отсутствуют')} />
-                )}
+                ))
+            ) : (
+                <Text title={t('Комментарии отсутствуют')} />
+            )}
         </VStack>
     )
 })

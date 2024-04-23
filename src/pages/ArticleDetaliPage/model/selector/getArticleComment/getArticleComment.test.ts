@@ -1,5 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider'
-import { getArticleCommentError, getArticleCommentIsLoading } from './getArticleComment'
+import {
+    getArticleCommentError,
+    getArticleCommentIsLoading,
+} from './getArticleComment'
 
 describe('getArticleRecommends', () => {
     test('succes', () => {
@@ -7,7 +10,6 @@ describe('getArticleRecommends', () => {
             articleDetaliPage: {
                 comments: {
                     isLoading: true,
-
                 },
             },
         }

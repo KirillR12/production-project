@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { Listbox } from '@/shared/ui/Popups'
 import { CurrencySchema } from '../../model/types/CurrencySchema'
 
- interface CurrencyProps {
-   className?: string
-   value?: CurrencySchema
-   onChange?: (value: CurrencySchema) => void
-   readonly?: boolean
+interface CurrencyProps {
+    className?: string
+    value?: CurrencySchema
+    onChange?: (value: CurrencySchema) => void
+    readonly?: boolean
 }
 
 const options = [
@@ -17,16 +17,14 @@ const options = [
 ]
 
 export const Currency = memo((props: CurrencyProps) => {
-    const {
-        className,
-        onChange,
-        value,
-        readonly,
-    } = props
+    const { className, onChange, value, readonly } = props
 
-    const onChangeHandler = useCallback((valueNew: string) => {
-        onChange?.(valueNew as CurrencySchema)
-    }, [onChange])
+    const onChangeHandler = useCallback(
+        (valueNew: string) => {
+            onChange?.(valueNew as CurrencySchema)
+        },
+        [onChange]
+    )
 
     const { t } = useTranslation()
 

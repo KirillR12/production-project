@@ -7,18 +7,14 @@ import { Button, ButtonTheme } from '@/shared/ui/Button'
 import styles from './styles.module.scss'
 import { ArticleView } from '@/entities/Article'
 
- interface ArticleViewSelectorProps {
-   className?: string
-   view: ArticleView
-   onViewClick?: (view: ArticleView) => void
+interface ArticleViewSelectorProps {
+    className?: string
+    view: ArticleView
+    onViewClick?: (view: ArticleView) => void
 }
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props
+    const { className, view, onViewClick } = props
 
     const viewTypes = [
         {
@@ -45,7 +41,11 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                 >
                     <Icon
                         Svg={el.icon}
-                        className={classNames('', { [styles.action]: el.view !== view }, [])}
+                        className={classNames(
+                            '',
+                            { [styles.action]: el.view !== view },
+                            []
+                        )}
                     />
                 </Button>
             ))}

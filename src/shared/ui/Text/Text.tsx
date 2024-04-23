@@ -3,31 +3,31 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
 export enum TextTheme {
-    DEFAULT ='default',
+    DEFAULT = 'default',
     INVERTED = 'inverted',
     ERROR = 'error',
 }
 
 export enum TextAlign {
-    CENTER ='center',
+    CENTER = 'center',
     RIGTH = 'rigth',
-    LEFT = 'left'
+    LEFT = 'left',
 }
 
 export enum TextSize {
     S = 'size_s',
     M = 'size_m',
-    L ='size_l',
+    L = 'size_l',
 }
 
- interface TextProps {
-   className?: string
-   title?: string,
-   text?: string,
-   theme?: TextTheme,
-   align?: TextAlign
-   size?: TextSize
-   'data-testid'?: string
+interface TextProps {
+    className?: string
+    title?: string
+    text?: string
+    theme?: TextTheme
+    align?: TextAlign
+    size?: TextSize
+    'data-testid'?: string
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3'
@@ -52,7 +52,14 @@ export const Text = memo((props: TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size]
 
     return (
-        <div className={classNames(styles.title, {}, [className, styles[theme], styles[align], styles[size]])}>
+        <div
+            className={classNames(styles.title, {}, [
+                className,
+                styles[theme],
+                styles[align],
+                styles[size],
+            ])}
+        >
             {title && (
                 <HeaderTag
                     data-testid={`${dataTestId}.Header`}

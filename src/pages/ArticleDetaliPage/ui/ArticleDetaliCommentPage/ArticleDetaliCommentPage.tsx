@@ -9,50 +9,50 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { VStack } from '@/shared/ui/Stack'
 import { getSelectorsComments } from '../../model/slice/ArticleCommentSlice'
-import { getArticleCommentError, getArticleCommentIsLoading } from '../../model/selector/getArticleComment/getArticleComment'
+import {
+    getArticleCommentError,
+    getArticleCommentIsLoading,
+} from '../../model/selector/getArticleComment/getArticleComment'
 import { ArticleCommentThunk } from '../../model/servers/ArticleCommentThunk/ArticleCommentThunk'
 import { addCommentArticleThunk } from '../../model/servers/addCommentArticleThunk/addCommentArticleThunk'
 
- interface ArticleDetaliCommentPageProps {
-   className?: string
-   id: string
+interface ArticleDetaliCommentPageProps {
+    className?: string
+    id: string
 }
 
-export const ArticleDetaliCommentPage = memo((props: ArticleDetaliCommentPageProps) => {
-    const { t } = useTranslation()
+export const ArticleDetaliCommentPage = memo(
+    (props: ArticleDetaliCommentPageProps) => {
+        const { t } = useTranslation()
 
-    const {
-        className,
-        id,
-    } = props
+        const { className, id } = props
 
-    const dispatch = useAppDispatch()
+        const dispatch = useAppDispatch()
 
-    useInitialEffect(() => {
-        dispatch(ArticleCommentThunk(id))
-    })
+        useInitialEffect(() => {
+            dispatch(ArticleCommentThunk(id))
+        })
 
-    const comments = useSelector(getSelectorsComments.selectAll)
-    const isLoadingComment = useSelector(getArticleCommentIsLoading)
-    const errorComment = useSelector(getArticleCommentError)
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentArticleThunk(text))
-    }, [dispatch])
+        const comments = useSelector(getSelectorsComments.selectAll)
+        const isLoadingComment = useSelector(getArticleCommentIsLoading)
+        const errorComment = useSelector(getArticleCommentError)
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentArticleThunk(text))
+            },
+            [dispatch]
+        )
 
-    return (
-        <VStack gap="8" max className={classNames('', {}, [className])}>
-            <Text
-                size={TextSize.L}
-                title={t('Комментарии')}
-            />
-            <AddCommentForm
-                onSendComment={onSendComment}
-            />
-            <CommentList
-                comments={comments}
-                isLoading={isLoadingComment}
-                error={errorComment}
-            />
-        </VStack>
-    )
-})
+        return (
+            <VStack gap="8" max className={classNames('', {}, [className])}>
+                <Text size={TextSize.L} title={t('Комментарии')} />
+                <AddCommentForm onSendComment={onSendComment} />
+                <CommentList
+                    comments={comments}
+                    isLoading={isLoadingComment}
+                    error={errorComment}
+                />
+            </VStack>
+        )
+    }
+)

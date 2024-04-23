@@ -7,7 +7,7 @@ import { Text } from '@/shared/ui/Text'
 
 const ProfilePage = () => {
     const { t } = useTranslation('profile')
-    const { id } = useParams<{id: string}>()
+    const { id } = useParams<{ id: string }>()
 
     if (!id) {
         return <Text title={t('Статья не найдена')} />

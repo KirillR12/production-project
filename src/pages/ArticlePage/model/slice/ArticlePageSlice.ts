@@ -5,7 +5,10 @@ import {
 } from '@reduxjs/toolkit'
 import { StateSchema } from '@/app/providers/StoreProvider'
 import {
-    Article, ArticleDataType, ArticleSortField, ArticleView,
+    Article,
+    ArticleDataType,
+    ArticleSortField,
+    ArticleView,
 } from '@/entities/Article'
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage'
 import { SortOrder } from '@/shared/types/sort'
@@ -16,9 +19,10 @@ const articlePageAdapter = createEntityAdapter<Article>({
     selectId: (article: Article) => article.id,
 })
 
-export const getSelectorsArticles = articlePageAdapter.getSelectors<StateSchema>(
-    (state) => state.articlePage || articlePageAdapter.getInitialState(),
-)
+export const getSelectorsArticles =
+    articlePageAdapter.getSelectors<StateSchema>(
+        (state) => state.articlePage || articlePageAdapter.getInitialState()
+    )
 
 const ArticlePageSlice = createSlice({
     name: 'ArticlePageSlice',
@@ -46,7 +50,9 @@ const ArticlePageSlice = createSlice({
             state.page = action.payload
         },
         setInitView: (state) => {
-            const view = localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY) as ArticleView
+            const view = localStorage.getItem(
+                ARTICLE_VIEW_LOCAL_STORAGE_KEY
+            ) as ArticleView
             state.view = view
             state.limit = view === ArticleView.BIG ? 4 : 9
             state._inited = true
@@ -74,10 +80,7 @@ const ArticlePageSlice = createSlice({
                     articlePageAdapter.removeAll(state)
                 }
             })
-            .addCase(ArticlePageThunk.fulfilled, (
-                state,
-                action,
-            ) => {
+            .addCase(ArticlePageThunk.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.hasMore = action.payload.length >= state.limit
 

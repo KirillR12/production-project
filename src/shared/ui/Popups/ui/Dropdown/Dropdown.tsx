@@ -8,10 +8,10 @@ import { DropdownDirection } from '../../../../types/ui'
 import popupsStyles from '../../styles/styles.module.scss'
 
 interface DropdownItem {
-disabled?: boolean
-content: ReactNode
-onClick?: () => void
-href?: string
+    disabled?: boolean
+    content: ReactNode
+    onClick?: () => void
+    href?: string
 }
 
 export interface DropdownProps {
@@ -22,29 +22,22 @@ export interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-    const {
-        className,
-        trigger,
-        items,
-        direction = 'top rigth',
-    } = props
+    const { className, trigger, items, direction = 'top rigth' } = props
 
-    const menuClasses = [
-        mapDirectionClasses[direction],
-    ]
+    const menuClasses = [mapDirectionClasses[direction]]
 
     return (
         <Menu as="div" className={classNames(styles.Dropdown, {}, [className])}>
-            <Menu.Button className={popupsStyles.btn}>
-                {trigger}
-            </Menu.Button>
+            <Menu.Button className={popupsStyles.btn}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
                 {items.map((item) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             onClick={item.onClick}
                             type="button"
-                            className={classNames(styles.item, { [popupsStyles.active]: active })}
+                            className={classNames(styles.item, {
+                                [popupsStyles.active]: active,
+                            })}
                         >
                             {item.content}
                         </button>
@@ -63,10 +56,7 @@ export function Dropdown(props: DropdownProps) {
                     }
 
                     return (
-                        <Menu.Item
-                            key={item.href}
-                            as={Fragment}
-                        >
+                        <Menu.Item key={item.href} as={Fragment}>
                             {content}
                         </Menu.Item>
                     )

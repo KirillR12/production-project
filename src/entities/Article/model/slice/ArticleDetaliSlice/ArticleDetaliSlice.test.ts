@@ -20,23 +20,38 @@ const data = {
 
 describe('ArticleDetaliSlice', () => {
     test('pending', () => {
-        const state: DeepPartial<ArticleSchema> = { isLoading: false, error: 'error' }
-        expect(ArticleDetaliReducer(state as ArticleSchema, ArticleDetaliThunk.pending))
-            .toEqual({ isLoading: true, error: undefined })
+        const state: DeepPartial<ArticleSchema> = {
+            isLoading: false,
+            error: 'error',
+        }
+        expect(
+            ArticleDetaliReducer(
+                state as ArticleSchema,
+                ArticleDetaliThunk.pending
+            )
+        ).toEqual({ isLoading: true, error: undefined })
     })
 
     test('fulfilled', () => {
         const state: DeepPartial<ArticleSchema> = { data }
-        expect(ArticleDetaliReducer(state as ArticleSchema, ArticleDetaliThunk.fulfilled(data, '', '1')))
-            .toEqual({
-                isLoading: false,
-                data,
-            })
+        expect(
+            ArticleDetaliReducer(
+                state as ArticleSchema,
+                ArticleDetaliThunk.fulfilled(data, '', '1')
+            )
+        ).toEqual({
+            isLoading: false,
+            data,
+        })
     })
 
     test('rejected', () => {
         const state: DeepPartial<ArticleSchema> = { error: 'error' }
-        expect(ArticleDetaliReducer(state as ArticleSchema, ArticleDetaliThunk.rejected))
-            .toEqual({ isLoading: false, error: undefined })
+        expect(
+            ArticleDetaliReducer(
+                state as ArticleSchema,
+                ArticleDetaliThunk.rejected
+            )
+        ).toEqual({ isLoading: false, error: undefined })
     })
 })

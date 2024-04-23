@@ -1,5 +1,8 @@
 import {
-    CombinedState, Reducer, ReducersMapObject, configureStore,
+    CombinedState,
+    Reducer,
+    ReducersMapObject,
+    configureStore,
 } from '@reduxjs/toolkit'
 import { CounterReducer } from '@/entities/Counter'
 import { UserReducer } from '@/entities/User'
@@ -11,7 +14,7 @@ import { createReducerManager } from './ReducerManager'
 
 export function createReduxStore(
     initialState: StateSchema,
-    asyncReducer: ReducersMapObject<StateSchema>,
+    asyncReducer: ReducersMapObject<StateSchema>
 ) {
     const rootReducer: ReducersMapObject = {
         ...asyncReducer,
@@ -31,11 +34,12 @@ export function createReduxStore(
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                extraArgument: extraArg,
-            },
-        }).concat(rtkApi.middleware),
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: extraArg,
+                },
+            }).concat(rtkApi.middleware),
     })
 
     // @ts-expect-error error

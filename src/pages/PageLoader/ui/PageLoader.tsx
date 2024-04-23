@@ -3,8 +3,8 @@ import { Loader } from '@/shared/ui/Loader'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
- interface PageLoaderProps {
-   className?: string
+interface PageLoaderProps {
+    className?: string
 }
 
 export const PageLoader = ({ className }: PageLoaderProps) => (

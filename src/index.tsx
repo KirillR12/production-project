@@ -21,5 +21,5 @@ root.render(
                 </ErrorBoundary>
             </ThemeProvider>
         </StoreProvider>
-    </BrowserRouter>,
+    </BrowserRouter>
 )

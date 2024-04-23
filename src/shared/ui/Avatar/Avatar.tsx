@@ -6,28 +6,28 @@ import { Icon } from '../Icon'
 import ErrorAvatar from '@/shared/assets/icons/user-avatar.svg'
 import { Skeleton } from '../Skeleton'
 
- interface AvatarProps {
-   className?: string
-   src?: string
-   size?: number
-   alt?: string
+interface AvatarProps {
+    className?: string
+    src?: string
+    size?: number
+    alt?: string
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        className,
-        size = 100,
-        src,
-        alt,
-    } = props
+    const { className, size = 100, src, alt } = props
 
-    const stylesObj = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size])
+    const stylesObj = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size]
+    )
 
     const loadingAvatar = <Skeleton width={size} height={size} border="50%" />
-    const errorAvatar = <Icon Svg={ErrorAvatar} width={size} height={size} inverted />
+    const errorAvatar = (
+        <Icon Svg={ErrorAvatar} width={size} height={size} inverted />
+    )
 
     return (
         <AppImage

@@ -8,13 +8,15 @@ const meta: Meta<typeof AddCommentForm> = {
 }
 
 export default meta
-type Story = StoryObj<typeof AddCommentForm>;
+type Story = StoryObj<typeof AddCommentForm>
 
 export const Primary: Story = {
     args: {},
-    decorators: [StoreProviderDecorator({
-        addComment: {
-            comment: '123',
-        },
-    })],
+    decorators: [
+        StoreProviderDecorator({
+            addComment: {
+                comment: '123',
+            },
+        }),
+    ],
 }

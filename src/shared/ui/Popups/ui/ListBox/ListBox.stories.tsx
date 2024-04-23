@@ -7,7 +7,7 @@ const meta: Meta<typeof Listbox> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Listbox>;
+type Story = StoryObj<typeof Listbox>
 
 export const BottomLeft: Story = {
     args: {
@@ -19,7 +19,13 @@ export const BottomLeft: Story = {
         ],
         direction: 'bottom left',
     },
-    decorators: [(Story) => <div style={{ padding: '200px' }}><Story /></div>],
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '200px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 }
 
 export const BottomRigth: Story = {
@@ -32,7 +38,13 @@ export const BottomRigth: Story = {
         ],
         direction: 'bottom rigth',
     },
-    decorators: [(Story) => <div style={{ padding: '200px' }}><Story /></div>],
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '200px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 }
 
 export const TopLeft: Story = {
@@ -45,7 +57,13 @@ export const TopLeft: Story = {
         ],
         direction: 'top left',
     },
-    decorators: [(Story) => <div style={{ padding: '200px' }}><Story /></div>],
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '200px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 }
 
 export const TopRigth: Story = {
@@ -58,5 +76,11 @@ export const TopRigth: Story = {
         ],
         direction: 'top rigth',
     },
-    decorators: [(Story) => <div style={{ padding: '200px' }}><Story /></div>],
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '200px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 }

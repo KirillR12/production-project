@@ -15,16 +15,16 @@ const comment = {
 describe('Counter', () => {
     test('comment', () => {
         componentRender(<CommentList comments={[comment]} />)
-        expect(screen.getByTestId('comment.Flex')).toBeInTheDocument()
+        expect(screen.getByTestId('CommentList.Comp')).toBeInTheDocument()
     })
 
     test('loading', () => {
         componentRender(<CommentList isLoading />)
-        expect(screen.getByTestId('loading.Flex')).toBeInTheDocument()
+        expect(screen.getByTestId('CommentList.Loading')).toBeInTheDocument()
     })
 
     test('error', () => {
         componentRender(<CommentList error="error" />)
-        expect(screen.getByTestId('error.Flex')).toBeInTheDocument()
+        expect(screen.getByTestId('CommentList.Error')).toBeInTheDocument()
     })
 })

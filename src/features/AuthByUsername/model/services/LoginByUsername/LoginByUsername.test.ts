@@ -13,9 +13,14 @@ describe('loginByUsername.test', () => {
         mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }))
 
         const thunk = new TestAsyncThunk(LoginByUsername)
-        const result = await thunk.callThunk({ username: 'admin', password: '123' })
+        const result = await thunk.callThunk({
+            username: 'admin',
+            password: '123',
+        })
 
-        expect(thunk.dispatch).toHaveBeenCalledWith(UserActions.setAuthUser(userValue))
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            UserActions.setAuthUser(userValue)
+        )
         expect(thunk.dispatch).toHaveBeenCalledTimes(3)
         expect(mockedAxios.post).toHaveBeenCalled()
         expect(result.meta.requestStatus).toBe('fulfilled')
@@ -26,7 +31,10 @@ describe('loginByUsername.test', () => {
         mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
 
         const thunk = new TestAsyncThunk(LoginByUsername)
-        const result = await thunk.callThunk({ username: 'admin', password: '123' })
+        const result = await thunk.callThunk({
+            username: 'admin',
+            password: '123',
+        })
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2)
         expect(mockedAxios.post).toHaveBeenCalled()

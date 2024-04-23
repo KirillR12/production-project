@@ -7,7 +7,7 @@ const meta: Meta<typeof EditableProfileCard> = {
 }
 
 export default meta
-type Story = StoryObj<typeof EditableProfileCard>;
+type Story = StoryObj<typeof EditableProfileCard>
 
 export const Primary: Story = {
     args: {},

@@ -9,7 +9,7 @@ const meta: Meta<typeof LoginModal> = {
 }
 
 export default meta
-type Story = StoryObj<typeof LoginModal>;
+type Story = StoryObj<typeof LoginModal>
 
 export const Primary: Story = {
     args: {

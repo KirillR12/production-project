@@ -3,7 +3,7 @@ import path from 'path'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 import { BuildPaths } from '../build/types/config'
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         entry: '',
         build: '',
@@ -32,11 +32,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     })
 
-    config.plugins!.push(new DefinePlugin({
-        __IS_DEV__: true,
-        __API__: JSON.stringify('localhost:8000'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }))
+    config.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: true,
+            __API__: JSON.stringify('localhost:8000'),
+            __PROJECT__: JSON.stringify('storybook'),
+        })
+    )
 
     return config
 }

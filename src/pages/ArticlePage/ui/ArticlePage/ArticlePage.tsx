@@ -1,7 +1,10 @@
 import { useSearchParams } from 'react-router-dom'
 import { memo, useCallback } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Page } from '@/widgets/Page'
@@ -13,8 +16,8 @@ import styles from './styles.module.scss'
 import { ArticleItfiteList } from '../ArticleItfiteList/ArticleItfiteList'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 
- interface ArticlePageProps {
-   className?: string
+interface ArticlePageProps {
+    className?: string
 }
 
 const reducer: ReducerList = {

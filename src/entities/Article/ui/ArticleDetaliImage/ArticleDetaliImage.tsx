@@ -5,31 +5,27 @@ import { Text, TextAlign } from '@/shared/ui/Text'
 import { ArticlBlockImage } from '../../model/types/ArticleType'
 import styles from './styles.module.scss'
 
- interface ArticleDetaliImageProps {
-   className?: string
-   block: ArticlBlockImage
+interface ArticleDetaliImageProps {
+    className?: string
+    block: ArticlBlockImage
 }
 
 export const ArticleDetaliImage = memo((props: ArticleDetaliImageProps) => {
     const { t } = useTranslation()
 
-    const {
-        className,
-        block,
-    } = props
+    const { className, block } = props
 
     return (
         <>
             <img
-                className={classNames(styles.ArticleDetaliImage, {}, [className])}
+                className={classNames(styles.ArticleDetaliImage, {}, [
+                    className,
+                ])}
                 src={block.src}
                 alt={block.title}
             />
             {block.title && (
-                <Text
-                    align={TextAlign.CENTER}
-                    text={t(block.title)}
-                />
+                <Text align={TextAlign.CENTER} text={t(block.title)} />
             )}
         </>
     )

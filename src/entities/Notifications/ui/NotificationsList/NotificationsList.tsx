@@ -6,14 +6,12 @@ import styles from './styles.module.scss'
 import { useArticleRecommendationsList } from '../../api/notificationsApi'
 import { NotificationsItem } from '../NotificationsItem/NotificationsItem'
 
- interface NotificationsListProps {
-   className?: string
+interface NotificationsListProps {
+    className?: string
 }
 
 export const NotificationsList = memo((props: NotificationsListProps) => {
-    const {
-        className,
-    } = props
+    const { className } = props
 
     const { data, isLoading } = useArticleRecommendationsList(null, {
         pollingInterval: 5000,
@@ -24,7 +22,9 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
             <VStack
                 gap="16"
                 max
-                className={classNames(styles.NotificationsList, {}, [className])}
+                className={classNames(styles.NotificationsList, {}, [
+                    className,
+                ])}
             >
                 <Skeleton width="100%" border="8px" height="80px" />
                 <Skeleton width="100%" border="8px" height="80px" />
@@ -34,8 +34,16 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     }
 
     return (
-        <VStack gap="8" className={classNames(styles.NotificationsList, {}, [className])}>
-            {data?.map((notification) => <NotificationsItem key={notification.id} notification={notification} />)}
+        <VStack
+            gap="8"
+            className={classNames(styles.NotificationsList, {}, [className])}
+        >
+            {data?.map((notification) => (
+                <NotificationsItem
+                    key={notification.id}
+                    notification={notification}
+                />
+            ))}
         </VStack>
     )
 })

@@ -1,29 +1,26 @@
 {
-   "extends": [
-   "stylelint-config-standard-scss",
-   "stylelint-config-rational-order"
-   ],
-   "plugins": [
-   "stylelint-order",
-   "stylelint-config-rational-order/plugin"
-   ],
-   "rules": {
-   "indentation": [4],
-   "selector-class-pattern": null,
-   "declaration-empty-line-before": null,
-   "unit-no-unknown": [
-   true,
-   {
-   "ignoreUnits": ["dvh"]
-   }
-   ],
-   "order/properties-order": [],
-   "plugin/rational-order": [
-   true,
-   {
-   "border-in-box-model": true,
-   "empty-line-between-groups": true
-   }
-   ]
-   }
-   }
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-rational-order"
+    ],
+    "plugins": ["stylelint-order", "stylelint-config-rational-order/plugin"],
+    "rules": {
+        "indentation": [4],
+        "selector-class-pattern": null,
+        "declaration-empty-line-before": null,
+        "unit-no-unknown": [
+            true,
+            {
+                "ignoreUnits": ["dvh"]
+            }
+        ],
+        "order/properties-order": [],
+        "plugin/rational-order": [
+            true,
+            {
+                "border-in-box-model": true,
+                "empty-line-between-groups": true
+            }
+        ]
+    }
+}

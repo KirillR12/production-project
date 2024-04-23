@@ -1,7 +1,4 @@
-import {
-    PayloadAction,
-    createSlice,
-} from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { ScrollSchema } from '../types/ScrollSchema'
 
 const initialState: ScrollSchema = {
@@ -12,7 +9,10 @@ const ScrollSlice = createSlice({
     name: 'ScrollSlice',
     initialState,
     reducers: {
-        setScrollPosition: (state, { payload }: PayloadAction<{path: string, position: number}>) => {
+        setScrollPosition: (
+            state,
+            { payload }: PayloadAction<{ path: string; position: number }>
+        ) => {
             state.scroll[payload.path] = payload.position
         },
     },

@@ -14,21 +14,21 @@ export enum ButtonTheme {
 }
 
 export enum ButtonSize {
-M = 'size_m',
-L = 'size_l',
-XL = 'size_xl'
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
 }
 
- interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-   className?: string,
-   theme?: ButtonTheme,
-   square?: boolean,
-   size?: ButtonSize,
-   disabled?: boolean,
-   fillWidth?: boolean
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string
+    theme?: ButtonTheme
+    square?: boolean
+    size?: ButtonSize
+    disabled?: boolean
+    fillWidth?: boolean
 }
 
-export const Button: FC <ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
     const {
         children,
         className,
@@ -50,11 +50,11 @@ export const Button: FC <ButtonProps> = (props) => {
         <button
             type="button"
             disabled={disabled}
-            className={classNames(
-                styles.Button,
-                mods,
-                [className, styles[theme], styles[size]],
-            )}
+            className={classNames(styles.Button, mods, [
+                className,
+                styles[theme],
+                styles[size],
+            ])}
             {...otherProps}
         >
             {children}

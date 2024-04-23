@@ -15,16 +15,14 @@ const meta: Meta<typeof ArticleRating> = {
                 url: `${__API__}/article-ratings?userId=1&articleId=1`,
                 method: 'GET',
                 status: 200,
-                response: [
-                    rating,
-                ],
+                response: [rating],
             },
         ],
     },
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleRating>;
+type Story = StoryObj<typeof ArticleRating>
 
 export const Primary: Story = {
     args: {

@@ -6,9 +6,9 @@ import { Text } from '@/shared/ui/Text'
 import styles from './styles.module.scss'
 import { Notification } from '../../model/types/Notification'
 
- interface NotificationsItemProps {
-   className?: string
-   notification: Notification
+interface NotificationsItemProps {
+    className?: string
+    notification: Notification
 }
 
 export const NotificationsItem = memo((props: NotificationsItemProps) => {
@@ -26,7 +26,6 @@ export const NotificationsItem = memo((props: NotificationsItemProps) => {
                     {t('Перейти')}
                 </a>
             ) : null}
-
         </Card>
     )
 

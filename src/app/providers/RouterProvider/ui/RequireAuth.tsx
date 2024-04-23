@@ -26,11 +26,19 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     }, [roles, userRole])
 
     if (!auth) {
-        return <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        return (
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        )
     }
 
     if (!hasRequireRoles) {
-        return <Navigate to={getRouteForbiddenPage()} state={{ from: location }} replace />
+        return (
+            <Navigate
+                to={getRouteForbiddenPage()}
+                state={{ from: location }}
+                replace
+            />
+        )
     }
 
     return children

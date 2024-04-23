@@ -7,7 +7,7 @@ const meta: Meta<typeof CommentItem> = {
 }
 
 export default meta
-type Story = StoryObj<typeof CommentItem>;
+type Story = StoryObj<typeof CommentItem>
 
 export const Primary: Story = {
     args: {
@@ -20,7 +20,6 @@ export const Primary: Story = {
                 avatar: '',
             },
         },
-
     },
 }
 

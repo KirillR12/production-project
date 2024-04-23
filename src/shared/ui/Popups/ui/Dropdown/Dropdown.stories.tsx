@@ -8,7 +8,7 @@ const meta: Meta<typeof Dropdown> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<typeof Dropdown>
 
 export const Primary: Story = {
     args: {

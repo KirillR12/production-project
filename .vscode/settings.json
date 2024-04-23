@@ -1,16 +1,15 @@
 {
     "[scss]": {
         "editor.defaultFormatter": "stylelint.vscode-stylelint"
-        },
-        "css.validate": false,
-        "less.validate": false,
-        "scss.validate": false,
-        "stylelint.enable": true,
-        "stylelint.validate": [
-        "css",
-        "scss"
-        ],
-        "editor.codeActionsOnSave": {
-            "source.fixAll.stylelint": "explicit"
-        }
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "stylelint.enable": true,
+    "stylelint.validate": ["css", "scss"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
 }

@@ -16,7 +16,9 @@ const data = {
 
 describe('ProfileSaveEditThunk.test', () => {
     test('success save', async () => {
-        const thunk = new TestAsyncThunk(ProfileSaveEditThunk, { profile: { form: data } })
+        const thunk = new TestAsyncThunk(ProfileSaveEditThunk, {
+            profile: { form: data },
+        })
 
         thunk.api.put.mockReturnValue(Promise.resolve({ data }))
 
@@ -28,7 +30,9 @@ describe('ProfileSaveEditThunk.test', () => {
     })
 
     test('error save', async () => {
-        const thunk = new TestAsyncThunk(ProfileSaveEditThunk, ({ profile: { form: data } }))
+        const thunk = new TestAsyncThunk(ProfileSaveEditThunk, {
+            profile: { form: data },
+        })
 
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }))
         const result = await thunk.callThunk()
@@ -38,11 +42,15 @@ describe('ProfileSaveEditThunk.test', () => {
     })
 
     test('error save', async () => {
-        const thunk = new TestAsyncThunk(ProfileSaveEditThunk, ({ profile: { form: { ...data, lastname: '' } } }))
+        const thunk = new TestAsyncThunk(ProfileSaveEditThunk, {
+            profile: { form: { ...data, lastname: '' } },
+        })
 
         const result = await thunk.callThunk()
 
         expect(result.meta.requestStatus).toBe('rejected')
-        expect(result.payload).toEqual([ValidateProfileSchema.INCORRECT_USER_DATA])
+        expect(result.payload).toEqual([
+            ValidateProfileSchema.INCORRECT_USER_DATA,
+        ])
     })
 })

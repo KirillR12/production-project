@@ -7,7 +7,7 @@ const meta: Meta<typeof Currency> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Currency>;
+type Story = StoryObj<typeof Currency>
 
 export const Primary: Story = {
     args: {},

@@ -8,11 +8,12 @@ export interface TabsItem<T extends string> {
     content: ReactNode
 }
 
- interface TabsProps<T extends string> {
-   className?: string
-   tabs: TabsItem<T>[]
-   value: T
-   onTabClick: (tab: TabsItem<T>) => void
+interface TabsProps<T extends string> {
+    className?: string
+    tabs: TabsItem<T>[]
+    value: T
+    onTabClick: (tab: TabsItem<T>) => void
+    'data-testid'?: string
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
@@ -21,17 +22,29 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
         tabs,
         value,
         onTabClick,
+        'data-testid': dataTestId = 'Tab',
     } = props
 
-    const clickHandler = useCallback((tab: TabsItem<T>) => () => {
-        onTabClick(tab as TabsItem<T>)
-    }, [onTabClick])
+    const clickHandler = useCallback(
+        (tab: TabsItem<T>) => () => {
+            onTabClick(tab as TabsItem<T>)
+        },
+        [onTabClick]
+    )
 
     return (
-        <div className={classNames(styles.Tabs, {}, [className])}>
+        <div
+            data-testid={`${dataTestId}.Tab`}
+            className={classNames(styles.Tabs, {}, [className])}
+        >
             {tabs.map((tab) => (
                 <Card
-                    theme={value === tab.value ? CardTheme.NORMAL : CardTheme.OUTLINE}
+                    data-testid={`Tab.${tab.value}`}
+                    theme={
+                        value === tab.value
+                            ? CardTheme.NORMAL
+                            : CardTheme.OUTLINE
+                    }
                     key={tab.value}
                     className={styles.tab}
                     onClick={clickHandler(tab)}

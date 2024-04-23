@@ -12,7 +12,6 @@ const preview: Preview = {
         StylesDecorator,
         SuspenceDecorator,
         StoreProviderDecorator({}),
-
     ],
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
@@ -25,7 +24,11 @@ const preview: Preview = {
         themes: {
             default: 'ligth',
             list: [
-                { name: 'ligth', class: ['app', Theme.LIGHT], color: '#f4f4fb' },
+                {
+                    name: 'ligth',
+                    class: ['app', Theme.LIGHT],
+                    color: '#f4f4fb',
+                },
                 { name: 'dark', class: ['app', Theme.DARK], color: '#000484' },
                 { name: 'orange', class: ['app', Theme.RED], color: '#8f21ff' },
             ],

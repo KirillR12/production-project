@@ -8,20 +8,20 @@ import { HStack } from '../../../Stack'
 import { mapDirectionClasses } from '../../styles/consts'
 
 export interface ListBoxItem {
-  value: string
-  content: ReactNode
-  disabled?: boolean
+    value: string
+    content: ReactNode
+    disabled?: boolean
 }
 
 export interface ListBoxProps {
-  items: ListBoxItem[]
-  className?: string
-  value?: string
-  defaultValue?: string
-  onChange?: (value: string) => void
-  readonly?: boolean
-  label?: string
-  direction?: DropdownDirection
+    items: ListBoxItem[]
+    className?: string
+    value?: string
+    defaultValue?: string
+    onChange?: (value: string) => void
+    readonly?: boolean
+    label?: string
+    direction?: DropdownDirection
 }
 
 export function Listbox(props: ListBoxProps) {
@@ -36,9 +36,7 @@ export function Listbox(props: ListBoxProps) {
         direction = 'top rigth',
     } = props
 
-    const optionsClasses = [
-        mapDirectionClasses[direction],
-    ]
+    const optionsClasses = [mapDirectionClasses[direction]]
 
     return (
         <HStack gap="8">
@@ -50,13 +48,8 @@ export function Listbox(props: ListBoxProps) {
                 onChange={onChange}
                 disabled={readonly}
             >
-                <HListbox.Button
-                    className={styles.btn}
-                >
-                    <Button
-                        disabled={readonly}
-                        theme={ButtonTheme.FORM_THEME}
-                    >
+                <HListbox.Button className={styles.btn}>
+                    <Button disabled={readonly} theme={ButtonTheme.FORM_THEME}>
                         {value ?? defaultValue}
                     </Button>
                 </HListbox.Button>

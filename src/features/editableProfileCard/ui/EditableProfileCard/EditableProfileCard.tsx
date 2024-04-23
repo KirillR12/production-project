@@ -7,7 +7,10 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { Text, TextTheme } from '@/shared/ui/Text'
 import { CountrySchema } from '@/entities/Country'
 import { CurrencySchema } from '@/entities/Currency'
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { getProfileForm } from '../../model/selector/getProfileForm/getProfileForm'
 import { getProfileIsLoading } from '../../model/selector/getProfileIsLoading/getProfileIsLoading'
 import { getProfileError } from '../../model/selector/getProfileError/getProfileError'
@@ -27,16 +30,16 @@ const reducer: ReducerList = {
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const {
-        id,
-    } = props
+    const { id } = props
 
     const { t } = useTranslation('profile')
     const dispatch = useAppDispatch()
 
     const validateError = {
         [ValidateProfileSchema.INCORRECT_AGE]: t('Некорректный возраст'),
-        [ValidateProfileSchema.INCORRECT_USER_DATA]: t('Некорректное имя или фамилия'),
+        [ValidateProfileSchema.INCORRECT_USER_DATA]: t(
+            'Некорректное имя или фамилия'
+        ),
         [ValidateProfileSchema.NO_DATA]: t('Нет данных'),
         [ValidateProfileSchema.SERVER_ERROR]: t('Серверная ошибка'),
     }
@@ -53,47 +56,69 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const readonly = useSelector(getProfileReadonly)
     const errors = useSelector(getValidateErrors)
 
-    const editFirstname = useCallback((value?: string) => {
-        dispatch(ProfileActions.editProfile({ first: value || '' }))
-    }, [dispatch])
+    const editFirstname = useCallback(
+        (value?: string) => {
+            dispatch(ProfileActions.editProfile({ first: value || '' }))
+        },
+        [dispatch]
+    )
 
-    const editLastname = useCallback((value?: string) => {
-        dispatch(ProfileActions.editProfile({ lastname: value || '' }))
-    }, [dispatch])
+    const editLastname = useCallback(
+        (value?: string) => {
+            dispatch(ProfileActions.editProfile({ lastname: value || '' }))
+        },
+        [dispatch]
+    )
 
-    const editCity = useCallback((value?: string) => {
-        dispatch(ProfileActions.editProfile({ city: value || '' }))
-    }, [dispatch])
+    const editCity = useCallback(
+        (value?: string) => {
+            dispatch(ProfileActions.editProfile({ city: value || '' }))
+        },
+        [dispatch]
+    )
 
-    const editAge = useCallback((value?: string) => {
-        const regExp = /\D/g
-        const val = value?.replace(regExp, '')
-        dispatch(ProfileActions.editProfile({ age: Number(val || '') }))
-    }, [dispatch])
+    const editAge = useCallback(
+        (value?: string) => {
+            const regExp = /\D/g
+            const val = value?.replace(regExp, '')
+            dispatch(ProfileActions.editProfile({ age: Number(val || '') }))
+        },
+        [dispatch]
+    )
 
-    const editAvatar = useCallback((value?: string) => {
-        dispatch(ProfileActions.editProfile({ avatar: value || '' }))
-    }, [dispatch])
+    const editAvatar = useCallback(
+        (value?: string) => {
+            dispatch(ProfileActions.editProfile({ avatar: value || '' }))
+        },
+        [dispatch]
+    )
 
-    const editCurrency = useCallback((currency: CurrencySchema) => {
-        dispatch(ProfileActions.editProfile({ currency }))
-    }, [dispatch])
+    const editCurrency = useCallback(
+        (currency: CurrencySchema) => {
+            dispatch(ProfileActions.editProfile({ currency }))
+        },
+        [dispatch]
+    )
 
-    const editCountry = useCallback((country: CountrySchema) => {
-        dispatch(ProfileActions.editProfile({ country }))
-    }, [dispatch])
+    const editCountry = useCallback(
+        (country: CountrySchema) => {
+            dispatch(ProfileActions.editProfile({ country }))
+        },
+        [dispatch]
+    )
 
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
             <EditableProfileCardHeader />
-            {errors?.length && errors.map((err: ValidateProfileSchema) => (
-                <Text
-                    data-testid="EditableProfileCard.Error"
-                    theme={TextTheme.ERROR}
-                    key={err}
-                    title={validateError[err]}
-                />
-            ))}
+            {errors?.length &&
+                errors.map((err: ValidateProfileSchema) => (
+                    <Text
+                        data-testid="EditableProfileCard.Error"
+                        theme={TextTheme.ERROR}
+                        key={err}
+                        title={validateError[err]}
+                    />
+                ))}
             <ProfileCard
                 data={form}
                 isLoading={isLoading}

@@ -18,9 +18,7 @@ interface NavbarProps {
 }
 
 export const Navbar = (props: NavbarProps) => {
-    const {
-        className,
-    } = props
+    const { className } = props
 
     const [isAuthModal, setIsAuthModal] = useState(false)
 
@@ -75,10 +73,7 @@ export const Navbar = (props: NavbarProps) => {
                 {t('Войти')}
             </Button>
             {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={toggleCloseModal}
-                />
+                <LoginModal isOpen={isAuthModal} onClose={toggleCloseModal} />
             )}
         </header>
     )

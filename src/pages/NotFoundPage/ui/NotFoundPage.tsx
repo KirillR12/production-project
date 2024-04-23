@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Page } from '@/widgets/Page'
 import styles from './styles.module.scss'
 
- interface NotFoundPageProps {
-   className?: string
+interface NotFoundPageProps {
+    className?: string
 }
 
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {

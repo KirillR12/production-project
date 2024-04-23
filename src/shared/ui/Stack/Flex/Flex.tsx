@@ -32,17 +32,20 @@ const gapClasses: Record<FlexGap, string> = {
     32: styles.gap32,
 }
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>
 
 export interface FlexProps extends DivProps {
-   className?: string
-   children: ReactNode
-   justify?: FlexJustify
-   align?: FlexAlign
-   direction?: FlexDirection
-   gap?: FlexGap
-   max?: boolean
-   'data-testid'?: string
+    className?: string
+    children: ReactNode
+    justify?: FlexJustify
+    align?: FlexAlign
+    direction?: FlexDirection
+    gap?: FlexGap
+    max?: boolean
+    'data-testid'?: string
 }
 
 export const Flex = (props: FlexProps) => {
@@ -71,7 +74,7 @@ export const Flex = (props: FlexProps) => {
 
     return (
         <div
-            data-testid={`${dataTestId}.Flex`}
+            data-testid={`${dataTestId}`}
             className={classNames(styles.Flex, mods, classes)}
         >
             {children}

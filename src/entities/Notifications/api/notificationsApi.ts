@@ -11,4 +11,5 @@ const notificationsApi = rtkApi.injectEndpoints({
     }),
 })
 
-export const useArticleRecommendationsList = notificationsApi.useGenNotificationstListQuery
+export const useArticleRecommendationsList =
+    notificationsApi.useGenNotificationstListQuery

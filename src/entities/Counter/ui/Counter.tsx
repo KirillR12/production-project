@@ -19,9 +19,7 @@ export const Counter = () => {
 
     return (
         <div>
-            <h1 data-testid="value">
-                {counterValue}
-            </h1>
+            <h1 data-testid="value">{counterValue}</h1>
             <Button
                 data-testid="increment"
                 theme={ButtonTheme.OUTLINE}

@@ -3,17 +3,23 @@ import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Input } from '@/shared/ui/Input'
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice'
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice'
 import styles from './styles.module.scss'
 import { getAddCommentForm } from '../../model/selectors/getAddCommentForm'
 
- interface addCommentFormProps {
-   className?: string
-   onSendComment: (text: string) => void
+interface addCommentFormProps {
+    className?: string
+    onSendComment: (text: string) => void
 }
 
 const reducer: ReducerList = {
@@ -21,19 +27,19 @@ const reducer: ReducerList = {
 }
 
 const AddCommentForm = memo((props: addCommentFormProps) => {
-    const {
-        className,
-        onSendComment,
-    } = props
+    const { className, onSendComment } = props
 
     const { t } = useTranslation()
     const dispatch = useAppDispatch()
 
     const comment = useSelector(getAddCommentForm)
 
-    const setCommentText = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value))
-    }, [dispatch])
+    const setCommentText = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value))
+        },
+        [dispatch]
+    )
 
     const onSendHalper = useCallback(() => {
         onSendComment(comment || '')
@@ -42,13 +48,20 @@ const AddCommentForm = memo((props: addCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <HStack max justify="between" className={classNames(styles.addCommentForm, {}, [className])}>
+            <HStack
+                data-testid="AddCommentForm"
+                max
+                justify="between"
+                className={classNames(styles.addCommentForm, {}, [className])}
+            >
                 <Input
+                    data-testid="AddCommentForm.Input"
                     label={t('Введите текст комментария')}
                     value={comment}
                     onChange={setCommentText}
                 />
                 <Button
+                    data-testid="AddCommentForm.Btn"
                     theme={ButtonTheme.OUTLINE}
                     onClick={onSendHalper}
                 >

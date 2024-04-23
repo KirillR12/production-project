@@ -10,7 +10,7 @@ const meta: Meta<typeof Sidebar> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Sidebar>;
+type Story = StoryObj<typeof Sidebar>
 
 export const Ligth: Story = {
     args: {},

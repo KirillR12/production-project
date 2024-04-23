@@ -4,14 +4,14 @@ import styles from './styles.module.scss'
 
 export enum CardTheme {
     NORMAL = 'normal',
-OUTLINE = 'outline'
+    OUTLINE = 'outline',
 }
 
- interface CardProps extends HTMLAttributes<HTMLDivElement> {
-   className?: string
-   children: ReactNode
-   theme?: CardTheme
-   max?: boolean
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    className?: string
+    children: ReactNode
+    theme?: CardTheme
+    max?: boolean
 }
 
 export const Card = memo((props: CardProps) => {
@@ -25,7 +25,10 @@ export const Card = memo((props: CardProps) => {
 
     return (
         <div
-            className={classNames(styles.Card, { [styles.max]: max }, [className, styles[theme]])}
+            className={classNames(styles.Card, { [styles.max]: max }, [
+                className,
+                styles[theme],
+            ])}
             {...otherProps}
         >
             {children}

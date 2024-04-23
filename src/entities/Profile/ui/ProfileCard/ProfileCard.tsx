@@ -11,19 +11,19 @@ import { Loader } from '@/shared/ui/Loader'
 import { Profile } from '../../model/types/ProfileSchema'
 import styles from './styles.module.scss'
 
- interface ProfileCardProps {
-   className?: string,
-   data?: Profile,
-   error?: string,
-   isLoading?: boolean,
-   readonly?: boolean
-   editFirstname?: (value?: string) => void;
-   editLastname?: (value?: string) => void;
-   editCity?: (value: string) => void,
-   editAge?: (value: string) => void,
-   editAvatar?: (value: string) => void,
-   editCurrency?: (currency: CurrencySchema) => void,
-   editCountry?: (country: CountrySchema) => void,
+interface ProfileCardProps {
+    className?: string
+    data?: Profile
+    error?: string
+    isLoading?: boolean
+    readonly?: boolean
+    editFirstname?: (value?: string) => void
+    editLastname?: (value?: string) => void
+    editCity?: (value: string) => void
+    editAge?: (value: string) => void
+    editAvatar?: (value: string) => void
+    editCurrency?: (currency: CurrencySchema) => void
+    editCountry?: (country: CountrySchema) => void
 }
 
 export const ProfileCard = memo((props: ProfileCardProps) => {
@@ -50,7 +50,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 align="center"
                 justify="center"
                 max
-                className={classNames(styles.ProfileCard, {}, [className, styles.loading])}
+                className={classNames(styles.ProfileCard, {}, [
+                    className,
+                    styles.loading,
+                ])}
             >
                 <Loader />
             </VStack>
@@ -59,7 +62,12 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <VStack className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
+            <VStack
+                className={classNames(styles.ProfileCard, {}, [
+                    className,
+                    styles.error,
+                ])}
+            >
                 <Text
                     align={TextAlign.CENTER}
                     theme={TextTheme.ERROR}
@@ -75,14 +83,14 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     }
 
     return (
-        <VStack gap="8" max className={classNames(styles.ProfileCard, mods, [className])}>
+        <VStack
+            gap="8"
+            max
+            className={classNames(styles.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
                 <HStack justify="center" max>
-                    <Avatar
-                        size={150}
-                        src={data?.avatar}
-                        alt="."
-                    />
+                    <Avatar size={150} src={data?.avatar} alt="." />
                 </HStack>
             )}
             <Input

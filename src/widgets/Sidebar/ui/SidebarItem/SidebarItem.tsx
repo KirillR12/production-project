@@ -7,16 +7,13 @@ import { getAuthUser } from '@/entities/User'
 import { SidebarItemType } from '../../model/types/sidebar'
 import styles from './styles.module.scss'
 
- interface SidebarButtonProps {
-item: SidebarItemType,
-collapsed: boolean
- }
+interface SidebarButtonProps {
+    item: SidebarItemType
+    collapsed: boolean
+}
 
 export const SidebarItem = (props: SidebarButtonProps) => {
-    const {
-        item,
-        collapsed,
-    } = props
+    const { item, collapsed } = props
 
     const { t } = useTranslation()
 
@@ -28,14 +25,9 @@ export const SidebarItem = (props: SidebarButtonProps) => {
 
     return (
         <div className={classNames('', { [styles.collapsed]: collapsed })}>
-            <AppLink
-                theme={AppLinkTheme.SECONDARY}
-                to={item.path}
-            >
+            <AppLink theme={AppLinkTheme.SECONDARY} to={item.path}>
                 <item.Icon className={styles.icon} />
-                <span className={styles.link}>
-                    {t(item.text)}
-                </span>
+                <span className={styles.link}>{t(item.text)}</span>
             </AppLink>
         </div>
     )

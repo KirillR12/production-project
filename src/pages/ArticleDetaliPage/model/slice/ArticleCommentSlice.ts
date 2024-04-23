@@ -13,7 +13,8 @@ const commentAdapter = createEntityAdapter<CommentBlock>({
 })
 
 export const getSelectorsComments = commentAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetaliPage?.comments || commentAdapter.getInitialState(),
+    (state) =>
+        state.articleDetaliPage?.comments || commentAdapter.getInitialState()
 )
 
 const ArticleCommentSlice = createSlice({
@@ -31,13 +32,13 @@ const ArticleCommentSlice = createSlice({
                 state.error = undefined
                 state.isLoading = true
             })
-            .addCase(ArticleCommentThunk.fulfilled, (
-                state,
-                action: PayloadAction<CommentBlock[]>,
-            ) => {
-                state.isLoading = false
-                commentAdapter.setAll(state, action.payload)
-            })
+            .addCase(
+                ArticleCommentThunk.fulfilled,
+                (state, action: PayloadAction<CommentBlock[]>) => {
+                    state.isLoading = false
+                    commentAdapter.setAll(state, action.payload)
+                }
+            )
             .addCase(ArticleCommentThunk.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload

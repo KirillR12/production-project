@@ -7,7 +7,7 @@ const meta: Meta<typeof ArticleTypeTab> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleTypeTab>;
+type Story = StoryObj<typeof ArticleTypeTab>
 
 export const Primary: Story = {
     args: {},

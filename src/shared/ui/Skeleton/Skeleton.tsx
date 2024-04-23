@@ -2,20 +2,15 @@ import { CSSProperties, memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './styles.module.scss'
 
- interface SkeletonProps {
-   className?: string
-   width?: string | number
-   height?: string | number
-   border?: string
+interface SkeletonProps {
+    className?: string
+    width?: string | number
+    height?: string | number
+    border?: string
 }
 
 export const Skeleton = memo((props: SkeletonProps) => {
-    const {
-        className,
-        width,
-        height,
-        border,
-    } = props
+    const { className, width, height, border } = props
 
     const stylesProps: CSSProperties = {
         width,

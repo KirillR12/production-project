@@ -9,7 +9,7 @@ const meta: Meta<typeof Button> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
     args: {
@@ -76,7 +76,6 @@ export const SquareL: Story = {
         square: true,
 
         size: ButtonSize.L,
-
     },
 }
 

@@ -5,8 +5,8 @@ import { Button, ButtonTheme } from '../../shared/ui/Button/Button'
 import ThemeIconDark from '@/shared/assets/icons/theme-dark.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 
- interface ThemeSwitcherProps {
-   className?: string
+interface ThemeSwitcherProps {
+    className?: string
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {

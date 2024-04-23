@@ -7,7 +7,7 @@ const meta: Meta<typeof ArticleViewSelector> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ArticleViewSelector>;
+type Story = StoryObj<typeof ArticleViewSelector>
 
 export const Primary: Story = {
     args: {},

@@ -3,5 +3,5 @@ export enum CountrySchema {
     Ukraine = 'Ukraine',
     Belarus = 'Belarus',
     Kazakhstan = 'Kazakhstan',
-    Armania = 'Armania'
+    Armania = 'Armania',
 }

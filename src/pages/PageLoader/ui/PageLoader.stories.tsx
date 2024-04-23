@@ -9,11 +9,10 @@ const meta: Meta<typeof PageLoader> = {
 }
 
 export default meta
-type Story = StoryObj<typeof PageLoader>;
+type Story = StoryObj<typeof PageLoader>
 
 export const LIGTH: Story = {
-    args: {
-    },
+    args: {},
 }
 
 export const DARK: Story = {

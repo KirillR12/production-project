@@ -7,7 +7,7 @@ const meta: Meta<typeof Modal> = {
 }
 
 export default meta
-type Story = StoryObj<typeof Modal>;
+type Story = StoryObj<typeof Modal>
 
 export const Primary: Story = {
     args: {

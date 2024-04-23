@@ -21,13 +21,13 @@ export const ArticleDetaliSlice = createSlice({
                 state.error = undefined
                 state.isLoading = true
             })
-            .addCase(ArticleDetaliThunk.fulfilled, (
-                state,
-                action: PayloadAction<Article>,
-            ) => {
-                state.isLoading = false
-                state.data = action.payload
-            })
+            .addCase(
+                ArticleDetaliThunk.fulfilled,
+                (state, action: PayloadAction<Article>) => {
+                    state.isLoading = false
+                    state.data = action.payload
+                }
+            )
             .addCase(ArticleDetaliThunk.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload

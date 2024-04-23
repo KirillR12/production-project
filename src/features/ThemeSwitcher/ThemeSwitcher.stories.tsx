@@ -9,11 +9,10 @@ const meta: Meta<typeof ThemeSwitcher> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ThemeSwitcher>;
+type Story = StoryObj<typeof ThemeSwitcher>
 
 export const LIGTH: Story = {
-    args: {
-    },
+    args: {},
 }
 
 export const DARK: Story = {

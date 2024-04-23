@@ -1,20 +1,21 @@
-import {
-    memo, ReactNode, useCallback, useEffect,
-} from 'react'
+import { memo, ReactNode, useCallback, useEffect } from 'react'
 import { classNames, Mods } from '@/shared/lib/classNames/classNames'
 import { useTheme } from '@/app/providers/ThemeProviders'
 import { useModal } from '@/shared/lib/hooks/useModal'
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider'
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider'
 import { Overlay } from '../Overlay/Overlay'
 import styles from './styles.module.scss'
 import { Portal } from '../Portal/Portal'
 import { Loader } from '../Loader/Loader'
 
 interface DrawerProps {
-    className?: string;
-    children: ReactNode;
-    isOpen: boolean;
-    onClose?: () => void;
+    className?: string
+    children: ReactNode
+    isOpen: boolean
+    onClose?: () => void
 }
 
 const height = window.innerHeight - 100
@@ -22,19 +23,10 @@ const height = window.innerHeight - 100
 export const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationLibs()
 
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-    } = props
+    const { className, children, isOpen, onClose } = props
     const { theme } = useTheme()
 
-    const {
-        isClosing,
-        close,
-        isMounted,
-    } = useModal({
+    const { isClosing, close, isMounted } = useModal({
         onClose,
         isOpen,
         animationDelay: 300,
@@ -59,7 +51,10 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const closeDrag = (velocity = 0) => {
         api.start({
-            y: height, immediate: false, config: { ...Spring.config.stiff, velocity }, onResolve: onClose,
+            y: height,
+            immediate: false,
+            config: { ...Spring.config.stiff, velocity },
+            onResolve: onClose,
         })
     }
 
@@ -83,8 +78,11 @@ export const DrawerContent = memo((props: DrawerProps) => {
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
-        },
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
+        }
     )
 
     if (!isMounted) {
@@ -95,10 +93,20 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     return (
         <Portal>
-            <div className={classNames(styles.Drawer, mods, [className, theme, 'app_drawer'])}>
+            <div
+                className={classNames(styles.Drawer, mods, [
+                    className,
+                    theme,
+                    'app_drawer',
+                ])}
+            >
                 <Overlay onClick={close} />
                 <Spring.a.div
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px)`,
+                        y,
+                    }}
                     className={styles.sheet}
                     {...bind()}
                 >
@@ -116,9 +124,7 @@ export const DrawerAsync = memo((props: DrawerProps) => {
         return <Loader />
     }
 
-    return (
-        <DrawerContent {...props} />
-    )
+    return <DrawerContent {...props} />
 })
 
 export const Drawer = memo((props: DrawerProps) => (

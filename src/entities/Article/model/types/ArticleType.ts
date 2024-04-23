@@ -23,16 +23,19 @@ export interface ArticlBlockCode extends ArticlBlock {
     code: string
 }
 
-export type ArticleBlockType = ArticlBlockImage | ArticlBlockText | ArticlBlockCode
+export type ArticleBlockType =
+    | ArticlBlockImage
+    | ArticlBlockText
+    | ArticlBlockCode
 
 export interface Article {
-id: string,
-title?: string,
-subtitle?: string,
-img?: string,
-user?: User,
-views?: number,
-createdAt?: string,
-type?: ArticleDataType[],
-blocks?: ArticleBlockType[]
+    id: string
+    title?: string
+    subtitle?: string
+    img?: string
+    user?: User
+    views?: number
+    createdAt?: string
+    type?: ArticleDataType[]
+    blocks?: ArticleBlockType[]
 }

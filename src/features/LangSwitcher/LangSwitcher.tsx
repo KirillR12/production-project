@@ -4,9 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '../../shared/ui/Button/Button'
 import styles from './styles.module.scss'
 
- interface LangSwitcherProps {
-   className?: string,
-   short?: boolean
+interface LangSwitcherProps {
+    className?: string
+    short?: boolean
 }
 
 export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {

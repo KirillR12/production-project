@@ -1,11 +1,11 @@
 {
-"Ваше имя": "Your name",
-"Ваша фамилия": "Your last name",
-"Ваш город": "Your city",
-"Ваш возраст": "Your age",
-"Ваш аватар": "Your avatar",
-"Некорректное имя или фамилия": "Enter your first and last name",
-"Некорректный возраст":"Incorrect age",
-"Нет данных": "No data",
-"Серверная ошибка": "Server error"
+    "Ваше имя": "Your name",
+    "Ваша фамилия": "Your last name",
+    "Ваш город": "Your city",
+    "Ваш возраст": "Your age",
+    "Ваш аватар": "Your avatar",
+    "Некорректное имя или фамилия": "Enter your first and last name",
+    "Некорректный возраст": "Incorrect age",
+    "Нет данных": "No data",
+    "Серверная ошибка": "Server error"
 }

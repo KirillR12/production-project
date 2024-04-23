@@ -1,5 +1,9 @@
 import { StateSchema } from '@/app/providers/StoreProvider'
-import { getArticleDetaliData, getArticleDetaliError, getArticleDetaliIsLoading } from './articleDetali'
+import {
+    getArticleDetaliData,
+    getArticleDetaliError,
+    getArticleDetaliIsLoading,
+} from './articleDetali'
 
 describe('getArticleDetali', () => {
     test('getArticleDetaliData', () => {
@@ -58,7 +62,9 @@ describe('getArticleDetali', () => {
 
     test('errorIsLoading', () => {
         const state: DeepPartial<StateSchema> = {}
-        expect(getArticleDetaliIsLoading(state as StateSchema)).toEqual(undefined)
+        expect(getArticleDetaliIsLoading(state as StateSchema)).toEqual(
+            undefined
+        )
     })
 
     test('getArticleDetaliError', () => {

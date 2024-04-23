@@ -4,7 +4,7 @@ import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage'
 import { Theme } from '@/shared/const/theme'
 
 export interface useThemeResulf {
-    theme: Theme;
+    theme: Theme
     toggleTheme: () => void
 }
 
@@ -13,15 +13,15 @@ export function useTheme(): useThemeResulf {
     const toggleTheme = () => {
         let themeHalper
         switch (theme) {
-        case Theme.LIGHT:
-            themeHalper = Theme.DARK
-            break
-        case Theme.DARK:
-            themeHalper = Theme.RED
-            break
-        default:
-            themeHalper = Theme.LIGHT
-            break
+            case Theme.LIGHT:
+                themeHalper = Theme.DARK
+                break
+            case Theme.DARK:
+                themeHalper = Theme.RED
+                break
+            default:
+                themeHalper = Theme.LIGHT
+                break
         }
         setTheme?.(themeHalper)
         document.body.className = themeHalper

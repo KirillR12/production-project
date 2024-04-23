@@ -26,10 +26,14 @@ export const AvatarDropdown = memo(() => {
                 direction="bottom left"
                 trigger={<Avatar src={authUser.avatar} size={30} />}
                 items={[
-                    ...(isAdmin ? [{
-                        content: t('Админка'),
-                        href: getRouteAdminPanel(),
-                    }] : []),
+                    ...(isAdmin
+                        ? [
+                              {
+                                  content: t('Админка'),
+                                  href: getRouteAdminPanel(),
+                              },
+                          ]
+                        : []),
                     {
                         content: t('Профиль'),
                         href: getRouteProfile(authUser.id),

@@ -9,8 +9,8 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import styles from './styles.module.scss'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 
- interface SidebarProps {
-   className?: string
+interface SidebarProps {
+    className?: string
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -22,18 +22,26 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev)
     }
 
-    const itemsList = useMemo(() => sidebarItemList.map((item) => (
-        <SidebarItem
-            key={item.path}
-            item={item}
-            collapsed={collapsed}
-        />
-    )), [sidebarItemList, collapsed])
+    const itemsList = useMemo(
+        () =>
+            sidebarItemList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
+        [sidebarItemList, collapsed]
+    )
 
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}
+            className={classNames(
+                styles.Sidebar,
+                { [styles.collapsed]: collapsed },
+                [className]
+            )}
         >
             <Button
                 data-testid="sidebar-button"
@@ -50,10 +58,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             </VStack>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher
-                    short={collapsed}
-                    className={styles.lang}
-                />
+                <LangSwitcher short={collapsed} className={styles.lang} />
             </div>
         </aside>
     )

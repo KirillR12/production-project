@@ -9,7 +9,7 @@ const meta: Meta<typeof ProfileCard> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ProfileCard>;
+type Story = StoryObj<typeof ProfileCard>
 
 export const Primary: Story = {
     args: {

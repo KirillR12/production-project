@@ -5,30 +5,20 @@ import styles from './styles.module.scss'
 import { Portal } from '../Portal/Portal'
 import { Overlay } from '../Overlay/Overlay'
 
- interface ModalProps {
-   className?: string,
-   children: ReactNode,
-   isOpen: boolean,
-   onClose?: () => void,
-   delay?: number
+interface ModalProps {
+    className?: string
+    children: ReactNode
+    isOpen: boolean
+    onClose?: () => void
+    delay?: number
 }
 
 const ANIMATE_DELAY = 300
 
 export const Modal = (props: ModalProps) => {
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-        delay,
-    } = props
+    const { className, children, isOpen, onClose, delay } = props
 
-    const {
-        isClosing,
-        isMounted,
-        close,
-    } = useModal({
+    const { isClosing, isMounted, close } = useModal({
         onClose,
         isOpen,
         animationDelay: delay || ANIMATE_DELAY,
@@ -47,11 +37,7 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(styles.Modal, mods, [className])}>
                 <Overlay onClick={() => close()} />
-                <div
-                    className={styles.content}
-                >
-                    {children}
-                </div>
+                <div className={styles.content}>{children}</div>
             </div>
         </Portal>
     )

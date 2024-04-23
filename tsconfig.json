@@ -1,5 +1,5 @@
 {
-      "compilerOptions": {
+    "compilerOptions": {
         // где будет создана сборка (у нас за это отвечает веб пак)
         "outDir": "./dist/",
         // не дает использовать сущность без указания типа
@@ -14,7 +14,7 @@
         // абсолютный импорт
         "baseUrl": ".",
         "paths": {
-          "@/*": ["./src/*"]
+            "@/*": ["./src/*"]
         },
         // про импорты
         "allowJs": true,
@@ -24,13 +24,13 @@
         "isolatedModules": true
     },
     "ts-node": {
-      "compilerOptions": {
-        "module": "CommonJS"
-      }
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
     },
     "include": [
-      "./config/jest/jest-setup.ts",
-      "./src/**/*.ts",
-      "./src/**/*.tsx"
+        "./config/jest/jest-setup.ts",
+        "./src/**/*.ts",
+        "./src/**/*.tsx"
     ]
-  }
+}

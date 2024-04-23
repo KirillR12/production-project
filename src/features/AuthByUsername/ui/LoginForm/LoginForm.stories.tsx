@@ -10,7 +10,7 @@ const meta: Meta<typeof LoginForm> = {
 }
 
 export default meta
-type Story = StoryObj<typeof LoginForm>;
+type Story = StoryObj<typeof LoginForm>
 
 export const Primary: Story = {
     args: {},
@@ -20,7 +20,9 @@ export const Dark: Story = {
     args: {},
     decorators: [
         ThemeDecorater(Theme.DARK),
-        StoreProviderDecorator({ login: { username: 'admin', password: '123' } }),
+        StoreProviderDecorator({
+            login: { username: 'admin', password: '123' },
+        }),
     ],
 }
 

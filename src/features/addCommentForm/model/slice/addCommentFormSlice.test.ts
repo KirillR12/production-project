@@ -1,5 +1,8 @@
 import { AddCommentFormSchema } from '../types/addCommentForm'
-import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice'
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from './addCommentFormSlice'
 
 describe('addCommentFormSlice', () => {
     test('setText', () => {
@@ -7,8 +10,12 @@ describe('addCommentFormSlice', () => {
             comment: 'comment',
             error: undefined,
         }
-        expect(addCommentFormReducer(state as AddCommentFormSchema, addCommentFormActions.setText('123')))
-            .toEqual({ comment: '123', error: undefined })
+        expect(
+            addCommentFormReducer(
+                state as AddCommentFormSchema,
+                addCommentFormActions.setText('123')
+            )
+        ).toEqual({ comment: '123', error: undefined })
     })
 
     test('error', () => {
@@ -16,7 +23,11 @@ describe('addCommentFormSlice', () => {
             comment: 'comment',
             error: 'error',
         }
-        expect(addCommentFormReducer(state as AddCommentFormSchema, addCommentFormActions.setText('')))
-            .toEqual({ comment: '', error: 'error' })
+        expect(
+            addCommentFormReducer(
+                state as AddCommentFormSchema,
+                addCommentFormActions.setText('')
+            )
+        ).toEqual({ comment: '', error: 'error' })
     })
 })

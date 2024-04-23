@@ -28,11 +28,12 @@ export const NotificationBtn = memo(() => {
     return (
         <div>
             <BrowserView>
-                <MyPopover trigger={(
-                    <Button theme={ButtonTheme.CLEAR}>
-                        <Icon Svg={Notification} inverted />
-                    </Button>
-                )}
+                <MyPopover
+                    trigger={
+                        <Button theme={ButtonTheme.CLEAR}>
+                            <Icon Svg={Notification} inverted />
+                        </Button>
+                    }
                 >
                     <NotificationsList className={styles.notifications} />
                 </MyPopover>
@@ -44,6 +45,5 @@ export const NotificationBtn = memo(() => {
                 </Drawer>
             </MobileView>
         </div>
-
     )
 })

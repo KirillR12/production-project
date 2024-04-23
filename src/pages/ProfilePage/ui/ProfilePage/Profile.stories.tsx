@@ -10,7 +10,7 @@ const meta: Meta<typeof ProfilePage> = {
 }
 
 export default meta
-type Story = StoryObj<typeof ProfilePage>;
+type Story = StoryObj<typeof ProfilePage>
 
 export const Ligth: Story = {
     decorators: [StoreProviderDecorator({})],
