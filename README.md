@@ -11,7 +11,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 -   `npm run start` - Запуск frontend проекта на webpack dev server
 -   `npm run start:vite` - Запуск frontend проекта на vite
--   `npm run start:dev` - Запуск frontend проекта на webpack dev server + backend
+-   `npm run start:dev` - Запуск frontend проекта на webpack dev server +
+    backend
 -   `npm run start:dev:vite` - Запуск frontend проекта на vite + backend
 -   `npm run start:dev:server` - Запуск backend сервера
 -   `npm run build:prod` - Сборка в prod режиме
@@ -37,14 +38,15 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 Проект написан в соответствии с методологией Feature sliced design
 
-Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+Ссылка на документацию -
+[feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
 ---
 
 ## Работа с переводами
 
-В проекте используется библиотека i18next для работы с переводами.
-Файлы с переводами хранятся в public/locales.
+В проекте используется библиотека i18next для работы с переводами. Файлы с
+переводами хранятся в public/locales.
 
 Для комфортной работы рекомендуем установить плагин для webstorm/vscode
 
@@ -65,16 +67,19 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Линтинг
 
-В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями.
+В проекте используется eslint для проверки typescript кода и stylelint для
+проверки файлов со стилями.
 
-Также для строгого контроля главных архитектурных принципов
-используется собственный eslint plugin _eslint-plugin-ulbi-tv-plugin_,
-который содержит 3 правила
+Также для строгого контроля главных архитектурных принципов используется
+собственный eslint plugin _eslint-plugin-ulbi-tv-plugin_, который содержит 3
+правила
 
-1. path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
+1. path-checker - запрещает использовать абсолютные импорты в рамках одного
+   модуля
 2. layer-imports - проверяет корректность использования слоев с точки зрения FSD
    (например widgets нельзя использовать в features и entitites)
-3. public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
+3. public-api-imports - разрешает импорт из других модулей только из public api.
+   Имеет auto fix
 
 ##### Запуск линтеров
 
@@ -87,8 +92,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Storybook
 
-В проекте для каждого компонента описываются стори-кейсы.
-Запросы на сервер мокаются с помощью storybook-addon-mock.
+В проекте для каждого компонента описываются стори-кейсы. Запросы на сервер
+мокаются с помощью storybook-addon-mock.
 
 Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
 
@@ -137,14 +142,15 @@ export const Primary: Story = {
 -   /config/jest - конфигурация тестовой среды
 -   /config/storybook - конфигурация сторибука
 
-В папке `scripts` находятся различные скрипты для рефакторинга\упрощения написания кода\генерации отчетов и тд.
+В папке `scripts` находятся различные скрипты для рефакторинга\упрощения
+написания кода\генерации отчетов и тд.
 
 ---
 
 ## CI pipeline и pre commit хуки
 
-Конфигурация github actions находится в /.github/workflows.
-В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
+Конфигурация github actions находится в /.github/workflows. В ci прогоняются все
+виды тестов, сборка проекта и сторибука, линтинг.
 
 В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
 
@@ -152,12 +158,13 @@ export const Primary: Story = {
 
 ### Работа с данными
 
-Взаимодействие с данными осуществляется с помощью redux toolkit.
-По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
+Взаимодействие с данными осуществляется с помощью redux toolkit. По возможности
+переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
 
 Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
 
-Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
+Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл)
+используется
 [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
 
 ---

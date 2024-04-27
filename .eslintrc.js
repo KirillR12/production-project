@@ -48,6 +48,7 @@ module.exports = {
     ],
 
     rules: {
+        'react/no-unstable-nested-components': 'warn',
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
         'no-namespace': 'off',
         'react/jsx-filename-extension': [
@@ -75,7 +76,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'unused-imports/no-unused-imports': 'error',
         'react/display-name': 'off',
-        'max-len': ['error', { code: 140 }],
+        // 'max-len': ['error', { code: 170 }],
         '@typescript-eslint/ban-ts-comment': 'off',
         'react/no-array-index-key': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
