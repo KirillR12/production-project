@@ -1,4 +1,5 @@
 import { FeatureFlags } from '@/shared/types/featureFlags'
+import { JsonSetting } from './JsonSetting'
 
 export enum UserRole {
     ADMIN = 'ADMIN',
@@ -11,7 +12,8 @@ export interface User {
     id: string
     avatar?: string
     roles?: UserRole[]
-    features: FeatureFlags
+    features?: FeatureFlags
+    jsonSetting?: JsonSetting
 }
 
 export interface UserSchema {

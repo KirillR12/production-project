@@ -607,6 +607,11 @@
             "features": {
                 "isArticleRatingEnabled": false,
                 "isCounterEnabled": false
+            },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingPageHasBeenOpen": true
             }
         },
         {
@@ -618,6 +623,11 @@
             "features": {
                 "isArticleRatingEnabled": true,
                 "isCounterEnabled": true
+            },
+            "jsonSettings": {
+                "theme": "app_ligth_theme",
+                "isFirstVisit": false,
+                "settingPageHasBeenOpen": true
             }
         },
         {
@@ -628,6 +638,11 @@
             "features": {
                 "isArticleRatingEnabled": false,
                 "isCounterEnabled": true
+            },
+            "jsonSettings": {
+                "theme": "app_red_theme",
+                "isFirstVisit": true,
+                "settingPageHasBeenOpen": false
             }
         }
     ],
