@@ -1,3 +1,4 @@
+export { getJsonSettings } from './model/selector/getJsonSettings'
 export {
     getUserRole,
     isUserAdmin,

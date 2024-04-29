@@ -10,7 +10,7 @@ export interface useThemeResulf {
 
 export function useTheme(): useThemeResulf {
     const { theme, setTheme } = useContext(ThemeContext)
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction?: (theme: Theme) => void) => {
         let themeHalper
         switch (theme) {
             case Theme.LIGHT:
@@ -24,6 +24,8 @@ export function useTheme(): useThemeResulf {
                 break
         }
         setTheme?.(themeHalper)
+
+        saveAction?.(themeHalper)
         document.body.className = themeHalper
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeHalper)
     }
