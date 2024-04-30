@@ -5,12 +5,12 @@ import { Theme } from '@/shared/const/theme'
 
 export interface useThemeResulf {
     theme: Theme
-    toggleTheme: () => void
+    toggleTheme: (saveAction: (theme: Theme) => void) => void
 }
 
 export function useTheme(): useThemeResulf {
     const { theme, setTheme } = useContext(ThemeContext)
-    const toggleTheme = (saveAction?: (theme: Theme) => void) => {
+    const toggleTheme = (saveAction: (theme: Theme) => void) => {
         let themeHalper
         switch (theme) {
             case Theme.LIGHT:
