@@ -1,15 +1,24 @@
 import { rtkApi } from '@/shared/api/rtkApi'
-import { Notification } from '../model/types/Notification'
+import { JsonSettings } from '../model/types/JsonSetting'
+import { User } from '../model/types/UserSchema'
 
-const notificationsApi = rtkApi.injectEndpoints({
+interface setJsonSetting {
+    userId: string
+    jsonSettings: JsonSettings
+}
+
+const userApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        genNotificationstList: build.query<Notification[], null>({
-            query: () => ({
-                url: '/notifications',
+        saveJsonSetting: build.mutation<User, setJsonSetting>({
+            query: ({ userId, jsonSettings }) => ({
+                url: `/users/${userId}`,
+                method: 'PATCH',
+                body: {
+                    jsonSettings,
+                },
             }),
         }),
     }),
 })
 
-export const useArticleRecommendationsList =
-    notificationsApi.useGenNotificationstListQuery
+export const userSaveJsonSettings = userApi.endpoints.saveJsonSetting.initiate

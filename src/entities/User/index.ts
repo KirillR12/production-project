@@ -1,4 +1,5 @@
-export { getJsonSettings } from './model/selector/getJsonSettings'
+export { useJsonSettings } from './model/selector/getJsonSettings'
+export { SaveJsonSetting } from './model/services/saveJsonSetting'
 export {
     getUserRole,
     isUserAdmin,
