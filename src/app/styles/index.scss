@@ -4,15 +4,17 @@
 @import "themes/red";
 @import "variables/global";
 
-body {
-    color: var(--primary-color);
-    font: var(--font-m);
-}
-
 .app {
     min-height: 100vh;
 
-    background-color: var(--bg-color);
+    background: var(--bg-color);
+}
+
+.app,
+.app_modal,
+.app_drawer {
+    color: var(--primary-color);
+    font: var(--font-m);
 }
 
 .contate-page {

@@ -26,7 +26,6 @@ export function useTheme(): useThemeResulf {
         setTheme?.(themeHalper)
 
         saveAction?.(themeHalper)
-        document.body.className = themeHalper
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeHalper)
     }
 

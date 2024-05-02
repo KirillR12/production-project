@@ -15,6 +15,7 @@ import { ArticlePageReducer } from '../../model/slice/ArticlePageSlice'
 import styles from './styles.module.scss'
 import { ArticleItfiteList } from '../ArticleItfiteList/ArticleItfiteList'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
+import { ArticlePageGreeting } from '@/features/articlePageGreeting'
 
 interface ArticlePageProps {
     className?: string
@@ -48,6 +49,7 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
                     <ArticlePageFilters />
                     <ArticleItfiteList />
                 </VStack>
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     )

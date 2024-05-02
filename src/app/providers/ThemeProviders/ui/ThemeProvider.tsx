@@ -9,15 +9,17 @@ export interface ThemeProviderProps {
 }
 
 export const ThemeProvider = (props: ThemeProviderProps) => {
-    const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings()
+    const { theme: defaultTheme } = useJsonSettings()
 
     const { initialState, children } = props
 
-    const [theme, setTheme] = useState<Theme>(initialState || defaultTheme)
+    const [theme, setTheme] = useState<Theme>(
+        initialState || defaultTheme || Theme.LIGHT
+    )
     const [isTHemeInited, setTHemeInited] = useState(false)
 
     useEffect(() => {
-        if (!isTHemeInited) {
+        if (!isTHemeInited && defaultTheme) {
             setTheme(defaultTheme)
             setTHemeInited(true)
         }
@@ -30,8 +32,6 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
         }),
         [theme]
     )
-
-    document.body.className = defaultTheme
 
     return (
         <ThemeContext.Provider value={defaultProps}>

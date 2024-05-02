@@ -4,19 +4,26 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Sidebar } from '@/widgets/Sidebar'
 import { Navbar } from '@/widgets/Navbar'
 
-import { UserActions, getUserInited } from '@/entities/User'
+import { getUserInited, initAuthData } from '@/entities/User'
 import { AppRouter } from './providers/RouterProvider'
+import { Loader } from '@/shared/ui/Loader'
+import { useTheme } from './providers/ThemeProviders'
 
 export function App() {
+    const { theme } = useTheme()
     const dispatch = useDispatch()
     const inited = useSelector(getUserInited)
 
     useEffect(() => {
-        dispatch(UserActions.setByUser())
+        dispatch(initAuthData())
     }, [dispatch])
 
+    if (!inited) {
+        return <Loader />
+    }
+
     return (
-        <div className={classNames('app', {}, [])}>
+        <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
                 <div className="contate-page">
