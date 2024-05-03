@@ -104,6 +104,7 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: [
+                    'feature',
                     'border',
                     'as',
                     'role',
