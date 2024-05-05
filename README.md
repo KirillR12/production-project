@@ -1,3 +1,5 @@
+![Иллюстрация к проекту](https://4.downloader.disk.yandex.ru/preview/da67e12f9e12034fdfdca5e092fc1356d81bce9045db2b634498a8259289422c/inf/w4WzpDBtOkj9oOPFrRJEBZybt8MndMB44hKxFWlqwDKJa9mWEkmNOalGLDZRlpyPhmxoPeAbwg1rBawC-uH4gQ%3D%3D?uid=197415950&filename=article.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=197415950&tknv=v2&size=2880x1558)
+
 ## Запуск проекта
 
 ```
