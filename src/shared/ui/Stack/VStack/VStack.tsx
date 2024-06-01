@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Flex, FlexProps } from '../Flex/Flex'
 
 type VStackProps = Omit<FlexProps, 'direction'>
